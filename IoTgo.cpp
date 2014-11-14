@@ -1,7 +1,7 @@
 /**
- * @file ITEADIoT.cpp
+ * @file IoTgo.cpp
  *
- * API of ITEAD IoT (iotgo.iteadstudio.com)
+ * API of IoTgo (iotgo.iteadstudio.com)
  *
  * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
  * @date    2014/11/11
@@ -13,9 +13,9 @@
  * the License, or (at your option) any later version.
  */
 
-#include "ITEADIoT.h"
+#include "IoTgo.h"
 
-ITEADIoT::ITEADIoT(void)
+IoTgo::IoTgo(void)
 {
     memset(buffer, '\0', sizeof(buffer));
     memset(apikey, '\0', sizeof(apikey));
@@ -23,7 +23,7 @@ ITEADIoT::ITEADIoT(void)
     strcpy(server, "172.16.7.6");
 }
 
-ITEADIoT::~ITEADIoT(void)
+IoTgo::~IoTgo(void)
 {
     /* Do nothing for now! */
 }
@@ -34,7 +34,7 @@ ITEADIoT::~ITEADIoT(void)
  * @param server - IP address of server
  * @return void
  */
-void ITEADIoT::setServer(const char *server)
+void IoTgo::setServer(const char *server)
 {
     strcpy(this->server, server);
 }
@@ -47,7 +47,7 @@ void ITEADIoT::setServer(const char *server)
  * @retval true - if connected
  * @retval false - if failed
  */
-bool ITEADIoT::connectWiFi(const char *ssid, const char *password)
+bool IoTgo::connectWiFi(const char *ssid, const char *password)
 {
     wifi.begin();
     if(!wifi.Initialize(STA, String(ssid), String(password)))
@@ -79,7 +79,7 @@ bool ITEADIoT::connectWiFi(const char *ssid, const char *password)
  *  You must deal with the response in buffer BEFORE next calling of this function as
  *  the buffer is shared. 
  */
-const char * ITEADIoT::request(const char *http_body, char *const buffer, int len)
+const char * IoTgo::request(const char *http_body, char *const buffer, int len)
 {
     static int counter = 0;
     static bool connectTCP = false;
@@ -179,11 +179,13 @@ request_reconnect:
  * You must call this before update and query. 
  *
  * @param device_id - device identifier
- * @param check_code - just like a password for accessing the respective device
+ * @param apikey - just like a password for accessing the respective device
+ * @param device_flag - indicate the type of your device from DEVICE_DIY or DEVICE_PRODUCT. 
+ *  For developers, device_flag=DEVICE_DIY. For users, device_flag=DEVICE_PRODUCT(default).
  *
- * @return the pointer of response buffer terminated with '\0', if success. NULL, if falied!
+ * @return the apikey terminated with '\0', if success. NULL, if falied!
  */
-const char *ITEADIoT::init(const char *device_id, const char *check_code)
+const char *IoTgo::init(const char *device_id, const char *apikey, DeviceFlag device_flag)
 {
     char http_body[100];
     char *temp;
@@ -191,47 +193,62 @@ const char *ITEADIoT::init(const char *device_id, const char *check_code)
     
     strcpy(this->device_id, device_id);
     
-    /* Construct init http_body */
-    strcpy(http_body, "{");
-    strcat(http_body, "\"apikey\":");
-    strcat(http_body, "\"");
-    strcat(http_body, check_code);
-    strcat(http_body, "\"");
-    strcat(http_body, ",");
-    strcat(http_body, "\"deviceid\":");
-    strcat(http_body, "\"");
-    strcat(http_body, this->device_id);
-    strcat(http_body, "\"");
-    strcat(http_body, ",");
-    strcat(http_body, "\"action\":\"register\"");
-    strcat(http_body, "}");
-    
-    /* {"error":0,"apikey":"d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"} */
-    
-    response = request(http_body, buffer, sizeof(buffer));
-    if (response == NULL)
+    if (device_flag == DEVICE_PRODUCT)
     {
-        return NULL;
+        /* Construct init http_body */
+        strcpy(http_body, "{");
+        strcat(http_body, "\"apikey\":");
+        strcat(http_body, "\"");
+        strcat(http_body, apikey);
+        strcat(http_body, "\"");
+        strcat(http_body, ",");
+        strcat(http_body, "\"deviceid\":");
+        strcat(http_body, "\"");
+        strcat(http_body, this->device_id);
+        strcat(http_body, "\"");
+        strcat(http_body, ",");
+        strcat(http_body, "\"action\":\"register\"");
+        strcat(http_body, "}");
+        
+        /* {"error":0,"apikey":"d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"} */
+        
+        response = request(http_body, buffer, sizeof(buffer));
+        if (response == NULL)
+        {
+            DebugSerial.println("request failed!");
+            return NULL;
+        }
+        
+        temp = strstr(response, "apikey");
+        if (temp == NULL)
+        {
+            DebugSerial.println("Cannot find \"apikey\" from response!");
+            return NULL;
+        }
+        else
+        {
+            temp += 7;
+            char *apikey_index = strstr(temp, "\"");
+            if (apikey_index != NULL)
+            {
+                apikey_index += 1;
+                strncpy(this->apikey, apikey_index, APIKEY_LEN);
+                //DebugSerial.print("apikey=");
+                //DebugSerial.println(this->apikey);
+            }
+        }
+        return this->apikey;
     }
-    
-    temp = strstr(response, "apikey");
-    if (temp == NULL)
+    else if (device_flag == DEVICE_DIY)
     {
-        return NULL;
+        strncpy(this->apikey, apikey, APIKEY_LEN);
+        return this->apikey;
     }
     else
     {
-        temp += 7;
-        char *apikey_index = strstr(temp, "\"");
-        if (apikey_index != NULL)
-        {
-            apikey_index += 1;
-            strncpy(this->apikey, apikey_index, APIKEY_LEN);
-            //DebugSerial.print("apikey=");
-            //DebugSerial.println(this->apikey);
-        }
+        DebugSerial.println("Unknown device flag!");
+        return NULL;
     }
-    return response;
 }
 
 /**
@@ -243,7 +260,7 @@ const char *ITEADIoT::init(const char *device_id, const char *check_code)
  *
  * @return the pointer of response buffer terminated with '\0', if success. NULL, if falied!
  */
-const char *ITEADIoT::query(const char *params[])
+const char *IoTgo::query(const char *params[])
 {
     char http_body[100+IOT_BUFFER_SIZE];
     int i;
@@ -292,7 +309,7 @@ const char *ITEADIoT::query(const char *params[])
  * 
  * @warning the number of items in params must be equal to that in values.
  */
-const char *ITEADIoT::update(const char *params[], const char *values[])
+const char *IoTgo::update(const char *params[], const char *values[])
 {
     char http_body[100+IOT_BUFFER_SIZE];
     int i;

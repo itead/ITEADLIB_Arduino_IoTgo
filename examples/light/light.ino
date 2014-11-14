@@ -1,10 +1,10 @@
 /**
- * @example IoT_LED.ino
+ * @example light.ino
  *
- * Show how to use API of ITEADIoT Library. 
+ * Show how to use API of This Library. 
  *
  * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
- * @date    2014/11/13
+ * @date    2014/11/14
  * @copyright 
  * Copyright (C) 2013-2014 ITEAD Intelligent Systems Co., Ltd. \n
  * This program is free software; you can redistribute it and/or
@@ -13,15 +13,15 @@
  * the License, or (at your option) any later version.
  */
 
-#include <ITEADIoT.h>
+#include <IoTgo.h>
 
-#define LED_ID          "5580000003"
-#define LED_CHECK_CODE  "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
+#define LIGHT_ID          "5580000003"
+#define LIGHT_CHECK_CODE  "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
 #define WIFI_SSID       "ITEAD"
 #define WIFI_PASS       "12345678"
 #define IOT_SERVER      "172.16.7.6"
 
-ITEADIoT led;
+IoTgo light;
 
 void printBody(const char *buffer)
 {
@@ -41,18 +41,18 @@ void printBody(const char *buffer)
 
 void setup()
 {
-    const char *ret;
-    led.setServer(IOT_SERVER);
-    if (!led.connectWiFi(WIFI_SSID, WIFI_PASS))
+    const char *apikey;
+    light.setServer(IOT_SERVER);
+    if (!light.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
 
     Serial.println("Connecting device to server...");
-    ret = led.init(LED_ID, LED_CHECK_CODE);
-    Serial.print("led.init = ");
-    printBody(ret);
+    apikey = light.init(LIGHT_ID, LIGHT_CHECK_CODE);
+    Serial.print("apikey = ");
+    Serial.println(apikey);    
     
     Serial.println("setup done.");
 }
@@ -64,17 +64,17 @@ void loop()
     Serial.print("\ncounter = ");
     Serial.println(++counter);
     
-    const char *led_state[] = 
+    const char *light_state[] = 
     {
         "state",
         NULL
     };
-    const char *led_on[] = 
+    const char *light_on[] = 
     {
         "on",
         NULL
     };
-    const char *led_off[] = 
+    const char *light_off[] = 
     {
         "off",
         NULL
@@ -83,21 +83,21 @@ void loop()
     const char *ret;
 
     Serial.println("update to on");
-    ret = led.update(led_state, led_on);
-    Serial.print("led.update =  ");
+    ret = light.update(light_state, light_on);
+    Serial.print("light.update =  ");
     printBody(ret);
 
-    ret = led.query(led_state);
-    Serial.print("led.query =   ");
+    ret = light.query(light_state);
+    Serial.print("light.query =   ");
     printBody(ret);
 
     Serial.println("update to off");
-    ret = led.update(led_state, led_off);
-    Serial.print("led.update =  ");
+    ret = light.update(light_state, light_off);
+    Serial.print("light.update =  ");
     printBody(ret);
 
-    ret = led.query(NULL);
-    Serial.print("led.query =   ");
+    ret = light.query(NULL);
+    Serial.print("light.query =   ");
     printBody(ret);
 
     delay(1000);

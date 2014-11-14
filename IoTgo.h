@@ -1,7 +1,7 @@
 /**
- * @file ITEADIoT.h
+ * @file IoTgo.h
  *
- * API of ITEAD IoT (iotgo.iteadstudio.com)
+ * API of IoTgo (iotgo.iteadstudio.com)
  *
  * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
  * @date    2014/11/11
@@ -12,6 +12,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License, or (at your option) any later version.
  */
+ 
 #ifndef __ITEADIOT_H__
 #define __ITEADIOT_H__
 
@@ -21,30 +22,40 @@
 #include "uartWIFI.h"
 
 /** 
- * ITEADIoT provides some simple API for device of IoT. 
+ * IoTgo provides some simple API for device of IoT. 
  */
-class ITEADIoT
+class IoTgo
 {
-public:
-    ITEADIoT(void);
-    ~ITEADIoT(void);
-    void setServer(const char *server);
-    bool connectWiFi(const char *ssid, const char *password);
-    const char *init(const char *device_id, const char *check_code);
-    const char *query(const char *params[]);
-    const char *update(const char *params[], const char *values[]);
-    
-private:
-    const char * request(const char *http_body, char *const buffer, int len);
-    
-public:
+/* public datatypes */
+public: 
     enum 
     {
         IOT_BUFFER_SIZE = 1024,
         APIKEY_LEN = 36,
         DEVICE_ID_LEN = 10,
     };
+    enum DeviceFlag
+    {
+        DEVICE_DIY = 0,
+        DEVICE_PRODUCT = 1,
+    };
+
+/* public methods */
+public:
+    IoTgo(void);
+    ~IoTgo(void);
+    void setServer(const char *server);
+    bool connectWiFi(const char *ssid, const char *password);
     
+    const char *init(const char *device_id, const char *apikey, DeviceFlag device_flag = DEVICE_PRODUCT);
+    const char *query(const char *params[]);
+    const char *update(const char *params[], const char *values[]);
+
+/* private methods */    
+private:
+    const char * request(const char *http_body, char *const buffer, int len);
+    
+/* private datas */
 private:
     WIFI wifi;
     char buffer[IOT_BUFFER_SIZE];

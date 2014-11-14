@@ -1,11 +1,11 @@
 ################################################################################
-# ITEADIoT Library Keywords
+# IoTgo Library Keywords
 ################################################################################
 
 #
 # Class
 #
-ITEADIoT	KEYWORD1
+IoTgo	KEYWORD1
 
 #
 # Method and functions
