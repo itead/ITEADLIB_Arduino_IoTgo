@@ -1,0 +1,64 @@
+[OPTIONS]
+Compiled file=../API.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=API
+
+[WINDOWS]
+main="API","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+_io_t__l_e_d_8ino-example.html
+_io_t___l_e_d_8ino_source.html
+_i_t_e_a_d_io_t_8cpp_source.html
+_i_t_e_a_d_io_t_8h_source.html
+_r_e_a_d_m_e_8md_source.html
+uart_w_i_f_i_8cpp_source.html
+uart_w_i_f_i_8h_source.html
+_i_t_e_a_d_io_t_8cpp.html
+_i_t_e_a_d_io_t_8h.html
+md__r_e_a_d_m_e.html
+class_i_t_e_a_d_io_t.html
+class_i_t_e_a_d_io_t-members.html
+dir_d28a4824dc47e487b107a5db32ef43c4.html
+dir_79e9d61417f2e4460061cae23095262e.html
+index.html
+pages.html
+annotated.html
+classes.html
+functions.html
+functions_func.html
+files.html
+examples.html
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
+nav_h.png
+nav_f.png
+bc_s.png
+doxygen.png
+closed.png
+open.png
+bdwn.png
+sync_on.png
+sync_off.png
+ITEAD-logo.JPG
+ftv2blank.png
+ftv2doc.png
+ftv2folderclosed.png
+ftv2folderopen.png
+ftv2lastnode.png
+ftv2link.png
+ftv2mlastnode.png
+ftv2mnode.png
+ftv2node.png
+ftv2plastnode.png
+ftv2pnode.png
+ftv2vertline.png
+ftv2splitbar.png
