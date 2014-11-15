@@ -180,12 +180,12 @@ request_reconnect:
  *
  * @param device_id - device identifier
  * @param apikey - just like a password for accessing the respective device
- * @param device_flag - indicate the type of your device from DEVICE_DIY or DEVICE_PRODUCT. 
- *  For developers, device_flag=DEVICE_DIY. For users, device_flag=DEVICE_PRODUCT(default).
+ * @param device_type - indicate the type of your device from DEVICE_DIY or DEVICE_PRODUCT. 
+ *  For developers, device_flag=DEVICE_DIY(default). For users, device_flag=DEVICE_PRODUCT.
  *
  * @return the apikey terminated with '\0', if success. NULL, if falied!
  */
-const char *IoTgo::init(const char *device_id, const char *apikey, DeviceFlag device_flag)
+const char *IoTgo::init(const char *device_id, const char *apikey, IoTgoDeviceType device_type)
 {
     char http_body[100];
     char *temp;
@@ -193,7 +193,7 @@ const char *IoTgo::init(const char *device_id, const char *apikey, DeviceFlag de
     
     strcpy(this->device_id, device_id);
     
-    if (device_flag == DEVICE_PRODUCT)
+    if (device_type == DEVICE_PRODUCT)
     {
         /* Construct init http_body */
         strcpy(http_body, "{");
@@ -239,7 +239,7 @@ const char *IoTgo::init(const char *device_id, const char *apikey, DeviceFlag de
         }
         return this->apikey;
     }
-    else if (device_flag == DEVICE_DIY)
+    else if (device_type == DEVICE_DIY)
     {
         strncpy(this->apikey, apikey, APIKEY_LEN);
         return this->apikey;

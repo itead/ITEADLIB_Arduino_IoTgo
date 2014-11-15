@@ -6,15 +6,27 @@
 # Class
 #
 IoTgo	KEYWORD1
+Light	KEYWORD1
 
 #
-# Method and functions
+# Methods of IoTgo
 #
 setServer	KEYWORD2
 connectWiFi	KEYWORD2
 init	KEYWORD2
 query	KEYWORD2
 update	KEYWORD2
+
+#
+# Methods of Light
+#
+sync	KEYWORD2
+getState	KEYWORD2
+setState	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+
+
 
 
 ################################################################################

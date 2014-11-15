@@ -21,42 +21,40 @@
 
 #include "uartWIFI.h"
 
+enum IoTgoConstant
+{
+    IOT_BUFFER_SIZE     = 1024,
+    APIKEY_LEN          = 36,
+    DEVICE_ID_LEN       = 10,
+};
+enum IoTgoDeviceType
+{
+    DEVICE_DIY      = 0,
+    DEVICE_PRODUCT  = 1,
+};
+
+
 /** 
  * IoTgo provides some simple API for device of IoT. 
  */
 class IoTgo
 {
-/* public datatypes */
-public: 
-    enum 
-    {
-        IOT_BUFFER_SIZE = 1024,
-        APIKEY_LEN = 36,
-        DEVICE_ID_LEN = 10,
-    };
-    enum DeviceFlag
-    {
-        DEVICE_DIY = 0,
-        DEVICE_PRODUCT = 1,
-    };
-
-/* public methods */
-public:
+public: /* public methods */
     IoTgo(void);
     ~IoTgo(void);
     void setServer(const char *server);
     bool connectWiFi(const char *ssid, const char *password);
     
-    const char *init(const char *device_id, const char *apikey, DeviceFlag device_flag = DEVICE_PRODUCT);
+    const char *init(const char *device_id, const char *apikey, IoTgoDeviceType device_type = DEVICE_DIY);
     const char *query(const char *params[]);
     const char *update(const char *params[], const char *values[]);
 
-/* private methods */    
-private:
+  
+private: /* private methods */  
     const char * request(const char *http_body, char *const buffer, int len);
     
-/* private datas */
-private:
+
+private: /* private datas */
     WIFI wifi;
     char buffer[IOT_BUFFER_SIZE];
     char apikey[APIKEY_LEN + 1];

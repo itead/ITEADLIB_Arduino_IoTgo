@@ -1,5 +1,5 @@
 /**
- * @example light.ino
+ * @example iotgo.ino
  *
  * Show how to use API of This Library. 
  *
@@ -15,13 +15,14 @@
 
 #include <IoTgo.h>
 
-#define LIGHT_ID          "5580000003"
-#define LIGHT_CHECK_CODE  "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
-#define WIFI_SSID       "ITEAD"
-#define WIFI_PASS       "12345678"
-#define IOT_SERVER      "172.16.7.6"
+#define IOTGO_ID            "5580000003"
+#define IOTGO_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
+#define IOTGO_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
+#define WIFI_SSID           "ITEAD"
+#define WIFI_PASS           "12345678"
+#define IOT_SERVER          "172.16.7.6"
 
-IoTgo light;
+IoTgo iotgo;
 
 void printBody(const char *buffer)
 {
@@ -42,15 +43,16 @@ void printBody(const char *buffer)
 void setup()
 {
     const char *apikey;
-    light.setServer(IOT_SERVER);
-    if (!light.connectWiFi(WIFI_SSID, WIFI_PASS))
+    iotgo.setServer(IOT_SERVER);
+    if (!iotgo.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
 
     Serial.println("Connecting device to server...");
-    apikey = light.init(LIGHT_ID, LIGHT_CHECK_CODE);
+    apikey = iotgo.init(IOTGO_ID, IOTGO_APIKEY);
+    //apikey = iotgo.init(IOTGO_ID, IOTGO_APIKEY, DEVICE_PRODUCT);
     Serial.print("apikey = ");
     Serial.println(apikey);    
     
@@ -64,17 +66,17 @@ void loop()
     Serial.print("\ncounter = ");
     Serial.println(++counter);
     
-    const char *light_state[] = 
+    const char *iotgo_state[] = 
     {
         "state",
         NULL
     };
-    const char *light_on[] = 
+    const char *iotgo_on[] = 
     {
         "on",
         NULL
     };
-    const char *light_off[] = 
+    const char *iotgo_off[] = 
     {
         "off",
         NULL
@@ -83,24 +85,25 @@ void loop()
     const char *ret;
 
     Serial.println("update to on");
-    ret = light.update(light_state, light_on);
-    Serial.print("light.update =  ");
+    ret = iotgo.update(iotgo_state, iotgo_on);
+    Serial.print("iotgo.update =  ");
     printBody(ret);
 
-    ret = light.query(light_state);
-    Serial.print("light.query =   ");
+    ret = iotgo.query(iotgo_state);
+    Serial.print("iotgo.query =   ");
     printBody(ret);
 
     Serial.println("update to off");
-    ret = light.update(light_state, light_off);
-    Serial.print("light.update =  ");
+    ret = iotgo.update(iotgo_state, iotgo_off);
+    Serial.print("iotgo.update =  ");
     printBody(ret);
 
-    ret = light.query(NULL);
-    Serial.print("light.query =   ");
+    ret = iotgo.query(NULL);
+    Serial.print("iotgo.query =   ");
     printBody(ret);
 
     delay(1000);
 }
+
 
 
