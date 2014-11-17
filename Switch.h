@@ -1,7 +1,7 @@
 /**
- * @file Light.h
+ * @file Switch.h
  *
- * Light API of IoTgo (iotgo.iteadstudio.com)
+ * Switch API of IoTgo (iotgo.iteadstudio.com)
  *
  * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
  * @date    2014/11/11
@@ -13,32 +13,32 @@
  * the License, or (at your option) any later version.
  */
  
-#ifndef __LIGHT_H__
-#define __LIGHT_H__
+#ifndef __SWITCH_H__
+#define __SWITCH_H__
 
 #include "IoTgo.h"
 
-enum LightState
+enum SwitchState
 {
-    LIGHT_STATE_OFF   = 0,
-    LIGHT_STATE_ON    = 1,
+    SWITCH_STATE_OFF   = 0,
+    SWITCH_STATE_ON    = 1,
 };
 
-enum LightError
+enum SwitchError
 {
-    LIGHT_ERR_NO_RESPONSE = -1,
-    LIGHT_ERR_NO_EXPECT   = -2,
-    LIGHT_ERR_INVALID_PARAMETER = -3,
+    SWITCH_ERR_NO_RESPONSE = -1,
+    SWITCH_ERR_NO_EXPECT   = -2,
+    SWITCH_ERR_INVALID_PARAMETER = -3,
 };
 
 /**
- * Light, subclass of IoTgo, provides simple methods to control light device. 
+ * Switch, subclass of IoTgo, provides simple methods to control switch device. 
  * 
  */
-class Light: public IoTgo
+class Switch: public IoTgo
 {
 public: /* public methods */  
-    Light(uint16_t light_pin);
+    Switch(uint16_t sw_pin);
     
     int32_t sync(void);
     int32_t getState(void);
@@ -52,7 +52,7 @@ private: /* private static data members */
     static const char *VALUE_OFF[];
     
 private:
-    uint16_t light_pin;
+    uint16_t sw_pin;
 };
 
-#endif /* #ifndef __LIGHT_H__ */
+#endif /* #ifndef __SWITCH_H__ */

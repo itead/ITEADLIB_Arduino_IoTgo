@@ -6,6 +6,10 @@
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f"><param name="Name" value="connectWiFi"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a12f97432028cb5e56ffcb37a055a7eec"><param name="Name" value="getState"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a12f97432028cb5e56ffcb37a055a7eec"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11"><param name="Name" value="Switch"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1"><param name="Name" value="init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html"><param name="Name" value="IoTgo"></OBJECT>
   <UL>
@@ -24,12 +28,36 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="Name" value="sync"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="Name" value="off"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="Name" value="Switch"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="Name" value="on"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="Name" value="Switch"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db"><param name="Name" value="query"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="md__r_e_a_d_m_e.html"><param name="Name" value="README"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936"><param name="Name" value="setServer"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="Name" value="setState"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="Name" value="Switch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html"><param name="Name" value="Switch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11"><param name="Name" value="getState"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="Name" value="off"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="Name" value="on"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="Name" value="setState"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#afc6efb8c9168d7365066db947c038938"><param name="Name" value="sync"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="Name" value="sync"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="Name" value="Light"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#afc6efb8c9168d7365066db947c038938"><param name="Name" value="Switch"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95"><param name="Name" value="update"></OBJECT>
 </UL>
 </BODY>

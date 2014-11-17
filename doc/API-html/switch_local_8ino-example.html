@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>API: light_remote.ino</title>
+<title>API: switch_local.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,7 +40,7 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">light_remote.ino</div>  </div>
+<div class="title">switch_local.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p>Show how to use API of This Library.</p><dl class="section author"><dt>Author</dt><dd>Wu Pengfei (email:<a href="#" onclick="location.href='mai'+'lto:'+'pen'+'gf'+'ei.'+'wu'+'@it'+'ea'+'d.c'+'c'; return false;">pengf<span style="display: none;">.nosp@m.</span>ei.w<span style="display: none;">.nosp@m.</span>u@ite<span style="display: none;">.nosp@m.</span>ad.c<span style="display: none;">.nosp@m.</span>c</a>) </dd></dl>
@@ -48,32 +48,33 @@
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2013-2014 ITEAD Intelligent Systems Co., Ltd. <br />
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</dd></dl>
 <div class="fragment"><div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_light_8h.html">Light.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_switch_8h.html">Switch.h</a>&gt;</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#define LIGHT_ID            &quot;5580000003&quot;</span></div>
-<div class="line"><span class="preprocessor">#define LIGHT_CHECK_CODE    &quot;86f32f24-70bc-44e0-82f2-e95da6f8cde5&quot;</span></div>
-<div class="line"><span class="preprocessor">#define LIGHT_APIKEY        &quot;d0555f12-a67c-4c54-9ee0-8f5b7f4268fa&quot;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#define SWITCH_ID            &quot;5580000003&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_CHECK_CODE    &quot;86f32f24-70bc-44e0-82f2-e95da6f8cde5&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_APIKEY        &quot;d0555f12-a67c-4c54-9ee0-8f5b7f4268fa&quot;</span></div>
 <div class="line"><span class="preprocessor">#define WIFI_SSID           &quot;ITEAD&quot;</span></div>
 <div class="line"><span class="preprocessor">#define WIFI_PASS           &quot;12345678&quot;</span></div>
 <div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;172.16.7.6&quot;</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#define LIGHT_PIN           (13)</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_PIN           (13)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_light.html">Light</a> light(LIGHT_PIN);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_switch.html">Switch</a> sw(SWITCH_PIN);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
-<div class="line">    light.<a name="a1"></a><a class="code" href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">setServer</a>(IOT_SERVER);</div>
-<div class="line">    <span class="keywordflow">if</span> (!light.<a name="a2"></a><a class="code" href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
+<div class="line">    sw.<a name="a1"></a><a class="code" href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">setServer</a>(IOT_SERVER);</div>
+<div class="line">    <span class="keywordflow">if</span> (!sw.<a name="a2"></a><a class="code" href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">while</span>(1);</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
-<div class="line">    apikey = light.<a name="a3"></a><a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">init</a>(LIGHT_ID, LIGHT_APIKEY);</div>
-<div class="line">    <span class="comment">//apikey = light.init(LIGHT_ID, LIGHT_APIKEY, DEVICE_PRODUCT);</span></div>
+<div class="line">    apikey = sw.<a name="a3"></a><a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">init</a>(SWITCH_ID, SWITCH_APIKEY);</div>
+<div class="line">    <span class="comment">//apikey = sw.init(SWITCH_ID, SWITCH_APIKEY, DEVICE_PRODUCT);</span></div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;apikey = &quot;</span>);</div>
 <div class="line">    Serial.println(apikey);    </div>
 <div class="line">    </div>
@@ -85,31 +86,28 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line">    <span class="keyword">static</span> <span class="keywordtype">int</span> counter = 0;</div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;\ncounter = &quot;</span>);</div>
 <div class="line">    Serial.println(++counter);</div>
-<div class="line">    int32_t ret1;</div>
-<div class="line">    int32_t ret2;</div>
+<div class="line">    int32_t ret;</div>
 <div class="line"></div>
-<div class="line">    ret1 = light.<a name="a4"></a><a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_ON);</div>
-<div class="line">    ret2 = light.<a name="a5"></a><a class="code" href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">sync</a>();</div>
-<div class="line">    <span class="keywordflow">if</span>(!ret1 &amp;&amp; !ret2)</div>
+<div class="line">    ret = sw.<a name="a4"></a><a class="code" href="class_switch.html#a7d9c021eec1e619c87648bce25532bbc">on</a>();</div>
+<div class="line">    <span class="keywordflow">if</span>(ret == 0)</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;on&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
-<div class="line">        Serial.println(<span class="stringliteral">&quot;sync() err!&quot;</span>);</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;on() err!&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    delay(1000);</div>
 <div class="line">    </div>
-<div class="line">    ret1 = light.<a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_OFF);</div>
-<div class="line">    ret2 = light.<a class="code" href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">sync</a>();</div>
-<div class="line">    <span class="keywordflow">if</span>(!ret1 &amp;&amp; !ret2)</div>
+<div class="line">    ret = sw.<a name="a5"></a><a class="code" href="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9">off</a>();</div>
+<div class="line">    <span class="keywordflow">if</span>(ret == 0)</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;off&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
-<div class="line">        Serial.println(<span class="stringliteral">&quot;sync() err!&quot;</span>);</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;off() err!&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    delay(1000);</div>

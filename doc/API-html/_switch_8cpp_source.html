@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>API: Light.cpp Source File</title>
+<title>API: Switch.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,34 +45,34 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Light.cpp</div>  </div>
+<div class="title">Switch.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_light_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8h.html">Light.h</a>&quot;</span></div>
+<a href="_switch_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_switch_8h.html">Switch.h</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Light::STATE[]        = {<span class="stringliteral">&quot;state&quot;</span>, NULL};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Light::VALUE_ON[]     = {<span class="stringliteral">&quot;on&quot;</span>,    NULL};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Light::VALUE_OFF[]    = {<span class="stringliteral">&quot;off&quot;</span>,   NULL};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Switch::STATE[]        = {<span class="stringliteral">&quot;state&quot;</span>, NULL};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Switch::VALUE_ON[]     = {<span class="stringliteral">&quot;on&quot;</span>,    NULL};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *Switch::VALUE_OFF[]    = {<span class="stringliteral">&quot;off&quot;</span>,   NULL};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;Light::Light(uint16_t light_pin)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;Switch::Switch(uint16_t sw_pin)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;light_pin = light_pin;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    pinMode(this-&gt;light_pin, OUTPUT);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;sw_pin = sw_pin;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    pinMode(this-&gt;sw_pin, OUTPUT);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">   37</a></span>&#160;int32_t <a class="code" href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">Light::sync</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_switch.html#afc6efb8c9168d7365066db947c038938">   37</a></span>&#160;int32_t <a class="code" href="class_switch.html#afc6efb8c9168d7365066db947c038938">Switch::sync</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    int32_t state;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    int32_t ret = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    state = <a class="code" href="class_light.html#a12f97432028cb5e56ffcb37a055a7eec">getState</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (state == LIGHT_STATE_ON)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    state = <a class="code" href="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11">getState</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (state == SWITCH_STATE_ON)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        digitalWrite(light_pin, HIGH);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        digitalWrite(sw_pin, HIGH);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (state == LIGHT_STATE_OFF)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (state == SWITCH_STATE_OFF)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        digitalWrite(light_pin, LOW);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        digitalWrite(sw_pin, LOW);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
@@ -83,7 +83,7 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_light.html#a12f97432028cb5e56ffcb37a055a7eec">   67</a></span>&#160;int32_t <a class="code" href="class_light.html#a12f97432028cb5e56ffcb37a055a7eec">Light::getState</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11">   67</a></span>&#160;int32_t <a class="code" href="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11">Switch::getState</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *response;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">char</span> *str_error;</div>
@@ -103,45 +103,45 @@
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span> (str_state_on &amp;&amp; !str_state_off)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> LIGHT_STATE_ON;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">return</span> SWITCH_STATE_ON;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!str_state_on &amp;&amp; str_state_off)</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> LIGHT_STATE_OFF;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> SWITCH_STATE_OFF;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> LIGHT_ERR_NO_EXPECT;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">return</span> SWITCH_ERR_NO_EXPECT;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> LIGHT_ERR_NO_EXPECT;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> SWITCH_ERR_NO_EXPECT;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> LIGHT_ERR_NO_RESPONSE;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> SWITCH_ERR_NO_RESPONSE;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">  119</a></span>&#160;int32_t <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">Light::setState</a>(int32_t state)</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">  119</a></span>&#160;int32_t <a class="code" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">Switch::setState</a>(int32_t state)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **value;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *response;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">char</span> *str_error;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span> (state == LIGHT_STATE_ON)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span> (state == SWITCH_STATE_ON)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        value = VALUE_ON;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (state == LIGHT_STATE_OFF)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (state == SWITCH_STATE_OFF)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        value = VALUE_OFF;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">return</span> LIGHT_ERR_INVALID_PARAMETER;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">return</span> SWITCH_ERR_INVALID_PARAMETER;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    </div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    response = <a class="code" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">update</a>(STATE, value);</div>
@@ -155,46 +155,46 @@
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> LIGHT_ERR_NO_EXPECT;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> SWITCH_ERR_NO_EXPECT;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> LIGHT_ERR_NO_RESPONSE;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> SWITCH_ERR_NO_RESPONSE;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">  166</a></span>&#160;int32_t <a class="code" href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">Light::on</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="class_switch.html#a7d9c021eec1e619c87648bce25532bbc">  166</a></span>&#160;int32_t <a class="code" href="class_switch.html#a7d9c021eec1e619c87648bce25532bbc">Switch::on</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    int32_t ret;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    ret = <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_ON) ;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    ret = <a class="code" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">setState</a>(SWITCH_STATE_ON) ;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">if</span> (ret == 0)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        digitalWrite(light_pin, HIGH);        </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        digitalWrite(sw_pin, HIGH);        </div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">  184</a></span>&#160;int32_t <a class="code" href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">Light::off</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9">  184</a></span>&#160;int32_t <a class="code" href="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9">Switch::off</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;{</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    int32_t ret;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    ret = <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_OFF) ;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    ret = <a class="code" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">setState</a>(SWITCH_STATE_OFF) ;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">if</span> (ret == 0)</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        digitalWrite(light_pin, LOW);        </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        digitalWrite(sw_pin, LOW);        </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="ttc" id="class_light_html_a5e73ee80686f3de647fddcddfe7450f7"><div class="ttname"><a href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">Light::off</a></div><div class="ttdeci">int32_t off(void)</div><div class="ttdoc">Turn off the light and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00184">Light.cpp:184</a></div></div>
-<div class="ttc" id="class_light_html_aeeebb19fe450d3e465a1e195100024e8"><div class="ttname"><a href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">Light::on</a></div><div class="ttdeci">int32_t on(void)</div><div class="ttdoc">Turn on the light and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00166">Light.cpp:166</a></div></div>
 <div class="ttc" id="class_io_tgo_html_af9928a6b4ccf3b42555d24cc8291d8db"><div class="ttname"><a href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a></div><div class="ttdeci">const char * query(const char *params[])</div><div class="ttdoc">Get the values specified by params from server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00263">IoTgo.cpp:263</a></div></div>
-<div class="ttc" id="class_light_html_a12f97432028cb5e56ffcb37a055a7eec"><div class="ttname"><a href="class_light.html#a12f97432028cb5e56ffcb37a055a7eec">Light::getState</a></div><div class="ttdeci">int32_t getState(void)</div><div class="ttdoc">Read state from server. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00067">Light.cpp:67</a></div></div>
 <div class="ttc" id="class_io_tgo_html_a5faf8b98059dc875b3e0631f21100c95"><div class="ttname"><a href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a></div><div class="ttdeci">const char * update(const char *params[], const char *values[])</div><div class="ttdoc">Update the values specified by params to server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00312">IoTgo.cpp:312</a></div></div>
-<div class="ttc" id="_light_8h_html"><div class="ttname"><a href="_light_8h.html">Light.h</a></div><div class="ttdoc">Light API of IoTgo (iotgo.iteadstudio.com) </div></div>
-<div class="ttc" id="class_light_html_aca5f915f230f9fbbb32e03400e4fb87c"><div class="ttname"><a href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">Light::sync</a></div><div class="ttdeci">int32_t sync(void)</div><div class="ttdoc">Read the state from server and turn on/off the light. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00037">Light.cpp:37</a></div></div>
-<div class="ttc" id="class_light_html_a9f4d2b3f9a5511912bb60aaf9e71ae26"><div class="ttname"><a href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">Light::setState</a></div><div class="ttdeci">int32_t setState(int32_t state)</div><div class="ttdoc">Update the specific state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00119">Light.cpp:119</a></div></div>
+<div class="ttc" id="class_switch_html_a5993a31e56ba7c0ea15893c0cac26d11"><div class="ttname"><a href="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11">Switch::getState</a></div><div class="ttdeci">int32_t getState(void)</div><div class="ttdoc">Read state from server. </div><div class="ttdef"><b>Definition:</b> <a href="_switch_8cpp_source.html#l00067">Switch.cpp:67</a></div></div>
+<div class="ttc" id="_switch_8h_html"><div class="ttname"><a href="_switch_8h.html">Switch.h</a></div><div class="ttdoc">Switch API of IoTgo (iotgo.iteadstudio.com) </div></div>
+<div class="ttc" id="class_switch_html_afc6efb8c9168d7365066db947c038938"><div class="ttname"><a href="class_switch.html#afc6efb8c9168d7365066db947c038938">Switch::sync</a></div><div class="ttdeci">int32_t sync(void)</div><div class="ttdoc">Read the state from server and turn on/off the switch. </div><div class="ttdef"><b>Definition:</b> <a href="_switch_8cpp_source.html#l00037">Switch.cpp:37</a></div></div>
+<div class="ttc" id="class_switch_html_a409f5fcc62226cbd4e16d669438e5fa9"><div class="ttname"><a href="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9">Switch::off</a></div><div class="ttdeci">int32_t off(void)</div><div class="ttdoc">Turn off the switch and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_switch_8cpp_source.html#l00184">Switch.cpp:184</a></div></div>
+<div class="ttc" id="class_switch_html_ae948397ba83afa835aa82d4a15fdb2f2"><div class="ttname"><a href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">Switch::setState</a></div><div class="ttdeci">int32_t setState(int32_t state)</div><div class="ttdoc">Update the specific state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_switch_8cpp_source.html#l00119">Switch.cpp:119</a></div></div>
+<div class="ttc" id="class_switch_html_a7d9c021eec1e619c87648bce25532bbc"><div class="ttname"><a href="class_switch.html#a7d9c021eec1e619c87648bce25532bbc">Switch::on</a></div><div class="ttdeci">int32_t on(void)</div><div class="ttdoc">Turn on the switch and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_switch_8cpp_source.html#l00166">Switch.cpp:166</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

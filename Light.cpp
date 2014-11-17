@@ -15,9 +15,6 @@
 
 #include "Light.h"
 
-/*
- * Initialize static constants of ITEADIoTLED
- */
 const char *Light::STATE[]        = {"state", NULL};
 const char *Light::VALUE_ON[]     = {"on",    NULL};
 const char *Light::VALUE_OFF[]    = {"off",   NULL};
@@ -34,19 +31,19 @@ Light::Light(uint16_t light_pin)
  * We always assume that the state from server is newest. 
  * 
  * @retval 0 - success
- * @retval ERR_NO_RESPONSE - no response package from server. 
- * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval LIGHT_ERR_NO_RESPONSE - no response package from server. 
+ * @retval LIGHT_ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Light::sync(void)
 {
     int32_t state;
     int32_t ret = 0;
     state = getState();
-    if (state == STATE_ON)
+    if (state == LIGHT_STATE_ON)
     {
         digitalWrite(light_pin, HIGH);
     }
-    else if (state == STATE_OFF)
+    else if (state == LIGHT_STATE_OFF)
     {
         digitalWrite(light_pin, LOW);
     }
@@ -62,10 +59,10 @@ int32_t Light::sync(void)
 /**
  * Read state from server. 
  *
- * @retval STATE_ON - indicate the state is on. 
- * @retval STATE_OFF - indicate the state is off. 
- * @retval ERR_NO_RESPONSE - no response package from server. 
- * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval LIGHT_STATE_ON - indicate the state is on. 
+ * @retval LIGHT_STATE_OFF - indicate the state is off. 
+ * @retval LIGHT_ERR_NO_RESPONSE - no response package from server. 
+ * @retval LIGHT_ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Light::getState(void)
 {
@@ -87,37 +84,37 @@ int32_t Light::getState(void)
         {
             if (str_state_on && !str_state_off)
             {
-                return STATE_ON;
+                return LIGHT_STATE_ON;
             }
             else if (!str_state_on && str_state_off)
             {
-                return STATE_OFF;
+                return LIGHT_STATE_OFF;
             }
             else
             {
-                return ERR_NO_EXPECT;
+                return LIGHT_ERR_NO_EXPECT;
             }
         }
         else
         {
-            return ERR_NO_EXPECT;
+            return LIGHT_ERR_NO_EXPECT;
         }
     }
     else
     {
-        return ERR_NO_RESPONSE;
+        return LIGHT_ERR_NO_RESPONSE;
     }
 }
 
 /**
  * Update the specific state to server. 
  * 
- * @param state - the state you want to update, only STATE_ON or STATE_OFF. 
+ * @param state - the state you want to update, only LIGHT_STATE_ON or LIGHT_STATE_OFF. 
  * 
  * @retval 0 - success
- * @retval ERR_INVALID_PARAMETER - state is invalid value. 
- * @retval ERR_NO_RESPONSE - no response package from server. 
- * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval LIGHT_ERR_INVALID_PARAMETER - state is invalid value. 
+ * @retval LIGHT_ERR_NO_RESPONSE - no response package from server. 
+ * @retval LIGHT_ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Light::setState(int32_t state)
 {
@@ -125,17 +122,17 @@ int32_t Light::setState(int32_t state)
     const char *response;
     char *str_error;
     
-    if (state == STATE_ON)
+    if (state == LIGHT_STATE_ON)
     {
         value = VALUE_ON;
     }
-    else if (state == STATE_OFF)
+    else if (state == LIGHT_STATE_OFF)
     {
         value = VALUE_OFF;
     }
     else
     {
-        return ERR_INVALID_PARAMETER;
+        return LIGHT_ERR_INVALID_PARAMETER;
     }
     
     response = update(STATE, value);
@@ -149,12 +146,12 @@ int32_t Light::setState(int32_t state)
         }
         else
         {
-            return ERR_NO_EXPECT;
+            return LIGHT_ERR_NO_EXPECT;
         }
     }
     else
     {
-        return ERR_NO_RESPONSE;
+        return LIGHT_ERR_NO_RESPONSE;
     }
 }
 
@@ -163,13 +160,13 @@ int32_t Light::setState(int32_t state)
  * Turn on the light and update the state to server. 
  *
  * @retval 0 - success
- * @retval ERR_NO_RESPONSE - no response package from server. 
- * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval LIGHT_ERR_NO_RESPONSE - no response package from server. 
+ * @retval LIGHT_ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Light::on(void)
 {
     int32_t ret;
-    ret = setState(STATE_ON) ;
+    ret = setState(LIGHT_STATE_ON) ;
     if (ret == 0)
     {
         digitalWrite(light_pin, HIGH);        
@@ -181,13 +178,13 @@ int32_t Light::on(void)
  * Turn off the light and update the state to server. 
  *
  * @retval 0 - success
- * @retval ERR_NO_RESPONSE - no response package from server. 
- * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval LIGHT_ERR_NO_RESPONSE - no response package from server. 
+ * @retval LIGHT_ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Light::off(void)
 {
     int32_t ret;
-    ret = setState(STATE_OFF) ;
+    ret = setState(LIGHT_STATE_OFF) ;
     if (ret == 0)
     {
         digitalWrite(light_pin, LOW);        

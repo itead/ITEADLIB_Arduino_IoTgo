@@ -1,5 +1,5 @@
 /**
- * @example light_remote.ino
+ * @example switch_remote.ino
  *
  * Show how to use API of This Library. 
  *
@@ -13,32 +13,32 @@
  * the License, or (at your option) any later version.
  */
 
-#include <Light.h>
+#include <Switch.h>
 
-#define LIGHT_ID            "5580000003"
-#define LIGHT_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
-#define LIGHT_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
+#define SWITCH_ID            "5580000003"
+#define SWITCH_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
+#define SWITCH_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
 #define WIFI_SSID           "ITEAD"
 #define WIFI_PASS           "12345678"
 #define IOT_SERVER          "172.16.7.6"
 
-#define LIGHT_PIN           (13)
+#define SWITCH_PIN           (13)
 
-Light light(LIGHT_PIN);
+Switch sw(SWITCH_PIN);
 
 void setup()
 {
     const char *apikey;
-    light.setServer(IOT_SERVER);
-    if (!light.connectWiFi(WIFI_SSID, WIFI_PASS))
+    sw.setServer(IOT_SERVER);
+    if (!sw.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
 
     Serial.println("Connecting device to server...");
-    apikey = light.init(LIGHT_ID, LIGHT_APIKEY);
-    //apikey = light.init(LIGHT_ID, LIGHT_APIKEY, DEVICE_PRODUCT);
+    apikey = sw.init(SWITCH_ID, SWITCH_APIKEY);
+    //apikey = sw.init(SWITCH_ID, SWITCH_APIKEY, DEVICE_PRODUCT);
     Serial.print("apikey = ");
     Serial.println(apikey);    
     
@@ -53,8 +53,8 @@ void loop()
     int32_t ret1;
     int32_t ret2;
 
-    ret1 = light.setState(LIGHT_STATE_ON);
-    ret2 = light.sync();
+    ret1 = sw.setState(SWITCH_STATE_ON);
+    ret2 = sw.sync();
     if(!ret1 && !ret2)
     {
         Serial.println("on");
@@ -66,8 +66,8 @@ void loop()
     
     delay(1000);
     
-    ret1 = light.setState(LIGHT_STATE_OFF);
-    ret2 = light.sync();
+    ret1 = sw.setState(SWITCH_STATE_OFF);
+    ret2 = sw.sync();
     if(!ret1 && !ret2)
     {
         Serial.println("off");
