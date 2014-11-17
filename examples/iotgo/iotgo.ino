@@ -14,7 +14,7 @@
  */
 
 #include <IoTgo.h>
-
+#include <SHT1x.h>
 #define IOTGO_ID            "5580000003"
 #define IOTGO_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
 #define IOTGO_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"

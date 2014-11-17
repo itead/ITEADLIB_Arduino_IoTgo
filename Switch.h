@@ -24,12 +24,6 @@ enum SwitchState
     SWITCH_STATE_ON    = 1,
 };
 
-enum SwitchError
-{
-    SWITCH_ERR_NO_RESPONSE = -1,
-    SWITCH_ERR_NO_EXPECT   = -2,
-    SWITCH_ERR_INVALID_PARAMETER = -3,
-};
 
 /**
  * Switch, subclass of IoTgo, provides simple methods to control switch device. 
@@ -41,7 +35,7 @@ public: /* public methods */
     Switch(uint16_t sw_pin);
     
     int32_t sync(void);
-    int32_t getState(void);
+    int32_t getState(int32_t *state);
     int32_t setState(int32_t state);
     int32_t on(void);
     int32_t off(void); 

@@ -74,9 +74,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afc6efb8c9168d7365066db947c038938"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#afc6efb8c9168d7365066db947c038938">sync</a> (void)</td></tr>
 <tr class="memdesc:afc6efb8c9168d7365066db947c038938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the state from server and turn on/off the switch.  <a href="#afc6efb8c9168d7365066db947c038938">More...</a><br /></td></tr>
 <tr class="separator:afc6efb8c9168d7365066db947c038938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5993a31e56ba7c0ea15893c0cac26d11"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#a5993a31e56ba7c0ea15893c0cac26d11">getState</a> (void)</td></tr>
-<tr class="memdesc:a5993a31e56ba7c0ea15893c0cac26d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read state from server.  <a href="#a5993a31e56ba7c0ea15893c0cac26d11">More...</a><br /></td></tr>
-<tr class="separator:a5993a31e56ba7c0ea15893c0cac26d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d00efbb03586ccb138dde2b85db9e9a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a">getState</a> (int32_t *state)</td></tr>
+<tr class="memdesc:a5d00efbb03586ccb138dde2b85db9e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read state from server.  <a href="#a5d00efbb03586ccb138dde2b85db9e9a">More...</a><br /></td></tr>
+<tr class="separator:a5d00efbb03586ccb138dde2b85db9e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae948397ba83afa835aa82d4a15fdb2f2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">setState</a> (int32_t state)</td></tr>
 <tr class="memdesc:ae948397ba83afa835aa82d4a15fdb2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the specific state to server.  <a href="#ae948397ba83afa835aa82d4a15fdb2f2">More...</a><br /></td></tr>
 <tr class="separator:ae948397ba83afa835aa82d4a15fdb2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,34 +107,40 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="class_switch.html" title="Switch, subclass of IoTgo, provides simple methods to control switch device. ">Switch</a>, subclass of <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a>, provides simple methods to control switch device. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="switch_local_8ino-example.html#_a0">switch_local.ino</a>, and <a class="el" href="switch_remote_8ino-example.html#_a0">switch_remote.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_switch_8h_source.html#l00038">38</a> of file <a class="el" href="_switch_8h_source.html">Switch.h</a>.</p>
+<p>Definition at line <a class="el" href="_switch_8h_source.html#l00032">32</a> of file <a class="el" href="_switch_8h_source.html">Switch.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5993a31e56ba7c0ea15893c0cac26d11"></a>
+<a class="anchor" id="a5d00efbb03586ccb138dde2b85db9e9a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int32_t Switch::getState </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Read state from server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>- the pointer to store the state.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">SWITCH_STATE_ON</td><td>- indicate the state is on. </td></tr>
-    <tr><td class="paramname">SWITCH_STATE_OFF</td><td>- indicate the state is off. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- state is invalid. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00067">67</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00068">68</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
 
 </div>
 </div>
@@ -156,14 +162,14 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="switch_local_8ino-example.html#a5">switch_local.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00184">184</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00192">192</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,14 +191,14 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="switch_local_8ino-example.html#a4">switch_local.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00166">166</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00174">174</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,15 +226,15 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_INVALID_PARAMETER</td><td>- state is invalid value. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- state is invalid value. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="switch_remote_8ino-example.html#a4">switch_remote.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00119">119</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00127">127</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
 
 </div>
 </div>
@@ -251,8 +257,8 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">SWITCH_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
@@ -269,7 +275,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:28:13 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 21:04:45 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -118,7 +118,7 @@ request_reconnect:
         http_req += "\r\n\r\n";
         /* Http body */
         http_req += http_body;
-#if 0        
+#if 1        
         DebugSerial.print("http_req=[");
         DebugSerial.print(http_req);
         DebugSerial.println("]");
@@ -170,6 +170,10 @@ request_reconnect:
     //DebugSerial.print("strlen(buffer)=");
     //DebugSerial.println(strlen(buffer));
     
+#if 1   
+    DebugSerial.println(buffer);
+#endif    
+
     return buffer;
 }
 

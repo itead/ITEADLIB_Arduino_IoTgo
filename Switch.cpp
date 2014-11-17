@@ -31,14 +31,14 @@ Switch::Switch(uint16_t sw_pin)
  * We always assume that the state from server is newest. 
  * 
  * @retval 0 - success
- * @retval SWITCH_ERR_NO_RESPONSE - no response package from server. 
- * @retval SWITCH_ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval ERR_NO_RESPONSE - no response package from server. 
+ * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Switch::sync(void)
 {
-    int32_t state;
+    int32_t state = 0;
     int32_t ret = 0;
-    state = getState();
+    ret = getState(&state);
     if (state == SWITCH_STATE_ON)
     {
         digitalWrite(sw_pin, HIGH);
@@ -49,9 +49,8 @@ int32_t Switch::sync(void)
     }
     else
     {
-        DebugSerial.print("\ngetState() error: state = ");
-        DebugSerial.println(state);
-        ret = state;
+        DebugSerial.print("\ngetState() error: ret = ");
+        DebugSerial.println(ret);
     }
     return ret;
 }
@@ -59,18 +58,25 @@ int32_t Switch::sync(void)
 /**
  * Read state from server. 
  *
- * @retval SWITCH_STATE_ON - indicate the state is on. 
- * @retval SWITCH_STATE_OFF - indicate the state is off. 
- * @retval SWITCH_ERR_NO_RESPONSE - no response package from server. 
- * @retval SWITCH_ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @param state - the pointer to store the state. 
+ * 
+ * @retval 0 - success. 
+ * @retval ERR_INVALID_PARAMETER - state is invalid. 
+ * @retval ERR_NO_RESPONSE - no response package from server. 
+ * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
  */
-int32_t Switch::getState(void)
+int32_t Switch::getState(int32_t *state)
 {
     const char *response;
     char *str_error;
     char *str_params;
     char *str_state_on;
     char *str_state_off;
+
+    if (state == NULL)
+    {
+        return ERR_INVALID_PARAMETER;
+    }
     
     response = query(STATE); /* {"error":0,"params":{"state":"on"}} {"error":0,"params":{"state":"off"}}*/
     if (response != NULL)
@@ -84,25 +90,27 @@ int32_t Switch::getState(void)
         {
             if (str_state_on && !str_state_off)
             {
-                return SWITCH_STATE_ON;
+                *state = SWITCH_STATE_ON;
+                return 0;
             }
             else if (!str_state_on && str_state_off)
             {
-                return SWITCH_STATE_OFF;
+                *state = SWITCH_STATE_OFF;
+                return 0;
             }
             else
             {
-                return SWITCH_ERR_NO_EXPECT;
+                return ERR_NO_EXPECT;
             }
         }
         else
         {
-            return SWITCH_ERR_NO_EXPECT;
+            return ERR_NO_EXPECT;
         }
     }
     else
     {
-        return SWITCH_ERR_NO_RESPONSE;
+        return ERR_NO_RESPONSE;
     }
 }
 
@@ -112,9 +120,9 @@ int32_t Switch::getState(void)
  * @param state - the state you want to update, only SWITCH_STATE_ON or SWITCH_STATE_OFF. 
  * 
  * @retval 0 - success
- * @retval SWITCH_ERR_INVALID_PARAMETER - state is invalid value. 
- * @retval SWITCH_ERR_NO_RESPONSE - no response package from server. 
- * @retval SWITCH_ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval ERR_INVALID_PARAMETER - state is invalid value. 
+ * @retval ERR_NO_RESPONSE - no response package from server. 
+ * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Switch::setState(int32_t state)
 {
@@ -132,7 +140,7 @@ int32_t Switch::setState(int32_t state)
     }
     else
     {
-        return SWITCH_ERR_INVALID_PARAMETER;
+        return ERR_INVALID_PARAMETER;
     }
     
     response = update(STATE, value);
@@ -146,12 +154,12 @@ int32_t Switch::setState(int32_t state)
         }
         else
         {
-            return SWITCH_ERR_NO_EXPECT;
+            return ERR_NO_EXPECT;
         }
     }
     else
     {
-        return SWITCH_ERR_NO_RESPONSE;
+        return ERR_NO_RESPONSE;
     }
 }
 
@@ -160,8 +168,8 @@ int32_t Switch::setState(int32_t state)
  * Turn on the switch and update the state to server. 
  *
  * @retval 0 - success
- * @retval SWITCH_ERR_NO_RESPONSE - no response package from server. 
- * @retval SWITCH_ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval ERR_NO_RESPONSE - no response package from server. 
+ * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Switch::on(void)
 {
@@ -178,8 +186,8 @@ int32_t Switch::on(void)
  * Turn off the switch and update the state to server. 
  *
  * @retval 0 - success
- * @retval SWITCH_ERR_NO_RESPONSE - no response package from server. 
- * @retval SWITCH_ERR_NO_EXPECT - no state information expected in response package from server. 
+ * @retval ERR_NO_RESPONSE - no response package from server. 
+ * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
  */
 int32_t Switch::off(void)
 {

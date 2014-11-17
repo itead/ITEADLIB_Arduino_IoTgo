@@ -127,7 +127,7 @@
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        http_req += <span class="stringliteral">&quot;\r\n\r\n&quot;</span>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="comment">/* Http body */</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        http_req += http_body;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#if 0        </span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#if 1        </span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        DebugSerial.print(<span class="stringliteral">&quot;http_req=[&quot;</span>);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        DebugSerial.print(http_req);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        DebugSerial.println(<span class="stringliteral">&quot;]&quot;</span>);</div>
@@ -179,160 +179,164 @@
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">//DebugSerial.print(&quot;strlen(buffer)=&quot;);</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">//DebugSerial.println(strlen(buffer));</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> buffer;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">  188</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">IoTgo::init</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *device_id, <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey, IoTgoDeviceType device_type)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;{</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">char</span> http_body[100];</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">char</span> *temp;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *response;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    strcpy(this-&gt;device_id, device_id);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> (device_type == DEVICE_PRODUCT)</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="comment">/* Construct init http_body */</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        strcat(http_body, apikey);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        strcat(http_body, this-&gt;device_id);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;register\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="comment">/* {&quot;error&quot;:0,&quot;apikey&quot;:&quot;d0555f12-a67c-4c54-9ee0-8f5b7f4268fa&quot;} */</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        response = request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">if</span> (response == NULL)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            DebugSerial.println(<span class="stringliteral">&quot;request failed!&quot;</span>);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        temp = strstr(response, <span class="stringliteral">&quot;apikey&quot;</span>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">if</span> (temp == NULL)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            DebugSerial.println(<span class="stringliteral">&quot;Cannot find \&quot;apikey\&quot; from response!&quot;</span>);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            temp += 7;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordtype">char</span> *apikey_index = strstr(temp, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">if</span> (apikey_index != NULL)</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                apikey_index += 1;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                strncpy(this-&gt;apikey, apikey_index, APIKEY_LEN);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="comment">//DebugSerial.print(&quot;apikey=&quot;);</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="comment">//DebugSerial.println(this-&gt;apikey);</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">return</span> this-&gt;apikey;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (device_type == DEVICE_DIY)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        strncpy(this-&gt;apikey, apikey, APIKEY_LEN);</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> this-&gt;apikey;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        DebugSerial.println(<span class="stringliteral">&quot;Unknown device flag!&quot;</span>);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">  263</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[])</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;{</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    int32_t i;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">/* Construct query http_body */</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    strcat(http_body, this-&gt;apikey);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    strcat(http_body, this-&gt;device_id);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;query\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;params\&quot;:[&quot;</span>);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">for</span> (i=0; params[i] != NULL; i++)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        strcat(http_body, params[i]);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">if</span> (params[i+1] != NULL)</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;]&quot;</span>);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span> request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">  312</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[], <span class="keyword">const</span> <span class="keywordtype">char</span> *values[])</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;{</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    int32_t i;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">/* Construct update http_body */</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    strcat(http_body, this-&gt;apikey);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    strcat(http_body, this-&gt;device_id);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;update\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;params\&quot;:{&quot;</span>);</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">for</span> (i=0; (params[i] != NULL &amp;&amp; values[i] != NULL); i++)</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        strcat(http_body, params[i]);</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#if 1   </span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    DebugSerial.println(buffer);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#endif    </span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">  192</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">IoTgo::init</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *device_id, <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey, IoTgoDeviceType device_type)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">char</span> http_body[100];</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">char</span> *temp;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *response;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    strcpy(this-&gt;device_id, device_id);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> (device_type == DEVICE_PRODUCT)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="comment">/* Construct init http_body */</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        strcat(http_body, apikey);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        strcat(http_body, this-&gt;device_id);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;register\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="comment">/* {&quot;error&quot;:0,&quot;apikey&quot;:&quot;d0555f12-a67c-4c54-9ee0-8f5b7f4268fa&quot;} */</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        response = request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">if</span> (response == NULL)</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            DebugSerial.println(<span class="stringliteral">&quot;request failed!&quot;</span>);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        temp = strstr(response, <span class="stringliteral">&quot;apikey&quot;</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">if</span> (temp == NULL)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            DebugSerial.println(<span class="stringliteral">&quot;Cannot find \&quot;apikey\&quot; from response!&quot;</span>);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            temp += 7;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordtype">char</span> *apikey_index = strstr(temp, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">if</span> (apikey_index != NULL)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                apikey_index += 1;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                strncpy(this-&gt;apikey, apikey_index, APIKEY_LEN);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="comment">//DebugSerial.print(&quot;apikey=&quot;);</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="comment">//DebugSerial.println(this-&gt;apikey);</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">return</span> this-&gt;apikey;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (device_type == DEVICE_DIY)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        strncpy(this-&gt;apikey, apikey, APIKEY_LEN);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">return</span> this-&gt;apikey;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        DebugSerial.println(<span class="stringliteral">&quot;Unknown device flag!&quot;</span>);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">  267</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[])</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    int32_t i;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">/* Construct query http_body */</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    strcat(http_body, this-&gt;apikey);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    strcat(http_body, this-&gt;device_id);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;query\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;params\&quot;:[&quot;</span>);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">for</span> (i=0; params[i] != NULL; i++)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        strcat(http_body, params[i]);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">if</span> (params[i+1] != NULL)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;]&quot;</span>);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">return</span> request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">  316</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[], <span class="keyword">const</span> <span class="keywordtype">char</span> *values[])</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    int32_t i;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">/* Construct update http_body */</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;apikey\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    strcat(http_body, this-&gt;apikey);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;deviceid\&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    strcat(http_body, this-&gt;device_id);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;action\&quot;:\&quot;update\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;\&quot;params\&quot;:{&quot;</span>);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">for</span> (i=0; (params[i] != NULL &amp;&amp; values[i] != NULL); i++)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    {</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        strcat(http_body, values[i]);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        strcat(http_body, params[i]);</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">if</span> (params[i+1] != NULL &amp;&amp; values[i+1] != NULL)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        {</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        }</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">return</span> request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
-<div class="ttc" id="class_io_tgo_html_af9928a6b4ccf3b42555d24cc8291d8db"><div class="ttname"><a href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a></div><div class="ttdeci">const char * query(const char *params[])</div><div class="ttdoc">Get the values specified by params from server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00263">IoTgo.cpp:263</a></div></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        strcat(http_body, values[i]);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        strcat(http_body, <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">if</span> (params[i+1] != NULL &amp;&amp; values[i+1] != NULL)</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            strcat(http_body, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    strcat(http_body, <span class="stringliteral">&quot;}&quot;</span>);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">return</span> request(http_body, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
+<div class="ttc" id="class_io_tgo_html_af9928a6b4ccf3b42555d24cc8291d8db"><div class="ttname"><a href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a></div><div class="ttdeci">const char * query(const char *params[])</div><div class="ttdoc">Get the values specified by params from server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00267">IoTgo.cpp:267</a></div></div>
 <div class="ttc" id="_io_tgo_8h_html"><div class="ttname"><a href="_io_tgo_8h.html">IoTgo.h</a></div><div class="ttdoc">API of IoTgo (iotgo.iteadstudio.com) </div></div>
 <div class="ttc" id="class_io_tgo_html_a29a389df2fd1f6f8cffc6eeaba909936"><div class="ttname"><a href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">IoTgo::setServer</a></div><div class="ttdeci">void setServer(const char *server)</div><div class="ttdoc">Set IoT Server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00037">IoTgo.cpp:37</a></div></div>
-<div class="ttc" id="class_io_tgo_html_a5faf8b98059dc875b3e0631f21100c95"><div class="ttname"><a href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a></div><div class="ttdeci">const char * update(const char *params[], const char *values[])</div><div class="ttdoc">Update the values specified by params to server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00312">IoTgo.cpp:312</a></div></div>
-<div class="ttc" id="class_io_tgo_html_a31bccda21d02b5f09b12a063622528a1"><div class="ttname"><a href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">IoTgo::init</a></div><div class="ttdeci">const char * init(const char *device_id, const char *apikey, IoTgoDeviceType device_type=DEVICE_DIY)</div><div class="ttdoc">Get the apikey of device specified by device_id and check_code. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00188">IoTgo.cpp:188</a></div></div>
+<div class="ttc" id="class_io_tgo_html_a5faf8b98059dc875b3e0631f21100c95"><div class="ttname"><a href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a></div><div class="ttdeci">const char * update(const char *params[], const char *values[])</div><div class="ttdoc">Update the values specified by params to server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00316">IoTgo.cpp:316</a></div></div>
+<div class="ttc" id="class_io_tgo_html_a31bccda21d02b5f09b12a063622528a1"><div class="ttname"><a href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">IoTgo::init</a></div><div class="ttdeci">const char * init(const char *device_id, const char *apikey, IoTgoDeviceType device_type=DEVICE_DIY)</div><div class="ttdoc">Get the apikey of device specified by device_id and check_code. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00192">IoTgo.cpp:192</a></div></div>
 <div class="ttc" id="class_io_tgo_html_a0c196275a93e8bd9261337dbcc0b398f"><div class="ttname"><a href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">IoTgo::connectWiFi</a></div><div class="ttdeci">bool connectWiFi(const char *ssid, const char *password)</div><div class="ttdoc">Connect to WiFi. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00050">IoTgo.cpp:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:28:12 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 21:04:45 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -74,9 +74,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aca5f915f230f9fbbb32e03400e4fb87c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">sync</a> (void)</td></tr>
 <tr class="memdesc:aca5f915f230f9fbbb32e03400e4fb87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the state from server and turn on/off the light.  <a href="#aca5f915f230f9fbbb32e03400e4fb87c">More...</a><br /></td></tr>
 <tr class="separator:aca5f915f230f9fbbb32e03400e4fb87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12f97432028cb5e56ffcb37a055a7eec"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a12f97432028cb5e56ffcb37a055a7eec">getState</a> (void)</td></tr>
-<tr class="memdesc:a12f97432028cb5e56ffcb37a055a7eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read state from server.  <a href="#a12f97432028cb5e56ffcb37a055a7eec">More...</a><br /></td></tr>
-<tr class="separator:a12f97432028cb5e56ffcb37a055a7eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a899d5047d17f1b787d0a1aca0e240b64"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a899d5047d17f1b787d0a1aca0e240b64">getState</a> (int32_t *state)</td></tr>
+<tr class="memdesc:a899d5047d17f1b787d0a1aca0e240b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read state from server.  <a href="#a899d5047d17f1b787d0a1aca0e240b64">More...</a><br /></td></tr>
+<tr class="separator:a899d5047d17f1b787d0a1aca0e240b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f4d2b3f9a5511912bb60aaf9e71ae26"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a> (int32_t state)</td></tr>
 <tr class="memdesc:a9f4d2b3f9a5511912bb60aaf9e71ae26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the specific state to server.  <a href="#a9f4d2b3f9a5511912bb60aaf9e71ae26">More...</a><br /></td></tr>
 <tr class="separator:a9f4d2b3f9a5511912bb60aaf9e71ae26"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,34 +107,40 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p><a class="el" href="class_light.html" title="Light, subclass of IoTgo, provides simple methods to control light device. ">Light</a>, subclass of <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a>, provides simple methods to control light device. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="light_local_8ino-example.html#_a0">light_local.ino</a>, and <a class="el" href="light_remote_8ino-example.html#_a0">light_remote.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_light_8h_source.html#l00038">38</a> of file <a class="el" href="_light_8h_source.html">Light.h</a>.</p>
+<p>Definition at line <a class="el" href="_light_8h_source.html#l00031">31</a> of file <a class="el" href="_light_8h_source.html">Light.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a12f97432028cb5e56ffcb37a055a7eec"></a>
+<a class="anchor" id="a899d5047d17f1b787d0a1aca0e240b64"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int32_t Light::getState </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Read state from server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>- the pointer to store the state.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">LIGHT_STATE_ON</td><td>- indicate the state is on. </td></tr>
-    <tr><td class="paramname">LIGHT_STATE_OFF</td><td>- indicate the state is off. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- state is invalid. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00067">67</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00068">68</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
 
 </div>
 </div>
@@ -156,14 +162,14 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="light_local_8ino-example.html#a5">light_local.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00184">184</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00192">192</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,14 +191,14 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="light_local_8ino-example.html#a4">light_local.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00166">166</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00174">174</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,15 +226,15 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_INVALID_PARAMETER</td><td>- state is invalid value. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- state is invalid value. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="light_remote_8ino-example.html#a4">light_remote.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00119">119</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00127">127</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
 
 </div>
 </div>
@@ -251,8 +257,8 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">LIGHT_ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
+    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
   </table>
   </dd>
 </dl>
@@ -269,7 +275,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:28:13 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 21:04:45 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
