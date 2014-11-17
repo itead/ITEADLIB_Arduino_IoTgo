@@ -12,7 +12,7 @@ SoftwareSerial mySerial(_DBG_RXPIN_,_DBG_TXPIN_);
 #define DBGW(message)
 #endif // DEBUG
 
-int chlID;		//client id(0-4)
+int32_t chlID;		//client id(0-4)
 
 void WIFI::begin(void)
 {
@@ -114,7 +114,7 @@ bool WIFI::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::ipConfig(byte type, String addr, int port, boolean a, byte id)
+boolean WIFI::ipConfig(byte type, String addr, int32_t port, boolean a, byte id)
 {
 	boolean result = false;
 	if (a == 0 )
@@ -160,7 +160,7 @@ boolean WIFI::ipConfig(byte type, String addr, int port, boolean a, byte id)
 	
 
 ***************************************************************************/
-int WIFI::ReceiveMessage(char *buf)
+int32_t WIFI::ReceiveMessage(char *buf)
 {
 	//+IPD,<len>:<data>
 	//+IPD,<id>,<len>:<data>
@@ -187,8 +187,8 @@ int WIFI::ReceiveMessage(char *buf)
 				}
 			}
 			//Serial.println(data);
-			int sLen = strlen(data.c_str());
-			int i,j;
+			int32_t sLen = strlen(data.c_str());
+			int32_t i,j;
 			for (i = 0; i <= sLen; i++)
 			{
 				if (data[i] == ':')
@@ -207,7 +207,7 @@ int WIFI::ReceiveMessage(char *buf)
 				}
 				
 			}
-			int iSize;
+			int32_t iSize;
 			//DBG(data);
 			//DBG("\r\n");
 			if(found ==true)
@@ -701,7 +701,7 @@ boolean WIFI::confMux(boolean a)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::newMux(byte type, String addr, int port)
+boolean WIFI::newMux(byte type, String addr, int32_t port)
 
 {
     String data;
@@ -752,7 +752,7 @@ boolean WIFI::newMux(byte type, String addr, int port)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::newMux( byte id, byte type, String addr, int port)
+boolean WIFI::newMux( byte id, byte type, String addr, int32_t port)
 
 {
 
@@ -963,7 +963,7 @@ String WIFI::showIP(void)
     String data;
     unsigned long start;
     //DBG("AT+CIFSR\r\n");
-    for(int a=0; a<3;a++)
+    for(int32_t a=0; a<3;a++)
     {
         _cell.println("AT+CIFSR");  
         start = millis();
@@ -1011,7 +1011,7 @@ String WIFI::showIP(void)
 
 ***************************************************************************/
 
-boolean WIFI::confServer(byte mode, int port)
+boolean WIFI::confServer(byte mode, int32_t port)
 {
     _cell.print("AT+CIPSERVER=");  
     _cell.print(String(mode));
@@ -1028,7 +1028,7 @@ boolean WIFI::confServer(byte mode, int port)
      char a =_cell.read();
      data=data+a;
      }
-     if (data.indexOf("OK")!=-1 || data.indexOf("no charge")!=-1)
+     if (data.indexOf("OK")!=-1 || data.indexOf("no char_tge")!=-1)
      {
 		found = true;
          break;

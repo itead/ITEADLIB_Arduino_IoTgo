@@ -72,10 +72,10 @@ public:
 	
 	//Initialize port
 	bool Initialize(byte mode, String ssid, String pwd, byte chl = 1, byte ecn = 2);
-	boolean ipConfig(byte type, String addr, int port, boolean a = 0, byte id = 0);
+	boolean ipConfig(byte type, String addr, int32_t port, boolean a = 0, byte id = 0);
 	boolean Send(String str);  //send data in sigle connection mode
-	boolean Send(byte id, String str);  //send data int multiple connection mode
-	int ReceiveMessage(char *buf);
+	boolean Send(byte id, String str);  //send data int32_t multiple connection mode
+	int32_t ReceiveMessage(char *buf);
 	
     /*=================WIFI Function Command=================*/
     void Reset(void);    //reset the module
@@ -92,12 +92,12 @@ public:
     String showStatus(void);    //inquire the connection status
     String showMux(void);       //show the current connection mode(sigle or multiple)
     boolean confMux(boolean a);    //set the connection mode(sigle:0 or multiple:1)
-    boolean newMux(byte type, String addr, int port);   //create new tcp or udp connection (sigle connection mode)
-    boolean newMux(byte id, byte type, String addr, int port);   //create new tcp or udp connection (multiple connection mode)(id:0-4) 
+    boolean newMux(byte type, String addr, int32_t port);   //create new tcp or udp connection (sigle connection mode)
+    boolean newMux(byte id, byte type, String addr, int32_t port);   //create new tcp or udp connection (multiple connection mode)(id:0-4) 
     void closeMux(void);   //close tcp or udp (sigle connection mode)
     void closeMux(byte id); //close tcp or udp (multiple connection mode)
     String showIP(void);    //show the current ip address
-    boolean confServer(byte mode, int port);  //set the parameter of server
+    boolean confServer(byte mode, int32_t port);  //set the parameter of server
 	String m_rev;
 
 };

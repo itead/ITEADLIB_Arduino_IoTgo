@@ -122,10 +122,10 @@
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">//Initialize port</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> Initialize(byte mode, String ssid, String pwd, byte chl = 1, byte ecn = 2);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">boolean</span> ipConfig(byte type, String addr, <span class="keywordtype">int</span> port, <span class="keywordtype">boolean</span> a = 0, byte <span class="keywordtype">id</span> = 0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">boolean</span> ipConfig(byte type, String addr, int32_t port, <span class="keywordtype">boolean</span> a = 0, byte <span class="keywordtype">id</span> = 0);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">boolean</span> Send(String str);  <span class="comment">//send data in sigle connection mode</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">boolean</span> Send(byte <span class="keywordtype">id</span>, String str);  <span class="comment">//send data int multiple connection mode</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> ReceiveMessage(<span class="keywordtype">char</span> *buf);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">boolean</span> Send(byte <span class="keywordtype">id</span>, String str);  <span class="comment">//send data int32_t multiple connection mode</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    int32_t ReceiveMessage(<span class="keywordtype">char</span> *buf);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">/*=================WIFI Function Command=================*/</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> Reset(<span class="keywordtype">void</span>);    <span class="comment">//reset the module</span></div>
@@ -142,12 +142,12 @@
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    String showStatus(<span class="keywordtype">void</span>);    <span class="comment">//inquire the connection status</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    String showMux(<span class="keywordtype">void</span>);       <span class="comment">//show the current connection mode(sigle or multiple)</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">boolean</span> confMux(<span class="keywordtype">boolean</span> a);    <span class="comment">//set the connection mode(sigle:0 or multiple:1)</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte type, String addr, <span class="keywordtype">int</span> port);   <span class="comment">//create new tcp or udp connection (sigle connection mode)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte <span class="keywordtype">id</span>, byte type, String addr, <span class="keywordtype">int</span> port);   <span class="comment">//create new tcp or udp connection (multiple connection mode)(id:0-4) </span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte type, String addr, int32_t port);   <span class="comment">//create new tcp or udp connection (sigle connection mode)</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte <span class="keywordtype">id</span>, byte type, String addr, int32_t port);   <span class="comment">//create new tcp or udp connection (multiple connection mode)(id:0-4) </span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> closeMux(<span class="keywordtype">void</span>);   <span class="comment">//close tcp or udp (sigle connection mode)</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> closeMux(byte <span class="keywordtype">id</span>); <span class="comment">//close tcp or udp (multiple connection mode)</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    String showIP(<span class="keywordtype">void</span>);    <span class="comment">//show the current ip address</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">boolean</span> confServer(byte mode, <span class="keywordtype">int</span> port);  <span class="comment">//set the parameter of server</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">boolean</span> confServer(byte mode, int32_t port);  <span class="comment">//set the parameter of server</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    String m_rev;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
@@ -156,7 +156,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:03:05 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 10:28:12 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

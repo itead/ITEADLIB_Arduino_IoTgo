@@ -76,7 +76,7 @@ The default size of the buffer is 64. Change it into a bigger number, like 256 o
 The SRAM size of mega is bigger than UNO's, so it is better to use MEGA board to communicate with ESP8266.
 
 
-**BUG**: When you use this library and receive the http package, it might miss some characters because the library can't process so much data in the same time.
+**BUG**: When you use this library and receive the http package, it might miss some char_tacters because the library can't process so much data in the same time.
 
 ** Created by Stan Lee(Lizq@iteadstudio.com) **
 

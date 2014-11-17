@@ -47,7 +47,7 @@ void setup()
 
 void loop()
 {
-    static int counter = 0;
+    static int32_t counter = 0;
     Serial.print("\ncounter = ");
     Serial.println(++counter);
     int32_t ret;

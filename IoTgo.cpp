@@ -79,13 +79,13 @@ bool IoTgo::connectWiFi(const char *ssid, const char *password)
  *  You must deal with the response in buffer BEFORE next calling of this function as
  *  the buffer is shared. 
  */
-const char * IoTgo::request(const char *http_body, char *const buffer, int len)
+const char * IoTgo::request(const char *http_body, char *const buffer, int32_t len)
 {
-    static int counter = 0;
+    static int32_t counter = 0;
     static bool connectTCP = false;
     
-    int time_delay = 0; 
-    int reconnectTCP = 0;
+    int32_t time_delay = 0; 
+    int32_t reconnectTCP = 0;
     
     if (buffer == NULL)
     {
@@ -263,7 +263,7 @@ const char *IoTgo::init(const char *device_id, const char *apikey, IoTgoDeviceTy
 const char *IoTgo::query(const char *params[])
 {
     char http_body[100+IOT_BUFFER_SIZE];
-    int i;
+    int32_t i;
     
     /* Construct query http_body */
     strcpy(http_body, "{");
@@ -312,7 +312,7 @@ const char *IoTgo::query(const char *params[])
 const char *IoTgo::update(const char *params[], const char *values[])
 {
     char http_body[100+IOT_BUFFER_SIZE];
-    int i;
+    int32_t i;
     
     /* Construct update http_body */
     strcpy(http_body, "{");

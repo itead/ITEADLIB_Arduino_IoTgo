@@ -51,7 +51,7 @@ public: /* public methods */
 
   
 private: /* private methods */  
-    const char * request(const char *http_body, char *const buffer, int len);
+    const char * request(const char *http_body, char *const buffer, int32_t len);
     
 
 private: /* private datas */

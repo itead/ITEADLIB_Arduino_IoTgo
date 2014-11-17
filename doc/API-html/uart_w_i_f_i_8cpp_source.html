@@ -62,7 +62,7 @@
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define DBGW(message)</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif // DEBUG</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> chlID;      <span class="comment">//client id(0-4)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;int32_t chlID;      <span class="comment">//client id(0-4)</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> WIFI::begin(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
@@ -164,7 +164,7 @@
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">        false   -   unsuccessfully</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">***************************************************************************/</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">boolean</span> WIFI::ipConfig(byte type, String addr, <span class="keywordtype">int</span> port, <span class="keywordtype">boolean</span> a, byte <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">boolean</span> WIFI::ipConfig(byte type, String addr, int32_t port, <span class="keywordtype">boolean</span> a, byte <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">boolean</span> result = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (a == 0 )</div>
@@ -210,7 +210,7 @@
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">    </span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">***************************************************************************/</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordtype">int</span> WIFI::ReceiveMessage(<span class="keywordtype">char</span> *buf)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;int32_t WIFI::ReceiveMessage(<span class="keywordtype">char</span> *buf)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">//+IPD,&lt;len&gt;:&lt;data&gt;</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">//+IPD,&lt;id&gt;,&lt;len&gt;:&lt;data&gt;</span></div>
@@ -237,8 +237,8 @@
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                }</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="comment">//Serial.println(data);</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keywordtype">int</span> sLen = strlen(data.c_str());</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keywordtype">int</span> i,j;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            int32_t sLen = strlen(data.c_str());</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            int32_t i,j;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">for</span> (i = 0; i &lt;= sLen; i++)</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            {</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                <span class="keywordflow">if</span> (data[i] == <span class="charliteral">&#39;:&#39;</span>)</div>
@@ -257,7 +257,7 @@
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                }</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                </div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordtype">int</span> iSize;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            int32_t iSize;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="comment">//DBG(data);</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="comment">//DBG(&quot;\r\n&quot;);</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">if</span>(found ==<span class="keyword">true</span>)</div>
@@ -750,7 +750,7 @@
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">        false   -   unsuccessfully</span></div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">***************************************************************************/</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="keywordtype">boolean</span> WIFI::newMux(byte type, String addr, <span class="keywordtype">int</span> port)</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="keywordtype">boolean</span> WIFI::newMux(byte type, String addr, int32_t port)</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;</div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;{</div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    String data;</div>
@@ -801,7 +801,7 @@
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment">        false   -   unsuccessfully</span></div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">***************************************************************************/</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keywordtype">boolean</span> WIFI::newMux( byte <span class="keywordtype">id</span>, byte type, String addr, <span class="keywordtype">int</span> port)</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keywordtype">boolean</span> WIFI::newMux( byte <span class="keywordtype">id</span>, byte type, String addr, int32_t port)</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;{</div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;</div>
@@ -1012,7 +1012,7 @@
 <div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;    String data;</div>
 <div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> start;</div>
 <div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;    <span class="comment">//DBG(&quot;AT+CIFSR\r\n&quot;);</span></div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> a=0; a&lt;3;a++)</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    <span class="keywordflow">for</span>(int32_t a=0; a&lt;3;a++)</div>
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;    {</div>
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;        _cell.println(<span class="stringliteral">&quot;AT+CIFSR&quot;</span>);  </div>
 <div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;        start = millis();</div>
@@ -1059,7 +1059,7 @@
 <div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="comment">***************************************************************************/</span></div>
 <div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="keywordtype">boolean</span> WIFI::confServer(byte mode, <span class="keywordtype">int</span> port)</div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;<span class="keywordtype">boolean</span> WIFI::confServer(byte mode, int32_t port)</div>
 <div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;{</div>
 <div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    _cell.print(<span class="stringliteral">&quot;AT+CIPSERVER=&quot;</span>);  </div>
 <div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;    _cell.print(String(mode));</div>
@@ -1076,7 +1076,7 @@
 <div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;     <span class="keywordtype">char</span> a =_cell.read();</div>
 <div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;     data=data+a;</div>
 <div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;     }</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;     <span class="keywordflow">if</span> (data.indexOf(<span class="stringliteral">&quot;OK&quot;</span>)!=-1 || data.indexOf(<span class="stringliteral">&quot;no charge&quot;</span>)!=-1)</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;     <span class="keywordflow">if</span> (data.indexOf(<span class="stringliteral">&quot;OK&quot;</span>)!=-1 || data.indexOf(<span class="stringliteral">&quot;no char_tge&quot;</span>)!=-1)</div>
 <div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;     {</div>
 <div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;        found = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;         <span class="keywordflow">break</span>;</div>
@@ -1087,7 +1087,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:03:05 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 10:28:12 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

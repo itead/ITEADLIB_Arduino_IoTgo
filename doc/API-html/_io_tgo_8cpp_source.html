@@ -88,13 +88,13 @@
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> * IoTgo::request(<span class="keyword">const</span> <span class="keywordtype">char</span> *http_body, <span class="keywordtype">char</span> *<span class="keyword">const</span> buffer, <span class="keywordtype">int</span> len)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> * IoTgo::request(<span class="keyword">const</span> <span class="keywordtype">char</span> *http_body, <span class="keywordtype">char</span> *<span class="keyword">const</span> buffer, int32_t len)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> counter = 0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> int32_t counter = 0;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> connectTCP = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">int</span> time_delay = 0; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span> reconnectTCP = 0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    int32_t time_delay = 0; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    int32_t reconnectTCP = 0;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (buffer == NULL)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
@@ -251,7 +251,7 @@
 <div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">  263</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db">IoTgo::query</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[])</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;{</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    int32_t i;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">/* Construct query http_body */</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
@@ -287,7 +287,7 @@
 <div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">  312</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *params[], <span class="keyword">const</span> <span class="keywordtype">char</span> *values[])</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;{</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">char</span> http_body[100+IOT_BUFFER_SIZE];</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    int32_t i;</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">/* Construct update http_body */</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    strcpy(http_body, <span class="stringliteral">&quot;{&quot;</span>);</div>
@@ -332,7 +332,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 10:03:05 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 17 2014 10:28:12 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
