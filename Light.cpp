@@ -15,7 +15,7 @@
 
 #include "Light.h"
 
-const char *Light::STATE[]        = {"state", NULL};
+const char *Light::STATE[]        = {"light", NULL};
 const char *Light::VALUE_ON[]     = {"on",    NULL};
 const char *Light::VALUE_OFF[]    = {"off",   NULL};
 

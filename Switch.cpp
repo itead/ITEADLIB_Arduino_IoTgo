@@ -15,7 +15,7 @@
 
 #include "Switch.h"
 
-const char *Switch::STATE[]        = {"state", NULL};
+const char *Switch::STATE[]        = {"switch", NULL};
 const char *Switch::VALUE_ON[]     = {"on",    NULL};
 const char *Switch::VALUE_OFF[]    = {"off",   NULL};
 

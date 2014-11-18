@@ -79,7 +79,8 @@ bool IoTgo::connectWiFi(const char *ssid, const char *password)
  *  You must deal with the response in buffer BEFORE next calling of this function as
  *  the buffer is shared. 
  */
-const char * IoTgo::request(const char *http_body, char *const buffer, int32_t len)
+const char * IoTgo::request(const char *http_body, char *const buffer, 
+    int32_t len)
 {
     static int32_t counter = 0;
     static bool connectTCP = false;
@@ -118,7 +119,7 @@ request_reconnect:
         http_req += "\r\n\r\n";
         /* Http body */
         http_req += http_body;
-#if 0        
+#if 1        
         DebugSerial.print("http_req=[");
         DebugSerial.print(http_req);
         DebugSerial.println("]");
@@ -170,7 +171,7 @@ request_reconnect:
     //DebugSerial.print("strlen(buffer)=");
     //DebugSerial.println(strlen(buffer));
     
-#if 0   
+#if 1   
     DebugSerial.println(buffer);
 #endif    
 
@@ -187,9 +188,11 @@ request_reconnect:
  * @param device_type - indicate the type of your device from DEVICE_DIY or DEVICE_PRODUCT. 
  *  For developers, device_flag=DEVICE_DIY(default). For users, device_flag=DEVICE_PRODUCT.
  *
- * @return the apikey terminated with '\0', if success. NULL, if falied!
+ * @retval apikey - a pointer of char array terminated with '\0'.
+ * @retval NULL - if falied!
  */
-const char *IoTgo::init(const char *device_id, const char *apikey, IoTgoDeviceType device_type)
+const char *IoTgo::init(const char *device_id, const char *apikey, 
+    IoTgoDeviceType device_type)
 {
     char http_body[100];
     char *temp;

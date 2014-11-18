@@ -15,9 +15,11 @@
 
 #include <IoTgo.h>
 #include <SHT1x.h>
-#define IOTGO_ID            "5580000003"
-#define IOTGO_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
-#define IOTGO_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
+
+#define IOTGO_ID            "0000000001"
+#define IOTGO_CHECK_CODE    ""
+#define IOTGO_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
+
 #define WIFI_SSID           "ITEAD"
 #define WIFI_PASS           "12345678"
 #define IOT_SERVER          "172.16.7.6"

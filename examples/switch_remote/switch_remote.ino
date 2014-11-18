@@ -15,9 +15,9 @@
 
 #include <Switch.h>
 
-#define SWITCH_ID            "5580000003"
-#define SWITCH_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
-#define SWITCH_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
+#define SWITCH_ID            "0100000003"
+#define SWITCH_CHECK_CODE    ""
+#define SWITCH_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
 #define WIFI_SSID           "ITEAD"
 #define WIFI_PASS           "12345678"
 #define IOT_SERVER          "172.16.7.6"

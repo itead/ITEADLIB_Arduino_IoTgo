@@ -15,9 +15,9 @@
 
 #include <THSensor.h>
 
-#define THSENSOR_ID            "5580000003"
-#define THSENSOR_CHECK_CODE    "86f32f24-70bc-44e0-82f2-e95da6f8cde5"
-#define THSENSOR_APIKEY        "d0555f12-a67c-4c54-9ee0-8f5b7f4268fa"
+#define THSENSOR_ID            "0300000001"
+#define THSENSOR_CHECK_CODE    ""
+#define THSENSOR_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
 #define WIFI_SSID           "ITEAD"
 #define WIFI_PASS           "12345678"
 #define IOT_SERVER          "172.16.7.6"
@@ -66,7 +66,7 @@ void loop()
     {
         Serial.println("sync successfully!");
     }
-    
+
     ret = th.getAll(&temp_c, &temp_f, &hum);
     if (ret)
     {
@@ -114,6 +114,6 @@ void loop()
         Serial.print("Hum = ");
         Serial.println(hum, 2);
     }
-    
+
     delay(1000);
 }

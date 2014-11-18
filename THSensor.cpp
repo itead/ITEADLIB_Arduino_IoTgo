@@ -32,19 +32,19 @@ THSensor::THSensor(uint16_t data_pin, uint16_t clock_pin)
  */
 int32_t THSensor::sync(void)
 {
-    char str_temp_c[5];
-    char str_temp_f[5];
-    char str_hum[5];
-    const char *params[] = {"temperature_C", "temperature_F", "humidity", NULL};
-    const char *values[] = {str_temp_c, str_temp_f, str_hum, NULL};
+    char str_temp_c[8] = {'\0'};
+    char str_hum[8] = {'\0'};
+    char str_tmp[8] = {'\0'};
+    const char *params[] = {"temperature", "humidity", NULL};
+    const char *values[] = {str_temp_c, str_hum, NULL};
     const char *response;
     float temp_c;
-    float temp_f;
     float hum;
     int32_t ret;
     char *str_error;
+    int32_t len;
     
-    ret = getAll(&temp_c, &temp_f, &hum);
+    ret = getAll(&temp_c, NULL, &hum);
     if (ret)
     {
         return ERR_NO_DEVICES_AVAILABLE;
@@ -53,25 +53,28 @@ int32_t THSensor::sync(void)
 #if 0    
     DebugSerial.print("temp_c=");
     DebugSerial.println(temp_c, 2);
-    DebugSerial.print("temp_f=");
-    DebugSerial.println(temp_f, 2);
     DebugSerial.print("hum=");
     DebugSerial.println(hum, 2);
 #endif
 
-    temp_c += 0.5;
-    temp_f += 0.5;
-    hum += 0.5;
+    temp_c += 0.005;
+    hum += 0.005;
     
-    snprintf(str_temp_c, sizeof(str_temp_c), "%d", ((int)(temp_c*100))/100);
-    snprintf(str_temp_f, sizeof(str_temp_f), "%d", ((int)(temp_f*100))/100);
-    snprintf(str_hum, sizeof(str_hum), "%d", ((int)(hum*100))/100);
+    snprintf(str_tmp, sizeof(str_tmp), "%d", (int)(temp_c*100));
+    len = strlen(str_tmp);
+    strncpy(str_temp_c, str_tmp, len-2);
+    strcat(str_temp_c, ".");
+    strcat(str_temp_c, &str_tmp[len-2]);
+    
+    snprintf(str_tmp, sizeof(str_tmp), "%d", (int)(hum*100));
+    len = strlen(str_tmp);
+    strncpy(str_hum, str_tmp, len-2);
+    strcat(str_hum, ".");
+    strcat(str_hum, &str_tmp[len-2]);
     
 #if 0
     DebugSerial.print("str_temp_c=");
     DebugSerial.println(str_temp_c);
-    DebugSerial.print("str_temp_f=");
-    DebugSerial.println(str_temp_f);
     DebugSerial.print("str_hum=");
     DebugSerial.println(str_hum);
 #endif

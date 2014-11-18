@@ -32,7 +32,6 @@ class Light: public IoTgo
 {
 public: /* public methods */  
     Light(uint16_t light_pin);
-    
     int32_t sync(void);
     int32_t getState(int32_t *state);
     int32_t on(void);
