@@ -83,8 +83,8 @@ int32_t Switch::getState(int32_t *state)
     {
         str_error       = strstr(response, "\"error\":0");
         str_params      = strstr(response, "\"params\":");
-        str_state_on    = strstr(response, "\"state\":\"on\"");
-        str_state_off   = strstr(response, "\"state\":\"off\"");
+        str_state_on    = strstr(response, "\"switch\":\"on\"");
+        str_state_off   = strstr(response, "\"switch\":\"off\"");
         
         if (str_error && str_params)
         {

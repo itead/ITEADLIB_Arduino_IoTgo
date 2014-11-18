@@ -59,7 +59,8 @@ void loop()
     }
     else
     {
-        Serial.println("sync() err!");
+        Serial.print("sync() err! ret = ");
+        Serial.println(ret);
     }
     
     delay(1000);

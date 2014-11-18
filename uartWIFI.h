@@ -1,4 +1,3 @@
-
 /*
 ESP8266 library
 
@@ -16,7 +15,7 @@ V1.0	released the first version of ESP8266 library
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#define DEBUG
+#include "IoTgo_debug.h"
 
 //#define UNO     //uncomment this line when you use it with UNO board
 #define MEGA    //uncomment this line when you use it with MEGA board

@@ -22,13 +22,13 @@ void WIFI::begin(void)
 	_cell.flush();
 	_cell.setTimeout(10000);
 	_cell.println("AT+RST");
-	DBG("Reset module...\r\n");
+	DebugSerial.println("Reset module...");
 	result = _cell.find("eady");
 	if(result)
-		DBG("Module is ready\r\n");
+		DebugSerial.println("Module is ready");
     else
 	{
-		DBG("Module have no response. Halt now...\r\n");
+		DebugSerial.println("Module have no response. Halt now...");
 		while(1);
 	}
 
