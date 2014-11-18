@@ -128,7 +128,7 @@
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        http_req += <span class="stringliteral">&quot;\r\n\r\n&quot;</span>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">/* Http body */</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        http_req += http_body;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#if 1        </span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        DebugSerial.print(<span class="stringliteral">&quot;http_req=[&quot;</span>);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        DebugSerial.print(http_req);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        DebugSerial.println(<span class="stringliteral">&quot;]&quot;</span>);</div>
@@ -180,7 +180,7 @@
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">//DebugSerial.print(&quot;strlen(buffer)=&quot;);</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">//DebugSerial.println(strlen(buffer));</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#if 1   </span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    DebugSerial.println(buffer);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif    </span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
@@ -338,7 +338,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 18 2014 15:19:53 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 18 2014 17:16:09 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

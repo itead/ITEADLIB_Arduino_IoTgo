@@ -27,6 +27,7 @@ switch__remote_8ino_source.html
 temp__hum__sensor_8ino_source.html
 _io_tgo_8cpp_source.html
 _io_tgo_8h_source.html
+_io_tgo__debug_8h_source.html
 _light_8cpp_source.html
 _light_8h_source.html
 _r_e_a_d_m_e_8md_source.html
@@ -40,6 +41,7 @@ uart_w_i_f_i_8cpp_source.html
 uart_w_i_f_i_8h_source.html
 _io_tgo_8cpp.html
 _io_tgo_8h.html
+_io_tgo__debug_8h.html
 _light_8cpp.html
 _light_8h.html
 _s_h_t1x_8cpp.html
