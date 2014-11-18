@@ -50,14 +50,12 @@ void loop()
     static int32_t counter = 0;
     Serial.print("\ncounter = ");
     Serial.println(++counter);
-    int32_t ret1;
-    int32_t ret2;
+    int32_t ret;
 
-    ret1 = light.setState(LIGHT_STATE_ON);
-    ret2 = light.sync();
-    if(!ret1 && !ret2)
+    ret = light.sync();
+    if(!ret)
     {
-        Serial.println("on");
+        Serial.println("sync okay");
     }
     else
     {
@@ -66,16 +64,4 @@ void loop()
     
     delay(1000);
     
-    ret1 = light.setState(LIGHT_STATE_OFF);
-    ret2 = light.sync();
-    if(!ret1 && !ret2)
-    {
-        Serial.println("off");
-    }
-    else
-    {
-        Serial.println("sync() err!");
-    }
-    
-    delay(1000);
 }
