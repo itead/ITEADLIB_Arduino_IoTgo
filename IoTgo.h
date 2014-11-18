@@ -55,7 +55,8 @@ public: /* public methods */
     void setServer(const char *server);
     bool connectWiFi(const char *ssid, const char *password);
     
-    const char *init(const char *device_id, const char *apikey, IoTgoDeviceType device_type = DEVICE_DIY);
+    const char *init(const char *device_id, const char *apikey, 
+        IoTgoDeviceType device_type = DEVICE_DIY);
     const char *query(const char *params[]);
     const char *update(const char *params[], const char *values[]);
 

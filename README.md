@@ -1,6 +1,6 @@
 @mainpage
 
-# IoTgo Arduino Libaray Based on ESP8266
+# IoTgo Arduino Library Based on ESP8266
 
 ## Source Code
 
