@@ -1,4 +1,6 @@
 /**
+ * @file SHT1x.cpp
+ *
  * SHT1x Library
  *
  * Copyright 2009 Jonathan Oxer <jon@oxer.com.au> / <www.practicalarduino.com>
@@ -17,6 +19,9 @@
 
 #include "SHT1x.h"
 
+/**
+ * Constonstor of SHT1x needs two pins for I2C communication. 
+ */
 SHT1x::SHT1x(int dataPin, int clockPin)
 {
   _dataPin = dataPin;

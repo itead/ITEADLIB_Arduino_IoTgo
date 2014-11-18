@@ -196,7 +196,6 @@ int32_t THSensor::getAll(float *temp_c, float *temp_f, float *hum)
     {
         return ERR_INVALID_PARAMETER;
     }
-    
 #ifdef THSENSOR_USE_SHT1X_LIBRARY
     if (temp_c)
     {

@@ -77,9 +77,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d00efbb03586ccb138dde2b85db9e9a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a">getState</a> (int32_t *state)</td></tr>
 <tr class="memdesc:a5d00efbb03586ccb138dde2b85db9e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read state from server.  <a href="#a5d00efbb03586ccb138dde2b85db9e9a">More...</a><br /></td></tr>
 <tr class="separator:a5d00efbb03586ccb138dde2b85db9e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae948397ba83afa835aa82d4a15fdb2f2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2">setState</a> (int32_t state)</td></tr>
-<tr class="memdesc:ae948397ba83afa835aa82d4a15fdb2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the specific state to server.  <a href="#ae948397ba83afa835aa82d4a15fdb2f2">More...</a><br /></td></tr>
-<tr class="separator:ae948397ba83afa835aa82d4a15fdb2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d9c021eec1e619c87648bce25532bbc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_switch.html#a7d9c021eec1e619c87648bce25532bbc">on</a> (void)</td></tr>
 <tr class="memdesc:a7d9c021eec1e619c87648bce25532bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the switch and update the state to server.  <a href="#a7d9c021eec1e619c87648bce25532bbc">More...</a><br /></td></tr>
 <tr class="separator:a7d9c021eec1e619c87648bce25532bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,42 +199,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae948397ba83afa835aa82d4a15fdb2f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t Switch::setState </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update the specific state to server. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td>- the state you want to update, only SWITCH_STATE_ON or SWITCH_STATE_OFF.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- state is invalid value. </td></tr>
-    <tr><td class="paramname">ERR_NO_RESPONSE</td><td>- no response package from server. </td></tr>
-    <tr><td class="paramname">ERR_NO_EXPECT</td><td>- no state information expected in response package from server. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="switch_remote_8ino-example.html#a4">switch_remote.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_switch_8cpp_source.html#l00127">127</a> of file <a class="el" href="_switch_8cpp_source.html">Switch.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="afc6efb8c9168d7365066db947c038938"></a>
 <div class="memitem">
 <div class="memproto">
@@ -275,7 +236,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 21:04:45 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 18 2014 09:26:48 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

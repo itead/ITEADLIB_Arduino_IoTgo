@@ -28,7 +28,6 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="Name" value="getState"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="Name" value="off"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="Name" value="on"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="Name" value="setState"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="Name" value="sync"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="Name" value="off"></OBJECT>
@@ -47,11 +46,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab643a748035ac9e07363e12d3555d215"><param name="Name" value="readTemperatureC"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a14088dc5cf57acf3757314640fc460f1"><param name="Name" value="readTemperatureF"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936"><param name="Name" value="setServer"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="Name" value="setState"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="Name" value="Light"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="Name" value="Switch"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html"><param name="Name" value="SHT1x"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#aed8621b3751ea2a1de4d3949abd022ee"><param name="Name" value="readHumidity"></OBJECT>
@@ -64,7 +58,6 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a"><param name="Name" value="getState"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="Name" value="off"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="Name" value="on"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="Name" value="setState"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#afc6efb8c9168d7365066db947c038938"><param name="Name" value="sync"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="Name" value="sync"></OBJECT>

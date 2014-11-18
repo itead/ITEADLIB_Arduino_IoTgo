@@ -35,9 +35,11 @@ public: /* public methods */
     
     int32_t sync(void);
     int32_t getState(int32_t *state);
-    int32_t setState(int32_t state);
     int32_t on(void);
     int32_t off(void); 
+    
+private: /* private methods */
+    int32_t setState(int32_t state);
 
 private: /* private static data members */
     static const char *STATE[];

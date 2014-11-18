@@ -22,7 +22,6 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="setState"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -37,7 +36,6 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="setState"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_switch.html#afc6efb8c9168d7365066db947c038938"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -123,14 +121,22 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="ImageNumber" value="11"></OBJECT>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="setState"><param name="Local" value="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
         <UL>
         </UL>
       </UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x.cpp"><param name="Local" value="_s_h_t1x_8cpp_source.html"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x.h"><param name="Local" value="_s_h_t1x_8h_source.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x.cpp"><param name="Local" value="_s_h_t1x_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x.h"><param name="Local" value="_s_h_t1x_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html"><param name="ImageNumber" value="1"></OBJECT>
+        <UL>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html#a0516a14177fa26c448e5eb81d9fbac43"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="readHumidity"><param name="Local" value="class_s_h_t1x.html#aed8621b3751ea2a1de4d3949abd022ee"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="readTemperatureC"><param name="Local" value="class_s_h_t1x.html#ab643a748035ac9e07363e12d3555d215"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="readTemperatureF"><param name="Local" value="class_s_h_t1x.html#a14088dc5cf57acf3757314640fc460f1"><param name="ImageNumber" value="11"></OBJECT>
+        </UL>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch.cpp"><param name="Local" value="_switch_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch.h"><param name="Local" value="_switch_8h.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
@@ -139,7 +145,6 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="ImageNumber" value="11"></OBJECT>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="setState"><param name="Local" value="class_switch.html#ae948397ba83afa835aa82d4a15fdb2f2"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_switch.html#afc6efb8c9168d7365066db947c038938"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
         <UL>

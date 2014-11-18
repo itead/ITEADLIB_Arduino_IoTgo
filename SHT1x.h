@@ -1,4 +1,6 @@
 /**
+ * @file SHT1x.h
+ *
  * SHT1x Library
  *
  * Copyright 2009 Jonathan Oxer <jon@oxer.com.au> / <www.practicalarduino.com>
@@ -18,6 +20,9 @@
 #include <WProgram.h>
 #endif
 
+/**
+ * Provides methods to read temperature and humidity from SHT1x devices. 
+ */
 class SHT1x
 {
   public:

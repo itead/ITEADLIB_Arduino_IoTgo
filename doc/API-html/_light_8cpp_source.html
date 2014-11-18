@@ -131,7 +131,7 @@
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">  127</a></span>&#160;int32_t <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">Light::setState</a>(int32_t state)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;int32_t Light::setState(int32_t state)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **value;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *response;</div>
@@ -174,7 +174,7 @@
 <div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">  174</a></span>&#160;int32_t <a class="code" href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">Light::on</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    int32_t ret;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    ret = <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_ON) ;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    ret = setState(LIGHT_STATE_ON) ;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">if</span> (ret == 0)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    {</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        digitalWrite(light_pin, HIGH);        </div>
@@ -185,7 +185,7 @@
 <div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">  192</a></span>&#160;int32_t <a class="code" href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">Light::off</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    int32_t ret;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    ret = <a class="code" href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">setState</a>(LIGHT_STATE_OFF) ;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    ret = setState(LIGHT_STATE_OFF) ;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">if</span> (ret == 0)</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        digitalWrite(light_pin, LOW);        </div>
@@ -200,11 +200,10 @@
 <div class="ttc" id="class_io_tgo_html_a5faf8b98059dc875b3e0631f21100c95"><div class="ttname"><a href="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95">IoTgo::update</a></div><div class="ttdeci">const char * update(const char *params[], const char *values[])</div><div class="ttdoc">Update the values specified by params to server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00316">IoTgo.cpp:316</a></div></div>
 <div class="ttc" id="_light_8h_html"><div class="ttname"><a href="_light_8h.html">Light.h</a></div><div class="ttdoc">Light API of IoTgo (iotgo.iteadstudio.com) </div></div>
 <div class="ttc" id="class_light_html_aca5f915f230f9fbbb32e03400e4fb87c"><div class="ttname"><a href="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c">Light::sync</a></div><div class="ttdeci">int32_t sync(void)</div><div class="ttdoc">Read the state from server and turn on/off the light. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00037">Light.cpp:37</a></div></div>
-<div class="ttc" id="class_light_html_a9f4d2b3f9a5511912bb60aaf9e71ae26"><div class="ttname"><a href="class_light.html#a9f4d2b3f9a5511912bb60aaf9e71ae26">Light::setState</a></div><div class="ttdeci">int32_t setState(int32_t state)</div><div class="ttdoc">Update the specific state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_light_8cpp_source.html#l00127">Light.cpp:127</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 17 2014 21:04:45 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 18 2014 09:26:48 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
