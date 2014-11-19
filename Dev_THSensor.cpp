@@ -15,13 +15,40 @@
 
 #include "THSensor.h"
 
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-THSensor::THSensor(uint16_t data_pin, uint16_t clock_pin)
-    :sht1x_dev(data_pin, clock_pin)
+THSensor::THSensor(THSensorInterface *sensor)
 {
+    if (sensor)
+    {
+        this->sensor = sensor;
+    }
+    else
+    {
+        DebugSerial.println("ERROR: Parameter sensor is NULL!");
+    }
 }
-#endif
 
+/**
+ * Initialize Temperature & Humidity Sensor. 
+ * 
+ * @retval 0 - success.
+ * @retval ERR_INIT_DEVICE_FAILED - if initialization failed!
+ */
+int32_t THSensor::begin(void)
+{
+    return sensor->begin();
+}
+
+/**
+ * Close Temperature & Humidity Sensor. 
+ *
+ * @retval 0 - success. 
+ * @retval ERR_CLOSE_DEVICE_FAILED - if device cannot be closed. 
+ */
+int32_t THSensor::end(void)
+{
+    return sensor->end();
+}
+    
 /**
  * Read temperature and humidity from device then push them to server. 
  *
@@ -39,14 +66,19 @@ int32_t THSensor::sync(void)
     const char *values[] = {str_temp_c, str_hum, NULL};
     const char *response;
     float temp_c;
+    float temp_f;
     float hum;
     int32_t ret;
     char *str_error;
     int32_t len;
     
-    ret = getAll(&temp_c, NULL, &hum);
+    ret = getAll(&temp_c, &temp_f, &hum);
     if (ret)
     {
+#ifdef DEBUG
+        DebugSerial.print("getAll() =");
+        DebugSerial.println(ret);
+#endif
         return ERR_NO_DEVICES_AVAILABLE;
     }
     
@@ -104,27 +136,17 @@ int32_t THSensor::sync(void)
  * 
  * @param temp_c - the pointer to store temperature by Celsius. 
  *
- * @retval 0 - success
+ * @retval 0 - success. 
  * @retval ERR_INVALID_PARAMETER - if temp_c is NULL. 
- * @retval ERR_NO_DEVICES_AVAILABLE - if no devices available. 
+ * @retval ERR_READ_DEVICE_FAILED - if device cannot be read. 
  */
 int32_t THSensor::getTemperatureC(float *temp_c)
 {
-    if (!temp_c)
-    {
-        return ERR_INVALID_PARAMETER;
-    }
-
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    if (temp_c)
-    {
-        *temp_c = sht1x_dev.readTemperatureC();
-    }
-    return 0;
-#else
-    return ERR_NO_DEVICES_AVAILABLE;
-#endif
-
+    return temp_c
+            ? 
+                sensor->getData(temp_c, NULL, NULL) 
+            : 
+                ERR_INVALID_PARAMETER;
 }
 
 /** 
@@ -132,27 +154,17 @@ int32_t THSensor::getTemperatureC(float *temp_c)
  * 
  * @param temp_f - the pointer to store temperature by Fahrenheit. 
  *
- * @retval 0 - success
- * @retval ERR_INVALID_PARAMETER - if temp_f is NULL. 
- * @retval ERR_NO_DEVICES_AVAILABLE - if no devices available. 
+ * @retval 0 - success. 
+ * @retval ERR_INVALID_PARAMETER - if temp_c is NULL. 
+ * @retval ERR_READ_DEVICE_FAILED - if device cannot be read. 
  */
 int32_t THSensor::getTemperatureF(float *temp_f)
 {
-    if (!temp_f)
-    {
-        return ERR_INVALID_PARAMETER;
-    }
-
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    if (temp_f)
-    {
-        *temp_f = sht1x_dev.readTemperatureF();
-    }
-    return 0;
-#else
-    return ERR_NO_DEVICES_AVAILABLE;
-#endif
-
+    return temp_f
+            ? 
+                sensor->getData(NULL, temp_f, NULL) 
+            : 
+                ERR_INVALID_PARAMETER;
 }
 
 /** 
@@ -162,24 +174,15 @@ int32_t THSensor::getTemperatureF(float *temp_f)
  *
  * @retval 0 - success
  * @retval ERR_INVALID_PARAMETER - if hum is NULL. 
- * @retval ERR_NO_DEVICES_AVAILABLE - if no devices available. 
+ * @retval ERR_READ_DEVICE_FAILED - if device cannot be read. 
  */
 int32_t THSensor::getHumidity(float *hum)
 {
-    if (!hum)
-    {
-        return ERR_INVALID_PARAMETER;
-    }
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    if (hum)
-    {
-        *hum = sht1x_dev.readHumidity();
-    }
-    return 0;
-#else
-    return ERR_NO_DEVICES_AVAILABLE;
-#endif
-
+    return hum
+            ? 
+                sensor->getData(NULL, NULL, hum) 
+            : 
+                ERR_INVALID_PARAMETER;
 }
 
 /** 
@@ -190,30 +193,15 @@ int32_t THSensor::getHumidity(float *hum)
  * @param hum - the pointer to store humidity. 
  *
  * @retval 0 - success
- * @retval ERR_INVALID_PARAMETER - if all parameters is NULL. 
- * @retval ERR_NO_DEVICES_AVAILABLE - if no devices available. 
+ * @retval ERR_INVALID_PARAMETER - if any parameter is NULL. 
+ * @retval ERR_READ_DEVICE_FAILED - if device cannot be read. 
  */
 int32_t THSensor::getAll(float *temp_c, float *temp_f, float *hum)
 {
-    if (temp_c == NULL && temp_f == NULL && hum == NULL)
-    {
-        return ERR_INVALID_PARAMETER;
-    }
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    if (temp_c)
-    {
-        *temp_c = sht1x_dev.readTemperatureC();
-    }
-    if (temp_f)
-    {
-        *temp_f = sht1x_dev.readTemperatureF();
-    }
-    if (hum)
-    {
-        *hum = sht1x_dev.readHumidity();
-    }
-    return 0;
-#else
-    return ERR_NO_DEVICES_AVAILABLE;
-#endif
+    
+    return temp_c && temp_f && hum
+            ? 
+                sensor->getData(temp_c, temp_f, hum) 
+            : 
+                ERR_INVALID_PARAMETER;
 } 

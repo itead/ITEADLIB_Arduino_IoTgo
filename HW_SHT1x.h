@@ -20,17 +20,47 @@
 #include <WProgram.h>
 #endif
 
+#include "THSensorInterface.h"
+
+
 /**
- * Provides methods to read temperature and humidity from SHT1x devices. 
+ * SHT1x implements THSensorInterface. 
+ *
  */
-class SHT1x
+class SHT1x : public THSensorInterface
 {
-  public:
+public: /* Constructors */
     SHT1x(int dataPin, int clockPin);
+
+public: /* Implementation of methods in THSensorInterface */
+    virtual int32_t begin(void)
+    {
+        /* Nothing to do */
+        return 0;
+    }
+    virtual int32_t getData(float *temp_c, float *temp_f, float *hum)
+    {
+        if (temp_c) 
+            *temp_c = readTemperatureC();
+        if (temp_f)
+            *temp_f = readTemperatureF();
+        if (hum)
+            *hum = readHumidity();
+        return 0;
+    }
+    virtual int32_t end(void)
+    {
+        /* Nothing to do */
+        return 0;
+    }
+
+
+private:
     float readHumidity();
     float readTemperatureC();
     float readTemperatureF();
-  private:
+    
+private:
     int _dataPin;
     int _clockPin;
     int _numBits;

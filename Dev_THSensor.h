@@ -17,14 +17,7 @@
 #define __THSENSOR_H__
 
 #include "IoTgo.h"
-
-#ifndef THSENSOR_USE_SHT1X_LIBRARY
-#define THSENSOR_USE_SHT1X_LIBRARY
-#endif
-
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-#include "SHT1x.h"
-#endif
+#include "THSensorInterface.h"
 
 /**
  * THSensor, subclass of IoTgo, provides simple methods to read temperature and 
@@ -33,9 +26,9 @@
 class THSensor: public IoTgo
 {
 public: /* public methods */
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    THSensor(uint16_t data_pin, uint16_t clock_pin);
-#endif
+    THSensor(THSensorInterface *sensor);
+    int32_t begin(void);
+    int32_t end(void);
     int32_t sync(void);
     int32_t getTemperatureC(float *temp_c);
     int32_t getTemperatureF(float *temp_f);
@@ -43,9 +36,7 @@ public: /* public methods */
     int32_t getAll(float *temp_c, float *temp_f, float *hum);
     
 private: /* private data */
-#ifdef THSENSOR_USE_SHT1X_LIBRARY
-    SHT1x sht1x_dev;
-#endif
+    THSensorInterface *sensor;
 };
 
 #endif /* #ifndef __THSENSOR_H__ */

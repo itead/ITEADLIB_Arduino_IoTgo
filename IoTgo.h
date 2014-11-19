@@ -20,6 +20,7 @@
 #include <SoftwareSerial.h>
 
 #include "uartWIFI.h"
+#include "IoTgo_error.h"
 
 enum IoTgoConstant
 {
@@ -32,15 +33,6 @@ enum IoTgoDeviceType
 {
     DEVICE_DIY      = 0,
     DEVICE_PRODUCT  = 1,
-};
-
-enum IoTgoError
-{
-    ERR_NO_RESPONSE             = -1,
-    ERR_NO_EXPECT               = -2,
-    ERR_INVALID_PARAMETER       = -3,
-    ERR_NO_DEVICES_AVAILABLE    = -4,
-    ERR_DEVICEID_NOT_MATCH      = -5,
 };
 
 
