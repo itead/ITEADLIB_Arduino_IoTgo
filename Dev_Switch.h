@@ -1,5 +1,5 @@
 /**
- * @file Switch.h
+ * @file Dev_Switch.h
  *
  * Switch API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,8 +13,8 @@
  * the License, or (at your option) any later version.
  */
  
-#ifndef __SWITCH_H__
-#define __SWITCH_H__
+#ifndef __DEV_SWITCH_H__
+#define __DEV_SWITCH_H__
 
 #include "IoTgo.h"
 
@@ -51,4 +51,4 @@ private:
     uint16_t sw_pin;
 };
 
-#endif /* #ifndef __SWITCH_H__ */
+#endif /* #ifndef __DEV_SWITCH_H__ */

@@ -4,8 +4,25 @@
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a4473947be903948bc570751433ac222e"><param name="Name" value="begin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a4473947be903948bc570751433ac222e"><param name="Name" value="SHT1x"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45"><param name="Name" value="THSensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#a48086acfce814b6a07d39c998420fd1f"><param name="Name" value="THSensorInterface"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f"><param name="Name" value="connectWiFi"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a3feca6c07f41a12d0d815b5e96b1137c"><param name="Name" value="end"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a3feca6c07f41a12d0d815b5e96b1137c"><param name="Name" value="SHT1x"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a54bf42139b7ef208d5196ef36b5232c4"><param name="Name" value="THSensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#ad58c7d857cfc2f4277f48c93b4f5ff1e"><param name="Name" value="THSensorInterface"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#afd0167fe2d60ee38d87cb6e1e60c2244"><param name="Name" value="getAll"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="Name" value="getData"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="Name" value="SHT1x"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#a9da0465219c100efaa3c404227b02db9"><param name="Name" value="THSensorInterface"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a6d667074e1a5d8edc01843224a89aa75"><param name="Name" value="getHumidity"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="Name" value="getState"></OBJECT>
   <UL>
@@ -41,16 +58,13 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="Name" value="Switch"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db"><param name="Name" value="query"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#aed8621b3751ea2a1de4d3949abd022ee"><param name="Name" value="readHumidity"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="md__r_e_a_d_m_e.html"><param name="Name" value="README"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab643a748035ac9e07363e12d3555d215"><param name="Name" value="readTemperatureC"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a14088dc5cf57acf3757314640fc460f1"><param name="Name" value="readTemperatureF"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936"><param name="Name" value="setServer"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html"><param name="Name" value="SHT1x"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#aed8621b3751ea2a1de4d3949abd022ee"><param name="Name" value="readHumidity"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab643a748035ac9e07363e12d3555d215"><param name="Name" value="readTemperatureC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a14088dc5cf57acf3757314640fc460f1"><param name="Name" value="readTemperatureF"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a4473947be903948bc570751433ac222e"><param name="Name" value="begin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a3feca6c07f41a12d0d815b5e96b1137c"><param name="Name" value="end"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="Name" value="getData"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#a0516a14177fa26c448e5eb81d9fbac43"><param name="Name" value="SHT1x"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_switch.html"><param name="Name" value="Switch"></OBJECT>
@@ -68,11 +82,19 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html"><param name="Name" value="THSensor"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45"><param name="Name" value="begin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a54bf42139b7ef208d5196ef36b5232c4"><param name="Name" value="end"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#afd0167fe2d60ee38d87cb6e1e60c2244"><param name="Name" value="getAll"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a6d667074e1a5d8edc01843224a89aa75"><param name="Name" value="getHumidity"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#ae484ef93096398d6747da00ebcb00a4a"><param name="Name" value="getTemperatureC"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#aee896262d49015dd25b3ecaf9e6d88f6"><param name="Name" value="getTemperatureF"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a6fee399ac20996db7ef9603767e9d638"><param name="Name" value="sync"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html"><param name="Name" value="THSensorInterface"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#a48086acfce814b6a07d39c998420fd1f"><param name="Name" value="begin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#ad58c7d857cfc2f4277f48c93b4f5ff1e"><param name="Name" value="end"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#a9da0465219c100efaa3c404227b02db9"><param name="Name" value="getData"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95"><param name="Name" value="update"></OBJECT>
 </UL>

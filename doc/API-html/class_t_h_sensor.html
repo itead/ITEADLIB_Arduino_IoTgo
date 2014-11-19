@@ -58,7 +58,7 @@
 <p><a class="el" href="class_t_h_sensor.html" title="THSensor, subclass of IoTgo, provides simple methods to read temperature and humidity from devices...">THSensor</a>, subclass of <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a>, provides simple methods to read temperature and humidity from devices.  
  <a href="class_t_h_sensor.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_t_h_sensor_8h_source.html">THSensor.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_dev___t_h_sensor_8h_source.html">Dev_THSensor.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for THSensor:</div>
 <div class="dyncontent">
@@ -71,6 +71,12 @@ Inheritance diagram for THSensor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a33a8912b5013bd0aa407e93e0b64ad45"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45">begin</a> (void)</td></tr>
+<tr class="memdesc:a33a8912b5013bd0aa407e93e0b64ad45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Temperature &amp; Humidity Sensor.  <a href="#a33a8912b5013bd0aa407e93e0b64ad45">More...</a><br /></td></tr>
+<tr class="separator:a33a8912b5013bd0aa407e93e0b64ad45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bf42139b7ef208d5196ef36b5232c4"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_h_sensor.html#a54bf42139b7ef208d5196ef36b5232c4">end</a> (void)</td></tr>
+<tr class="memdesc:a54bf42139b7ef208d5196ef36b5232c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close Temperature &amp; Humidity Sensor.  <a href="#a54bf42139b7ef208d5196ef36b5232c4">More...</a><br /></td></tr>
+<tr class="separator:a54bf42139b7ef208d5196ef36b5232c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fee399ac20996db7ef9603767e9d638"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_h_sensor.html#a6fee399ac20996db7ef9603767e9d638">sync</a> (void)</td></tr>
 <tr class="memdesc:a6fee399ac20996db7ef9603767e9d638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read temperature and humidity from device then push them to server.  <a href="#a6fee399ac20996db7ef9603767e9d638">More...</a><br /></td></tr>
 <tr class="separator:a6fee399ac20996db7ef9603767e9d638"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,10 +111,64 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_t_h_sensor.html" title="THSensor, subclass of IoTgo, provides simple methods to read temperature and humidity from devices...">THSensor</a>, subclass of <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a>, provides simple methods to read temperature and humidity from devices. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#_a0">temp_hum_sensor.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#_a1">temp_hum_sensor.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8h_source.html#l00033">33</a> of file <a class="el" href="_t_h_sensor_8h_source.html">THSensor.h</a>.</p>
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8h_source.html#l00026">26</a> of file <a class="el" href="_dev___t_h_sensor_8h_source.html">Dev_THSensor.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a33a8912b5013bd0aa407e93e0b64ad45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t THSensor::begin </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize Temperature &amp; Humidity Sensor. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
+    <tr><td class="paramname">ERR_INIT_DEVICE_FAILED</td><td>- if initialization failed! </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00036">36</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a54bf42139b7ef208d5196ef36b5232c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t THSensor::end </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Close Temperature &amp; Humidity Sensor. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
+    <tr><td class="paramname">ERR_CLOSE_DEVICE_FAILED</td><td>- if device cannot be closed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00047">47</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="afd0167fe2d60ee38d87cb6e1e60c2244"></a>
 <div class="memitem">
 <div class="memproto">
@@ -151,14 +211,13 @@ Public Member Functions</h2></td></tr>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if all parameters is NULL. </td></tr>
-    <tr><td class="paramname">ERR_NO_DEVICES_AVAILABLE</td><td>- if no devices available. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if any parameter is NULL. </td></tr>
+    <tr><td class="paramname">ERR_READ_DEVICE_FAILED</td><td>- if device cannot be read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#a5">temp_hum_sensor.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8cpp_source.html#l00196">196</a> of file <a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a>.</p>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00199">199</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -187,13 +246,12 @@ Public Member Functions</h2></td></tr>
   <table class="retval">
     <tr><td class="paramname">0</td><td>- success </td></tr>
     <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if hum is NULL. </td></tr>
-    <tr><td class="paramname">ERR_NO_DEVICES_AVAILABLE</td><td>- if no devices available. </td></tr>
+    <tr><td class="paramname">ERR_READ_DEVICE_FAILED</td><td>- if device cannot be read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#a8">temp_hum_sensor.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8cpp_source.html#l00167">167</a> of file <a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a>.</p>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00179">179</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,15 +278,14 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>- success </td></tr>
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
     <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if temp_c is NULL. </td></tr>
-    <tr><td class="paramname">ERR_NO_DEVICES_AVAILABLE</td><td>- if no devices available. </td></tr>
+    <tr><td class="paramname">ERR_READ_DEVICE_FAILED</td><td>- if device cannot be read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#a6">temp_hum_sensor.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8cpp_source.html#l00111">111</a> of file <a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a>.</p>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00143">143</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -255,15 +312,14 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>- success </td></tr>
-    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if temp_f is NULL. </td></tr>
-    <tr><td class="paramname">ERR_NO_DEVICES_AVAILABLE</td><td>- if no devices available. </td></tr>
+    <tr><td class="paramname">0</td><td>- success. </td></tr>
+    <tr><td class="paramname">ERR_INVALID_PARAMETER</td><td>- if temp_c is NULL. </td></tr>
+    <tr><td class="paramname">ERR_READ_DEVICE_FAILED</td><td>- if device cannot be read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#a7">temp_hum_sensor.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8cpp_source.html#l00139">139</a> of file <a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a>.</p>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00161">161</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,20 +347,19 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="temp_hum_sensor_8ino-example.html#a4">temp_hum_sensor.ino</a>.</dd>
-</dl>
-<p>Definition at line <a class="el" href="_t_h_sensor_8cpp_source.html#l00033">33</a> of file <a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a>.</p>
+
+<p>Definition at line <a class="el" href="_dev___t_h_sensor_8cpp_source.html#l00060">60</a> of file <a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_t_h_sensor_8h_source.html">THSensor.h</a></li>
-<li><a class="el" href="_t_h_sensor_8cpp_source.html">THSensor.cpp</a></li>
+<li><a class="el" href="_dev___t_h_sensor_8h_source.html">Dev_THSensor.h</a></li>
+<li><a class="el" href="_dev___t_h_sensor_8cpp_source.html">Dev_THSensor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 18 2014 17:44:14 for API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 18:12:23 for API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

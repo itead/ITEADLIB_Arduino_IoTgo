@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include <Light.h>
+#include <Dev_Light.h>
 
 #define LIGHT_ID            "0200000001"
 #define LIGHT_CHECK_CODE    ""

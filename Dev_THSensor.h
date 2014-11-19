@@ -1,5 +1,5 @@
 /**
- * @file THSensor.h
+ * @file Dev_THSensor.h
  *
  * THSensor API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,11 +13,11 @@
  * the License, or (at your option) any later version.
  */
  
-#ifndef __THSENSOR_H__
-#define __THSENSOR_H__
+#ifndef __DEV_THSENSOR_H__
+#define __DEV_THSENSOR_H__
 
 #include "IoTgo.h"
-#include "THSensorInterface.h"
+#include "Dev_THSensorInterface.h"
 
 /**
  * THSensor, subclass of IoTgo, provides simple methods to read temperature and 
@@ -39,4 +39,4 @@ private: /* private data */
     THSensorInterface *sensor;
 };
 
-#endif /* #ifndef __THSENSOR_H__ */
+#endif /* #ifndef __DEV_THSENSOR_H__ */

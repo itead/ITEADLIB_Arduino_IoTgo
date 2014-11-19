@@ -16,6 +16,6 @@
 #ifndef __IOTGO_DEBUG_H__
 #define __IOTGO_DEBUG_H__
 
-//#define DEBUG
+#define DEBUG
 
 #endif /* #ifndef __IOTGO_DEBUG_H__ */

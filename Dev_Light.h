@@ -1,5 +1,5 @@
 /**
- * @file Light.h
+ * @file Dev_Light.h
  *
  * Light API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,8 +13,8 @@
  * the License, or (at your option) any later version.
  */
  
-#ifndef __LIGHT_H__
-#define __LIGHT_H__
+#ifndef __DEV_LIGHT_H__
+#define __DEV_LIGHT_H__
 
 #include "IoTgo.h"
 
@@ -49,4 +49,4 @@ private:
     uint16_t light_pin;
 };
 
-#endif /* #ifndef __LIGHT_H__ */
+#endif /* #ifndef __DEV_LIGHT_H__ */

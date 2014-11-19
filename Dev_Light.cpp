@@ -1,5 +1,5 @@
 /**
- * @file Light.cpp
+ * @file Dev_Light.cpp
  *
  * Light API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include "Light.h"
+#include "Dev_Light.h"
 
 const char *Light::STATE[]        = {"light", NULL};
 const char *Light::VALUE_ON[]     = {"on",    NULL};

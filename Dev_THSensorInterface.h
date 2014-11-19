@@ -1,5 +1,5 @@
 /**
- * @file THSensorInterface.h
+ * @file Dev_THSensorInterface.h
  *
  * The interface needed by THSensor for getting data. 
  *
@@ -18,7 +18,7 @@
 
 #include <Arduino.h>
 
-#include "IoTgoError.h"
+#include "IoTgo_error.h"
 
 /**
  * THSensorInterface, abstract class, declares the unified interface to 

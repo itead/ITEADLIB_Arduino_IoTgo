@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include <Switch.h>
+#include <Dev_Switch.h>
 
 
 #define SWITCH_ID            "0100000003"

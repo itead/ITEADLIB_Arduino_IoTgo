@@ -1,4 +1,18 @@
-#include "uartWIFI.h"
+/**
+ * @file Eth_ESP8266.cpp
+ *
+ * ESP8266 library 
+ *
+ * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
+ * @date    2014/11/17
+ * @copyright 
+ * Copyright (C) 2013-2014 ITEAD Intelligent Systems Co., Ltd. \n
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ */
+#include "Eth_ESP8266.h"
 
 #ifdef UNO
 SoftwareSerial mySerial(_DBG_RXPIN_,_DBG_TXPIN_);

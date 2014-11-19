@@ -1,5 +1,5 @@
 /**
- * @file SHT1x.cpp
+ * @file HW_SHT1x.cpp
  *
  * SHT1x Library
  *
@@ -17,7 +17,7 @@
 #include <WProgram.h>
 #endif
 
-#include "SHT1x.h"
+#include "HW_SHT1x.h"
 
 /**
  * Constonstor of SHT1x needs two pins for I2C communication. 

@@ -1,16 +1,19 @@
-/*
-ESP8266 library
-
-Created by Stan Lee(Lizq@iteadstudio.com)
-2014/10/8
-
-Modified version
-V1.0	released the first version of ESP8266 library
-
-*/
-
-#ifndef __UARTWIFI_H__
-#define __UARTWIFI_H__
+/**
+ * @file Eth_ESP8266.h
+ *
+ * ESP8266 library 
+ *
+ * @author  Wu Pengfei (email:<pengfei.wu@itead.cc>)
+ * @date    2014/11/17
+ * @copyright 
+ * Copyright (C) 2013-2014 ITEAD Intelligent Systems Co., Ltd. \n
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ */
+#ifndef __ETH_ESP8266_H__
+#define __ETH_ESP8266_H__
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>
@@ -101,4 +104,4 @@ public:
 
 };
 
-#endif
+#endif /* #ifndef __ETH_ESP8266_H__ */

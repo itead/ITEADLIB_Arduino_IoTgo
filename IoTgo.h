@@ -19,7 +19,7 @@
 #include <string.h>
 #include <SoftwareSerial.h>
 
-#include "uartWIFI.h"
+#include "Eth_ESP8266.h"
 #include "IoTgo_error.h"
 
 enum IoTgoConstant

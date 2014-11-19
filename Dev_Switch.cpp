@@ -1,5 +1,5 @@
 /**
- * @file Switch.cpp
+ * @file Dev_Switch.cpp
  *
  * Switch API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include "Switch.h"
+#include "Dev_Switch.h"
 
 const char *Switch::STATE[]        = {"switch", NULL};
 const char *Switch::VALUE_ON[]     = {"on",    NULL};

@@ -14,7 +14,6 @@
  */
 
 #include <IoTgo.h>
-#include <SHT1x.h>
 
 #define IOTGO_ID            "0000000001"
 #define IOTGO_CHECK_CODE    ""

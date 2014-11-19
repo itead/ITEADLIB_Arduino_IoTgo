@@ -13,8 +13,8 @@
  * the License, or (at your option) any later version.
  */
 
-#include <THSensor.h>
-#include <SHT1x.h>
+#include <Dev_THSensor.h>
+#include <HW_SHT1x.h>
 
 
 #define THSENSOR_ID            "0300000001"

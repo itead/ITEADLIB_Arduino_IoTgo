@@ -1,5 +1,5 @@
 /**
- * @file SHT1x.h
+ * @file HW_SHT1x.h
  *
  * SHT1x Library
  *
@@ -11,8 +11,8 @@
  * Manages communication with SHT1x series (SHT10, SHT11, SHT15)
  * temperature / humidity sensors from Sensirion (www.sensirion.com).
  */
-#ifndef SHT1x_h
-#define SHT1x_h
+#ifndef __SHT1X_H__
+#define __SHT1X_H__
 
 #if (ARDUINO >= 100)
 #include <Arduino.h>
@@ -20,7 +20,7 @@
 #include <WProgram.h>
 #endif
 
-#include "THSensorInterface.h"
+#include "Dev_THSensorInterface.h"
 
 
 /**
@@ -72,4 +72,4 @@ private:
     void skipCrcSHT(int _dataPin, int _clockPin);
 };
 
-#endif
+#endif /* #ifndef __SHT1X_H__ */

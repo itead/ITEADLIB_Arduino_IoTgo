@@ -1,5 +1,5 @@
 /**
- * @file THSensor.cpp
+ * @file Dev_THSensor.cpp
  *
  * THSensor API of IoTgo (iotgo.iteadstudio.com)
  *
@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include "THSensor.h"
+#include "Dev_THSensor.h"
 
 THSensor::THSensor(THSensorInterface *sensor)
 {
