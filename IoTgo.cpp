@@ -15,17 +15,15 @@
 
 #include "IoTgo.h"
 
+/**
+ * Constructor. 
+ */
 IoTgo::IoTgo(void)
 {
     memset(buffer, '\0', sizeof(buffer));
     memset(apikey, '\0', sizeof(apikey));
     memset(device_id, '\0', sizeof(device_id));
     strcpy(server, "172.16.7.6");
-}
-
-IoTgo::~IoTgo(void)
-{
-    /* Do nothing for now! */
 }
 
 /**
@@ -179,19 +177,24 @@ request_reconnect:
 }
 
 /**
- * Get the apikey of device specified by device_id and check_code. 
+ * Get the apikey of user who own the device specified by device_id. 
  * 
- * You must call this before update and query. 
+ * If the device_type = DEVICE_DIY, apikey_like should be the apikey of 
+ * the user who owns the device.
+ * If the device_type = DEVICE_PRODUCT, apikey_like should be found around
+ * your finished device purchased from ITEAD. 
+ * 
+ * @warning You must call this before update and query. 
  *
  * @param device_id - device identifier
- * @param apikey - just like a password for accessing the respective device
+ * @param apikey_like - just like a password for accessing the respective device
  * @param device_type - indicate the type of your device from DEVICE_DIY or DEVICE_PRODUCT. 
- *  For developers, device_flag=DEVICE_DIY(default). For users, device_flag=DEVICE_PRODUCT.
+ *  For developers, device_type=DEVICE_DIY(default). For users, device_type=DEVICE_PRODUCT.
  *
  * @retval apikey - a pointer of char array terminated with '\0'.
  * @retval NULL - if falied!
  */
-const char *IoTgo::init(const char *device_id, const char *apikey, 
+const char *IoTgo::init(const char *device_id, const char *apikey_like, 
     IoTgoDeviceType device_type)
 {
     char http_body[100];
@@ -206,7 +209,7 @@ const char *IoTgo::init(const char *device_id, const char *apikey,
         strcpy(http_body, "{");
         strcat(http_body, "\"apikey\":");
         strcat(http_body, "\"");
-        strcat(http_body, apikey);
+        strcat(http_body, apikey_like);
         strcat(http_body, "\"");
         strcat(http_body, ",");
         strcat(http_body, "\"deviceid\":");
@@ -248,7 +251,7 @@ const char *IoTgo::init(const char *device_id, const char *apikey,
     }
     else if (device_type == DEVICE_DIY)
     {
-        strncpy(this->apikey, apikey, APIKEY_LEN);
+        strncpy(this->apikey, apikey_like, APIKEY_LEN);
         return this->apikey;
     }
     else

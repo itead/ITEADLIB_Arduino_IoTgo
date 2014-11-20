@@ -20,6 +20,11 @@
 #include "Dev_THSensorInterface.h"
 
 /**
+ * @addtogroup THSensor
+ * @{
+ */
+
+/**
  * THSensor, subclass of IoTgo, provides simple methods to read temperature and 
  * humidity from devices. 
  */
@@ -38,5 +43,7 @@ public: /* public methods */
 private: /* private data */
     THSensorInterface *sensor;
 };
+
+/** @} */
 
 #endif /* #ifndef __DEV_THSENSOR_H__ */

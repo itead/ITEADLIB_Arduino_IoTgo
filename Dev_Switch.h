@@ -18,10 +18,18 @@
 
 #include "IoTgo.h"
 
+/**
+ * @addtogroup Switch
+ * @{
+ */
+
+/**
+ * Indicates the state of switch device. 
+ */
 enum SwitchState
 {
-    SWITCH_STATE_OFF   = 0,
-    SWITCH_STATE_ON    = 1,
+    SWITCH_STATE_OFF   = 0, /**< switch off */
+    SWITCH_STATE_ON    = 1, /**< switch on */
 };
 
 
@@ -50,5 +58,7 @@ private: /* private static data members */
 private:
     uint16_t sw_pin;
 };
+
+/** @} */
 
 #endif /* #ifndef __DEV_SWITCH_H__ */

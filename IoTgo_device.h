@@ -1,7 +1,7 @@
 /**
  * @file IoTgo_device.h
  *
- * Include all devices supported by IoTgo Library, such as Switch,
+ * Include all classes of devices supported by IoTgo Library, such as Switch,
  * Light and Temperature & Humidity Sensor etc. User can include this
  * header file in *.ino or *.cpp source for using IoTgo Library. 
  * 

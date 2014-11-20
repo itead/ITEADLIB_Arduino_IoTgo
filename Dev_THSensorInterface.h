@@ -21,7 +21,12 @@
 #include "IoTgo_error.h"
 
 /**
- * THSensorInterface, abstract class, declares the unified interface to 
+ * @addtogroup THSensor
+ * @{
+ */
+
+/**
+ * Abstract class, declares the unified interface to 
  * read temperature and humidity from Temperature & Humidity Sensor. 
  */
 class THSensorInterface
@@ -58,5 +63,7 @@ public: /* public methods */
      */
     virtual int32_t end(void) = 0;
 };
+
+/** @} */
 
 #endif /* #ifndef __THSENSORINTERFACE_H__ */

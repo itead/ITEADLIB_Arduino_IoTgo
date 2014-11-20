@@ -16,22 +16,31 @@
 #ifndef __IOTGOERROR_H__
 #define __IOTGOERROR_H__
 
+/**
+ * @addtogroup Error
+ * @{
+ */
+
+/**
+ * IoTgo errors. 
+ */
 enum IoTgoError
 {
     /* General */
-    ERR_INVALID_PARAMETER       = -1,
+    ERR_INVALID_PARAMETER       = -1,   /**< Invalid parameters */
 
     /* Net */
-    ERR_NO_RESPONSE             = -100,
-    ERR_NO_EXPECT               = -101,
+    ERR_NO_RESPONSE             = -100, /**< No response from server */
+    ERR_NO_EXPECT               = -101, /**< No contents expected in response */
     
     /* Device */
-    ERR_NO_DEVICES_AVAILABLE    = -200,
-    ERR_INIT_DEVICE_FAILED      = -201,
-    ERR_READ_DEVICE_FAILED      = -202,
-    ERR_WRITE_DEVICE_FAILED     = -203,
-    ERR_CLOSE_DEVICE_FAILED     = -204,
+    ERR_NO_DEVICES_AVAILABLE    = -200, /**< No devices available */
+    ERR_INIT_DEVICE_FAILED      = -201, /**< Initialize device failed */
+    ERR_READ_DEVICE_FAILED      = -202, /**< Read device failed */
+    ERR_WRITE_DEVICE_FAILED     = -203, /**< Write device failed */
+    ERR_CLOSE_DEVICE_FAILED     = -204, /**< Close device failed */
 };
 
+/** @} */
 
 #endif /* #ifndef __IOTGOERROR_H__ */

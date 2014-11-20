@@ -19,6 +19,12 @@ const char *Light::STATE[]        = {"light", NULL};
 const char *Light::VALUE_ON[]     = {"on",    NULL};
 const char *Light::VALUE_OFF[]    = {"off",   NULL};
 
+/**
+ * Constructor of Light. 
+ * 
+ * @param light_pin - the gpio pin number to control the light. 
+ *  HIGH level means on and LOW to off. 
+ */
 Light::Light(uint16_t light_pin)
 {
     this->light_pin = light_pin;
@@ -58,12 +64,32 @@ int32_t Light::sync(void)
 /**
  * Read state from server. 
  *
- * @param state - the pointer to store the state. 
+ * @param state - the pointer to store the state which is one of @ref LIGHT_STATE_OFF
+ *  and @ref LIGHT_STATE_ON. 
  * 
  * @retval 0 - success. 
  * @retval ERR_INVALID_PARAMETER - state is invalid. 
  * @retval ERR_NO_RESPONSE - no response package from server. 
  * @retval ERR_NO_EXPECT - no state information expected in response package from server. 
+ *
+ * @par Usage: a snippet following
+ * @code
+ *      ret = obj.getState(&state);
+ *      if (state == LIGHT_STATE_ON)
+ *      {
+ *          digitalWrite(light_pin, HIGH);
+ *      }
+ *      else if (state == LIGHT_STATE_OFF)
+ *      {
+ *          digitalWrite(light_pin, LOW);
+ *      }
+ *      else
+ *      {
+ *          // do something else
+ *      }
+ * @endcode
+ *
+ * @see LightState Light::sync
  */
 int32_t Light::getState(int32_t *state)
 {

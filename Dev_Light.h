@@ -18,10 +18,18 @@
 
 #include "IoTgo.h"
 
+/**
+ * @addtogroup Light 
+ * @{ 
+ */
+
+/**
+ * Indicate the state of light device. 
+ */
 enum LightState
 {
-    LIGHT_STATE_OFF   = 0,
-    LIGHT_STATE_ON    = 1,
+    LIGHT_STATE_OFF   = 0, /**< light off */
+    LIGHT_STATE_ON    = 1, /**< light on */
 };
 
 /**
@@ -48,5 +56,7 @@ private: /* private static data members */
 private:
     uint16_t light_pin;
 };
+
+/** @} */
 
 #endif /* #ifndef __DEV_LIGHT_H__ */

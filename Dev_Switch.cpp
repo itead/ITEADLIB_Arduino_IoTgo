@@ -19,6 +19,12 @@ const char *Switch::STATE[]        = {"switch", NULL};
 const char *Switch::VALUE_ON[]     = {"on",    NULL};
 const char *Switch::VALUE_OFF[]    = {"off",   NULL};
 
+/**
+ * Constructor. 
+ * 
+ * @param sw_pin - the gpio pin to control the Switch device, HIGH for
+ *  on and LOW for off. 
+ */
 Switch::Switch(uint16_t sw_pin)
 {
     this->sw_pin = sw_pin;
@@ -58,7 +64,8 @@ int32_t Switch::sync(void)
 /**
  * Read state from server. 
  *
- * @param state - the pointer to store the state. 
+ * @param state - the pointer to store the state which is one of 
+ *  @ref SWITCH_STATE_OFF and @ref SWITCH_STATE_ON. 
  * 
  * @retval 0 - success. 
  * @retval ERR_INVALID_PARAMETER - state is invalid. 

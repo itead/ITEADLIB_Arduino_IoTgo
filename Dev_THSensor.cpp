@@ -15,6 +15,12 @@
 
 #include "Dev_THSensor.h"
 
+/**
+ * Constructor. 
+ * 
+ * @param sensor - the pointer to an object of classes which implement
+ *  THSensorInterface.  
+ */
 THSensor::THSensor(THSensorInterface *sensor)
 {
     if (sensor)

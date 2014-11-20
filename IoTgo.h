@@ -22,17 +22,33 @@
 #include "Eth_ESP8266.h"
 #include "IoTgo_error.h"
 
+/**
+ * @addtogroup IoTgo
+ * @{
+ */
+
+/**
+ * Constants of IoTgo platform. 
+ *
+ * Maybe these are useless for users. 
+ */
 enum IoTgoConstant
 {
-    IOT_BUFFER_SIZE     = 1024,
-    APIKEY_LEN          = 36,
-    DEVICE_ID_LEN       = 10,
+    IOT_BUFFER_SIZE     = 1024, /**< the length of http request */
+    APIKEY_LEN          = 36,   /**< the length of apikey */
+    DEVICE_ID_LEN       = 10,   /**< the length of device id */
 };
 
+/**
+ * Indicates the type of device. 
+ *
+ * Used in method: @ref IoTgo::init. If the deviceid is created by developers on website
+ * of IoTgo platform, the type is DEVICE_DIY. Else DEVICE_PRODUCT. 
+ */
 enum IoTgoDeviceType
 {
-    DEVICE_DIY      = 0,
-    DEVICE_PRODUCT  = 1,
+    DEVICE_DIY      = 0,    /**< DIY deviceid */
+    DEVICE_PRODUCT  = 1,    /**< Product deviceid */
 };
 
 
@@ -43,7 +59,6 @@ class IoTgo
 {
 public: /* public methods */
     IoTgo(void);
-    ~IoTgo(void);
     void setServer(const char *server);
     bool connectWiFi(const char *ssid, const char *password);
     
@@ -64,5 +79,7 @@ private: /* private datas */
     char device_id[DEVICE_ID_LEN + 1];
     char server[20];
 };
+
+/** @} */
 
 #endif /* #ifndef __ITEADIOT_H__ */
