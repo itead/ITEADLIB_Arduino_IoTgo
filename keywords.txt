@@ -6,11 +6,11 @@
 # Class
 #
 IoTgo	KEYWORD1
-Switch  KEYWORD1
+Switch	KEYWORD1
 Light	KEYWORD1
-THSensor    KEYWORD1
-THSensorInterface    KEYWORD1
-SHT1x   KEYWORD1
+THSensor	KEYWORD1
+THSensorInterface	KEYWORD1
+SHT1x	KEYWORD1
 
 
 #
@@ -34,28 +34,28 @@ off	KEYWORD2
 #
 # Methods of Light
 #
-sync    KEYWORD2
-getState    KEYWORD2
+sync	KEYWORD2
+getState	KEYWORD2
 on	KEYWORD2
 off	KEYWORD2
 
 #
 # Methods of HTSensor
 #
-begin   KEYWORD2
-end KEYWORD2
+begin	KEYWORD2
+end	KEYWORD2
 sync	KEYWORD2
-getTemperatureC KEYWORD2
-getTemperatureF KEYWORD2
-getHumidity KEYWORD2
-getAll KEYWORD2
+getTemperatureC	KEYWORD2
+getTemperatureF	KEYWORD2
+getHumidity	KEYWORD2
+getAll	KEYWORD2
 
 #
 # Methods of HTSensorInterface
 #
-begin   KEYWORD2
-end KEYWORD2
-getData KEYWORD2
+begin	KEYWORD2
+end	KEYWORD2
+getData	KEYWORD2
 
 
 ################################################################################
