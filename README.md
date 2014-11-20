@@ -8,6 +8,11 @@ Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-in
 
 Offline API documentation can be found under directory `doc/`.
 
+## How to get started
+
+On the homepage of API documentation, the tabs of Modules, Classes and Examples 
+will be useful for Arduino developers. 
+
 ## Levels
 
 IoTgo Arduino Library has levels following:
