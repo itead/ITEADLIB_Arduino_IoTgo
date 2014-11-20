@@ -1,32 +1,37 @@
 @mainpage
 
-# IoTgo Arduino Library Based on ESP8266
+# IoTgo Arduino Library
 
-## Source Code
+## Documentation
 
-Read the fucking source code of `IoTgo.h` and `IoTgo.cpp`
+Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-ino/>.
 
-## API Documentation
+Offline API documentation can be found under directory `doc/`.
 
-You can find API documentation under directory `doc/`.
+## Levels
 
-# uartWIFI Library (for ESP8266)
+IoTgo Arduino Library has levels following:
 
-## Source Code
+  - IoTgo Device Level: Switch/Light/THSensor [source: Dev_*]
+  - Http Proxy Level: IoTgo [source: IoTgo*]
+  - Ethernet Level: ESP2560(WIFI) [source: Eth_*]
+  - Hardware Level: WBoard/UNO/MEGA
 
-Read the fucking source code of uartWIFI.h and uartWIFI.cpp
+# Configuration and Connection
 
-## Select Your Board
+## Configure Your Board
 
-When you use with UNO board, uncomment the follow line in `uartWIFI.h`.
+When you use with UNO board, uncomment the follow line in `Eth_ESP8266.h`.
 
 	#define UNO
 
-When you use with MEGA board, uncomment the follow line in `uartWIFI.h`.
+When you use with MEGA board or WBoard, uncomment the follow line in `Eth_ESP8266.h`.
 
 	#define MEGA
 
 ## Connection
+
+### UNO
 
 When you use it with UNO board, the connection should be like these:
 
@@ -45,6 +50,8 @@ When you use it with UNO board, the connection should be like these:
 
 	FTDI_TX->D2
 
+### MEGA
+
 When you use it with MEGA board, the connection should be like these:
 
 	ESP8266_TX->RX1(D19)
@@ -61,30 +68,31 @@ When you want to output the debug information, please use DebugSerial. For examp
 
 	DebugSerial.println("hello");
 
-## Attention
+### WBoard
 
-**Note1**:	The size of message from ESP8266 is too big for arduino sometimes, so the library can't receive the whole buffer because  
-the size of the hardware serial buffer which is defined in HardwareSerial.h is too small.
+Need no connections.
 
-Open the file from `\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h` .
+# Attention
+
+**Note1**:	The size of message from ESP8266 is too big for arduino sometimes, 
+so the library can't receive the whole buffer because the size of the hardware 
+serial buffer which is defined in HardwareSerial.h is too small.
+
+Open the file from `\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h`.
 See the follow line in the HardwareSerial.h file.
 
 	#define SERIAL_BUFFER_SIZE 64
 
-The default size of the buffer is 64. Change it into a bigger number, like 256 or more.
+The default size of the buffer is 64. Change it into a bigger number, like 256 
+or more.
 
-The SRAM size of mega is bigger than UNO's, so it is better to use MEGA board to communicate with ESP8266.
+The SRAM size of mega is bigger than UNO's, so it is better to use MEGA board to
+communicate with ESP8266.
 
+# Author
 
-**BUG**: When you use this library and receive the http package, it might miss some char_tacters because the library can't process so much data in the same time.
-
-** Created by Stan Lee(Lizq@iteadstudio.com) **
-
-2014/10/8
-
-**Modified version**
-
-V1.0	released the first version of ESP8266 library
+- Author: Wu Pengfei(pengfei.wu@itead.cc)
+- Date: 11/20/2014 6:27:43 PM 
 
 -------------------------------------------------------------------------------
 
