@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include <Dev_Light.h>
+#include <IoTgo_device.h>
 
 #define LIGHT_ID            "0200000001"
 #define LIGHT_CHECK_CODE    ""

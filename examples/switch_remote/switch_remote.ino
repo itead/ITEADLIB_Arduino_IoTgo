@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include <Dev_Switch.h>
+#include <IoTgo_device.h>
 
 #define SWITCH_ID            "0100000003"
 #define SWITCH_CHECK_CODE    ""

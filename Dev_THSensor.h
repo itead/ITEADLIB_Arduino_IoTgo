@@ -12,7 +12,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License, or (at your option) any later version.
  */
- 
+
 #ifndef __DEV_THSENSOR_H__
 #define __DEV_THSENSOR_H__
 

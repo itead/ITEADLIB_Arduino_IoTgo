@@ -12,10 +12,7 @@
  * published by the Free Software Foundation; either version 2 of
  * the License, or (at your option) any later version.
  */
-
-#include <Dev_THSensor.h>
-#include <HW_SHT1x.h>
-
+#include <IoTgo_device.h>
 
 #define THSENSOR_ID            "0300000001"
 #define THSENSOR_CHECK_CODE    ""

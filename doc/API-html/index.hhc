@@ -189,6 +189,7 @@
         </UL>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_debug.h"><param name="Local" value="_io_tgo__debug_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_device.h"><param name="Local" value="_io_tgo__device_8h.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_error.h"><param name="Local" value="_io_tgo__error_8h.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
         <UL>

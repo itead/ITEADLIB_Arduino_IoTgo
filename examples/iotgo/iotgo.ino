@@ -13,7 +13,7 @@
  * the License, or (at your option) any later version.
  */
 
-#include <IoTgo.h>
+#include <IoTgo_device.h>
 
 #define IOTGO_ID            "0000000001"
 #define IOTGO_CHECK_CODE    ""
