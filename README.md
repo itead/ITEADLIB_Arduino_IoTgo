@@ -2,6 +2,15 @@
 
 # IoTgo Arduino Library
 
+## Source 
+
+Source can be download at <https://github.com/itead/IoTgo>.
+
+You can clone it by:
+
+    git clone https://github.com/itead/IoTgo
+
+
 ## Documentation
 
 Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-ino/>.
