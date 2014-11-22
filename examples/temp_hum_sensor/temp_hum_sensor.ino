@@ -120,6 +120,7 @@ void loop()
         Serial.print("ERROR: getAll() = ");
         Serial.println(ret);
     }
+    else
     {
         Serial.print("TempC = ");
         Serial.print(temp_c, 2);
@@ -135,6 +136,7 @@ void loop()
         Serial.print("ERROR: getTemperatureC() = ");
         Serial.println(ret);
     }
+    else
     {
         Serial.print("TempC = ");
         Serial.println(temp_c, 2);
@@ -146,6 +148,7 @@ void loop()
         Serial.print("ERROR: getTemperatureF() = ");
         Serial.println(ret);
     }
+    else
     {
         Serial.print("TempF = ");
         Serial.println(temp_f, 2);
@@ -157,6 +160,7 @@ void loop()
         Serial.print("ERROR: getHumidity() = ");
         Serial.println(ret);
     }
+    else
     {
         Serial.print("Hum = ");
         Serial.println(hum, 2);
