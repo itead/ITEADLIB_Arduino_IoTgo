@@ -6,7 +6,7 @@
 
 Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-ino/>.
 
-Offline API documentation can be found under directory `doc/`.
+Offline API documentation can be found under directory [doc](https://github.com/itead/IoTgo/tree/master/doc).
 
 More about IoTgo open source cloud platform at <https://github.com/itead/IoTgo-Platform>
 
