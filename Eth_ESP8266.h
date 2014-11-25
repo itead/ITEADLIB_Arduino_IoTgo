@@ -20,27 +20,18 @@
 
 #include "IoTgo_debug.h"
 
-//#define UNO     //uncomment this line when you use it with UNO board
 #define MEGA    //uncomment this line when you use it with MEGA board
 
-
+#ifdef MEGA
+#define _cell	Serial1
+#define DebugSerial	Serial
+#endif  
 
 #define _DBG_RXPIN_ 2
 #define _DBG_TXPIN_ 3
 
 #define ESP8266_BAUD_RATE   (9600)
 #define DEBUG_BAUD_RATE     (9600)
-
-#ifdef UNO
-#define _cell	Serial
-extern SoftwareSerial mySerial;
-#define DebugSerial	mySerial
-#endif
-
-#ifdef MEGA
-#define _cell	Serial1
-#define DebugSerial	Serial
-#endif  
 
 
 //The way of encrypstion

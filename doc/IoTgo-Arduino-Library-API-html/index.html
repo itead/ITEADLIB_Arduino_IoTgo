@@ -60,29 +60,13 @@
 <li><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Device Level: Switch/Light/THSensor [source: Dev_*]</li>
 <li>Http Proxy Level: <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> [source: IoTgo*]</li>
 <li>Ethernet Level: ESP2560(WIFI) [source: Eth_*]</li>
-<li>Hardware Level: WBoard/UNO/MEGA</li>
+<li>Hardware Level: WBoard/MEGA</li>
 </ul>
 <h1>Configuration and Connection</h1>
 <h2>Configure Your Board</h2>
-<p>When you use with UNO board, uncomment the follow line in <code><a class="el" href="_eth___e_s_p8266_8h.html" title="ESP8266 library. ">Eth_ESP8266.h</a></code>. </p><pre class="fragment">#define UNO
-</pre><p>When you use with MEGA board or WBoard, uncomment the follow line in <code><a class="el" href="_eth___e_s_p8266_8h.html" title="ESP8266 library. ">Eth_ESP8266.h</a></code>. </p><pre class="fragment">#define MEGA
+<p>When you use with MEGA board or WBoard, uncomment the follow line in <code><a class="el" href="_eth___e_s_p8266_8h.html" title="ESP8266 library. ">Eth_ESP8266.h</a></code>. </p><pre class="fragment">#define MEGA
 </pre><h2>Connection</h2>
-<h3>UNO</h3>
-<p>When you use it with UNO board, the connection should be like these: </p><pre class="fragment">ESP8266_TX-&gt;D0
-
-ESP8266_RX-&gt;D1
-
-ESP8266_CHPD-&gt;3.3V
-
-ESP8266_VCC-&gt;3.3V
-
-ESP8266_GND-&gt;GND
-
-//The baud rate of software serial can't be higher that 19200, so we use software serial as a debug port
-FTDI_RX-&gt;D3         
-
-FTDI_TX-&gt;D2
-</pre><h3>MEGA</h3>
+<h3>MEGA</h3>
 <p>When you use it with MEGA board, the connection should be like these: </p><pre class="fragment">ESP8266_TX-&gt;RX1(D19)
 
 ESP8266_RX-&gt;TX1(D18)
@@ -99,7 +83,6 @@ ESP8266_GND-&gt;GND
 <p><b>Note1</b>: The size of message from ESP8266 is too big for arduino sometimes, so the library can't receive the whole buffer because the size of the hardware serial buffer which is defined in HardwareSerial.h is too small.</p>
 <p>Open the file from <code>\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h</code>. See the follow line in the HardwareSerial.h file. </p><pre class="fragment">#define SERIAL_BUFFER_SIZE 64
 </pre><p>The default size of the buffer is 64. Change it into a bigger number, like 256 or more.</p>
-<p>The SRAM size of mega is bigger than UNO's, so it is better to use MEGA board to communicate with ESP8266.</p>
 <h1>Author</h1>
 <ul>
 <li>Author: Wu Pengfei(<a href="#" onclick="location.href='mai'+'lto:'+'pen'+'gf'+'ei.'+'wu'+'@it'+'ea'+'d.c'+'c'; return false;">pengf<span style="display: none;">.nosp@m.</span>ei.w<span style="display: none;">.nosp@m.</span>u@ite<span style="display: none;">.nosp@m.</span>ad.c<span style="display: none;">.nosp@m.</span>c</a>)</li>
@@ -111,7 +94,7 @@ ESP8266_GND-&gt;GND
  </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 22 2014 12:10:36 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 25 2014 09:58:47 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -14,10 +14,6 @@
  */
 #include "Eth_ESP8266.h"
 
-#ifdef UNO
-SoftwareSerial mySerial(_DBG_RXPIN_,_DBG_TXPIN_);
-#endif
-
 #ifdef DEBUG
 #define DBG(message)    DebugSerial.print(message)
 #define DBGW(message)    DebugSerial.write(message)
