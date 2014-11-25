@@ -2,6 +2,14 @@
 
 # IoTgo Arduino Library
 
+## About IoTgo 
+
+IoTgo is an open source IoT platform, like WordPress, ZenCart and all other open source software, you can deploy your own IoTgo cloud platform.
+
+We at ITEAD Studio are committed to provide a complete set of hardware for IoTgo Platform with open source hardware designs and open source firmware.
+
+Learn more about IoTgo here： <https://github.com/itead/IoTgo-Platform>
+
 ## Source 
 
 Source can be download at <https://github.com/itead/IoTgo>.
