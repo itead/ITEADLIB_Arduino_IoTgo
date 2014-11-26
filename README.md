@@ -4,32 +4,33 @@
 
 ## About IoTgo 
 
-IoTgo is an open source IoT platform, like WordPress, ZenCart and all other open source software, you can deploy your own IoTgo cloud platform.
+IoTgo is an open source IoT platform, like WordPress, ZenCart and all other open
+source software, you can deploy your own IoTgo cloud platform.
 
-We at ITEAD Studio are committed to provide a complete set of hardware for IoTgo Platform with open source hardware designs and open source firmware.
+We at ITEAD Studio are committed to provide a complete set of hardware for IoTgo 
+Platform with open source hardware designs and open source firmware.
 
-Learn more about IoTgo here： <https://github.com/itead/IoTgo-Platform>
+Learn more about IoTgo here <https://github.com/itead/IoTgo>
 
 ## Source 
 
-Source can be download at <https://github.com/itead/IoTgo>.
+Source can be download at <https://github.com/itead/ITEADLIB_Arduino_IoTgo>.
 
 You can clone it by:
 
-    git clone https://github.com/itead/IoTgo
+    git clone https://github.com/itead/ITEADLIB_Arduino_IoTgo.git
 
 
 ## Documentation
 
 Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-ino/>.
 
-Offline API documentation can be found under directory [doc](https://github.com/itead/IoTgo/tree/master/doc).
-
-More about IoTgo open source cloud platform at <https://github.com/itead/IoTgo-Platform>
+Offline API documentation can be found under directory 
+[doc](https://github.com/itead/ITEADLIB_Arduino_IoTgo/tree/master/doc).
 
 ## How to get started
 
-On the homepage of API documentation, the tabs of Modules, Classes and Examples 
+On the home page of API documentation, the tabs of Modules, Classes and Examples 
 will be useful for Arduino developers. 
 
 ## Levels
