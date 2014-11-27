@@ -57,89 +57,81 @@
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_io_tgo__debug_8h.html">IoTgo_debug.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define MEGA    //uncomment this line when you use it with MEGA board</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef MEGA</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define _cell   Serial1</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define DebugSerial Serial</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif  </span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define _DBG_RXPIN_ 2</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define _DBG_TXPIN_ 3</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define ESP8266_BAUD_RATE   (9600)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define DEBUG_BAUD_RATE     (9600)</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//The way of encrypstion</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define    OPEN          0</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define    WEP           1</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define    WAP_PSK       2</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define    WAP2_PSK      3</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define    WAP_WAP2_PSK  4</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//Communication mode </span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define    TCP     1</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#define    tcp     1</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#define    UDP     0</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#define    udp     0</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#define    OPEN    1</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#define    CLOSE   0</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//The type of initialized WIFI</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#define    STA     1</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#define    AP      2</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#define    AP_STA  3</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define SERIAL_TX_BUFFER_SIZE 128</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#define SERIAL_RX_BUFFER_SIZE 128</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">class </span>WIFI</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> begin(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">//Initialize port</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> Initialize(byte mode, String ssid, String pwd, byte chl = 1, byte ecn = 2);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">boolean</span> ipConfig(byte type, String addr, int32_t port, <span class="keywordtype">boolean</span> a = 0, byte <span class="keywordtype">id</span> = 0);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">boolean</span> Send(String str);  <span class="comment">//send data in sigle connection mode</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">boolean</span> Send(byte <span class="keywordtype">id</span>, String str);  <span class="comment">//send data int32_t multiple connection mode</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    int32_t ReceiveMessage(<span class="keywordtype">char</span> *buf);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">/*=================WIFI Function Command=================*/</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> Reset(<span class="keywordtype">void</span>);    <span class="comment">//reset the module</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> confMode(byte a);   <span class="comment">//set the working mode of module</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">boolean</span> confJAP(String ssid , String pwd);    <span class="comment">//set the name and password of wifi </span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">boolean</span> confSAP(String ssid , String pwd , byte chl , byte ecn);       <span class="comment">//set the parametter of SSID, password, channel, encryption in AP mode.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    String showMode(<span class="keywordtype">void</span>);   <span class="comment">//inquire the current mode of wifi module</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    String showAP(<span class="keywordtype">void</span>);   <span class="comment">//show the list of wifi hotspot</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    String showJAP(<span class="keywordtype">void</span>);  <span class="comment">//show the name of current wifi access port</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">boolean</span> quitAP(<span class="keywordtype">void</span>);    <span class="comment">//quit the connection of current wifi</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    String showSAP(<span class="keywordtype">void</span>);     <span class="comment">//show the parameter of ssid, password, channel, encryption in AP mode</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">/*================TCP/IP commands================*/</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    String showStatus(<span class="keywordtype">void</span>);    <span class="comment">//inquire the connection status</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    String showMux(<span class="keywordtype">void</span>);       <span class="comment">//show the current connection mode(sigle or multiple)</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">boolean</span> confMux(<span class="keywordtype">boolean</span> a);    <span class="comment">//set the connection mode(sigle:0 or multiple:1)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte type, String addr, int32_t port);   <span class="comment">//create new tcp or udp connection (sigle connection mode)</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte <span class="keywordtype">id</span>, byte type, String addr, int32_t port);   <span class="comment">//create new tcp or udp connection (multiple connection mode)(id:0-4) </span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> closeMux(<span class="keywordtype">void</span>);   <span class="comment">//close tcp or udp (sigle connection mode)</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> closeMux(byte <span class="keywordtype">id</span>); <span class="comment">//close tcp or udp (multiple connection mode)</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    String showIP(<span class="keywordtype">void</span>);    <span class="comment">//show the current ip address</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">boolean</span> confServer(byte mode, int32_t port);  <span class="comment">//set the parameter of server</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    String m_rev;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __ETH_ESP8266_H__ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="_io_tgo__debug_8h_html"><div class="ttname"><a href="_io_tgo__debug_8h.html">IoTgo_debug.h</a></div><div class="ttdoc">Define/Undefine macro DEBUG for debuging project. </div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_io_tgo__config_8h.html">IoTgo_config.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_net___net_interface_8h.html">Net_NetInterface.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* The way of encrypstion */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define    ESP8266_ENC_OPEN          0</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define    ESP8266_ENC_WEP           1</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define    ESP8266_ENC_WAP_PSK       2</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define    ESP8266_ENC_WAP2_PSK      3</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define    ESP8266_ENC_WAP_WAP2_PSK  4</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/* Communication mode */</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define    TCP     1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define    UDP     0</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/* The type of initialized ESP8266 */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define    STA     1</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define    AP      2</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define    AP_STA  3</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_e_s_p8266.html">   47</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_e_s_p8266.html">ESP8266</a>: <span class="keyword">public</span> <a class="code" href="class_net_interface.html">NetInterface</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>: <span class="comment">/* Implementation of NetInterface */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> int32_t <a class="code" href="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1">createTCPConnection</a>(String host, uint32_t port);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> int32_t <a class="code" href="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893">send</a>(String data);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> int32_t <a class="code" href="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6">recv</a>(<span class="keywordtype">char</span> *buffer, uint32_t length);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> int32_t <a class="code" href="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d">releaseTCPConnection</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>: <span class="comment">/* public methods */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">connectWiFi</a>(String ssid, String password);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_e_s_p8266.html#a5c60a019656f46b50144b0ef59299db0">disconnectWiFi</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> begin(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> Initialize(byte mode, String ssid, String pwd, byte chl = 1, byte ecn = 2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">boolean</span> ipConfig(byte type, String addr, int32_t port, <span class="keywordtype">boolean</span> a = 0, byte <span class="keywordtype">id</span> = 0);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">boolean</span> Send(String str);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">boolean</span> Send(byte <span class="keywordtype">id</span>, String str);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    int32_t ReceiveMessage(<span class="keywordtype">char</span> *buf);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> Reset(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> confMode(byte a);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">boolean</span> confJAP(String ssid , String pwd);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">boolean</span> confSAP(String ssid , String pwd , byte chl , byte ecn);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    String showMode(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    String showAP(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    String showJAP(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">boolean</span> quitAP(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    String showSAP(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    String showStatus(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    String showMux(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">boolean</span> confMux(<span class="keywordtype">boolean</span> a);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte type, String addr, int32_t port);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">boolean</span> newMux(byte <span class="keywordtype">id</span>, byte type, String addr, int32_t port);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> closeMux(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> closeMux(byte <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    String showIP(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">boolean</span> confServer(byte mode, int32_t port);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __ETH_ESP8266_H__ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="_io_tgo__config_8h_html"><div class="ttname"><a href="_io_tgo__config_8h.html">IoTgo_config.h</a></div><div class="ttdoc">Configure some options for your board. </div></div>
+<div class="ttc" id="_net___net_interface_8h_html"><div class="ttname"><a href="_net___net_interface_8h.html">Net_NetInterface.h</a></div><div class="ttdoc">The interface of internet. </div></div>
+<div class="ttc" id="class_e_s_p8266_html_aa6081367cda09dd1bb90921d44e32dbf"><div class="ttname"><a href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">ESP8266::connectWiFi</a></div><div class="ttdeci">bool connectWiFi(String ssid, String password)</div><div class="ttdoc">Connect to WiFi. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01048">Eth_ESP8266.cpp:1048</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html_adeb7e2bdb7a6be4ea7aba1038ebfa86d"><div class="ttname"><a href="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d">ESP8266::releaseTCPConnection</a></div><div class="ttdeci">virtual int32_t releaseTCPConnection(void)</div><div class="ttdoc">Release TCP connection created by createTCPConnection before. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01093">Eth_ESP8266.cpp:1093</a></div></div>
+<div class="ttc" id="class_net_interface_html"><div class="ttname"><a href="class_net_interface.html">NetInterface</a></div><div class="ttdoc">Abstract class, declares the unified interface to access the internet. </div><div class="ttdef"><b>Definition:</b> <a href="_net___net_interface_8h_source.html#l00028">Net_NetInterface.h:28</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html_a8739b7dc0e5b457fd0b92eea6877d893"><div class="ttname"><a href="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893">ESP8266::send</a></div><div class="ttdeci">virtual int32_t send(String data)</div><div class="ttdoc">Send data based on TCP connection created before. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01081">Eth_ESP8266.cpp:1081</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html_aec7ce0d635bd51fd793ad101db4295b6"><div class="ttname"><a href="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6">ESP8266::recv</a></div><div class="ttdeci">virtual int32_t recv(char *buffer, uint32_t length)</div><div class="ttdoc">Receive data based on TCP connection created before. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01086">Eth_ESP8266.cpp:1086</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html_a5c60a019656f46b50144b0ef59299db0"><div class="ttname"><a href="class_e_s_p8266.html#a5c60a019656f46b50144b0ef59299db0">ESP8266::disconnectWiFi</a></div><div class="ttdeci">bool disconnectWiFi(void)</div><div class="ttdoc">Disconnect from WiFi connection before. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01071">Eth_ESP8266.cpp:1071</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html"><div class="ttname"><a href="class_e_s_p8266.html">ESP8266</a></div><div class="ttdoc">Provides TCP service for Application Layer of Network Protocol Stack. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8h_source.html#l00047">Eth_ESP8266.h:47</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html_a45ba8f9dd22ecaefe73623f49f756de1"><div class="ttname"><a href="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1">ESP8266::createTCPConnection</a></div><div class="ttdeci">virtual int32_t createTCPConnection(String host, uint32_t port)</div><div class="ttdoc">Create TCP connection. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01076">Eth_ESP8266.cpp:1076</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 26 2014 17:40:44 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 27 2014 20:53:49 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

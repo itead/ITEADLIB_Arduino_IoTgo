@@ -3,12 +3,8 @@
  * 
  * @par Show how to use API of class IoTgo
  *
- * We assume an virtual device (type of DIY) named iotgo has 
- * one parameter(or many as you wish) "state" which's value can be one
- * of "on" and "off". 
- *
- * The sequence of using iogto:
- *      -# create it. 
+ * The sequence:
+ *      -# create an object. 
  *      -# connect to internet for later communication. 
  *      -# initialize the device(atctually, connect to sever). 
  *      -# now, it can be update or query the parameter. 
@@ -69,9 +65,10 @@
  * Maybe you need to change it.
  */
 #define IOT_SERVER          "172.16.7.6"
+#define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
-
-IoTgo iotgo;
+ESP8266 esp8266;
+IoTgo iotgo(&esp8266);
 
 void printBody(const char *buffer)
 {
@@ -93,12 +90,14 @@ void setup()
 {
     const char *apikey;
 
-    iotgo.setServer(IOT_SERVER);
-    if (!iotgo.connectWiFi(WIFI_SSID, WIFI_PASS))
+    Serial.begin(9600);
+    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+    
+    iotgo.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 
     Serial.println("Connecting device to server...");
     apikey = iotgo.init(IOTGO_DEVICEID, IOTGO_APIKEY);

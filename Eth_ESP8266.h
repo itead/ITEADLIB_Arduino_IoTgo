@@ -18,81 +18,71 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#include "IoTgo_debug.h"
+#include "IoTgo_config.h"
+#include "Net_NetInterface.h"
 
-#define MEGA    //uncomment this line when you use it with MEGA board
+/* The way of encrypstion */
+#define    ESP8266_ENC_OPEN          0
+#define    ESP8266_ENC_WEP           1
+#define    ESP8266_ENC_WAP_PSK       2
+#define    ESP8266_ENC_WAP2_PSK      3
+#define    ESP8266_ENC_WAP_WAP2_PSK  4
 
-#ifdef MEGA
-#define _cell	Serial1
-#define DebugSerial	Serial
-#endif  
-
-#define _DBG_RXPIN_ 2
-#define _DBG_TXPIN_ 3
-
-#define ESP8266_BAUD_RATE   (9600)
-#define DEBUG_BAUD_RATE     (9600)
-
-
-//The way of encrypstion
-#define    OPEN          0
-#define    WEP           1
-#define    WAP_PSK       2
-#define    WAP2_PSK      3
-#define    WAP_WAP2_PSK  4
-
-//Communication mode 
+/* Communication mode */
 #define    TCP     1
-#define    tcp     1
 #define    UDP     0
-#define    udp     0
 
-#define    OPEN    1
-#define    CLOSE   0
-
-//The type of initialized WIFI
+/* The type of initialized ESP8266 */
 #define    STA     1
 #define    AP      2
 #define    AP_STA  3
 
-#define SERIAL_TX_BUFFER_SIZE 128
-#define SERIAL_RX_BUFFER_SIZE 128
-
-class WIFI
+/**
+ * Provides TCP service for Application Layer of Network Protocol Stack. 
+ * 
+ * The implemetation is based on ESP8266 by sigle connection mode. 
+ *
+ * @ingroup NetInterface
+ */
+class ESP8266: public NetInterface
 {
-public:
+public: /* Implementation of NetInterface */
+    virtual int32_t createTCPConnection(String host, uint32_t port);
+    virtual int32_t send(String data);
+    virtual int32_t recv(char *buffer, uint32_t length);
+    virtual int32_t releaseTCPConnection(void);
+
+public: /* public methods */
+    bool connectWiFi(String ssid, String password);
+    bool disconnectWiFi(void);
+    
+private:
     void begin(void);
-	
-	//Initialize port
 	bool Initialize(byte mode, String ssid, String pwd, byte chl = 1, byte ecn = 2);
 	boolean ipConfig(byte type, String addr, int32_t port, boolean a = 0, byte id = 0);
-	boolean Send(String str);  //send data in sigle connection mode
-	boolean Send(byte id, String str);  //send data int32_t multiple connection mode
+	boolean Send(String str);
+	boolean Send(byte id, String str);
 	int32_t ReceiveMessage(char *buf);
 	
-    /*=================WIFI Function Command=================*/
-    void Reset(void);    //reset the module
-	bool confMode(byte a);   //set the working mode of module
-	boolean confJAP(String ssid , String pwd);    //set the name and password of wifi 
-	boolean confSAP(String ssid , String pwd , byte chl , byte ecn);       //set the parametter of SSID, password, channel, encryption in AP mode.
-    String showMode(void);   //inquire the current mode of wifi module
-    String showAP(void);   //show the list of wifi hotspot
-    String showJAP(void);  //show the name of current wifi access port
-    boolean quitAP(void);    //quit the connection of current wifi
-    String showSAP(void);     //show the parameter of ssid, password, channel, encryption in AP mode
+    void Reset(void);
+	bool confMode(byte a);
+	boolean confJAP(String ssid , String pwd);
+	boolean confSAP(String ssid , String pwd , byte chl , byte ecn);
+    String showMode(void);
+    String showAP(void);
+    String showJAP(void);
+    boolean quitAP(void);
+    String showSAP(void);
 
-    /*================TCP/IP commands================*/
-    String showStatus(void);    //inquire the connection status
-    String showMux(void);       //show the current connection mode(sigle or multiple)
-    boolean confMux(boolean a);    //set the connection mode(sigle:0 or multiple:1)
-    boolean newMux(byte type, String addr, int32_t port);   //create new tcp or udp connection (sigle connection mode)
-    boolean newMux(byte id, byte type, String addr, int32_t port);   //create new tcp or udp connection (multiple connection mode)(id:0-4) 
-    void closeMux(void);   //close tcp or udp (sigle connection mode)
-    void closeMux(byte id); //close tcp or udp (multiple connection mode)
-    String showIP(void);    //show the current ip address
-    boolean confServer(byte mode, int32_t port);  //set the parameter of server
-	String m_rev;
-
+    String showStatus(void);
+    String showMux(void);
+    boolean confMux(boolean a);
+    boolean newMux(byte type, String addr, int32_t port);
+    boolean newMux(byte id, byte type, String addr, int32_t port);
+    void closeMux(void);
+    void closeMux(byte id);
+    String showIP(void);
+    boolean confServer(byte mode, int32_t port);
 };
 
 #endif /* #ifndef __ETH_ESP8266_H__ */

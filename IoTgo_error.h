@@ -39,6 +39,14 @@ enum IoTgoError
     ERR_READ_DEVICE_FAILED      = -202, /**< Read device failed */
     ERR_WRITE_DEVICE_FAILED     = -203, /**< Write device failed */
     ERR_CLOSE_DEVICE_FAILED     = -204, /**< Close device failed */
+
+    /* Network */
+    ERR_INIT_NET_FAILED         = -300, /**< Initialize network failed */
+    ERR_CLOSE_NET_FAILED        = -301, /**< Close network failed */
+    ERR_TCP_CONN_FAILED         = -302, /**< Create TCP connection failed */
+    ERR_TCP_DISCONN_FAILED      = -303, /**< Release TCP connection failed */
+    ERR_TCP_SEND_FAILED         = -304, /**< Sending data failed */
+    ERR_TCP_RECV_FAILED         = -305, /**< Receiving data failed */
 };
 
 /** @} */

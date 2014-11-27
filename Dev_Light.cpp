@@ -22,10 +22,12 @@ const char *Light::VALUE_OFF[]    = {"off",   NULL};
 /**
  * Constructor of Light. 
  * 
+ * @param net - the pointer to object of subclass of NetInterface. 
  * @param light_pin - the gpio pin number to control the light. 
  *  HIGH level means on and LOW to off. 
  */
-Light::Light(uint16_t light_pin)
+Light::Light(NetInterface *net, uint16_t light_pin)
+    :IoTgo(net)
 {
     this->light_pin = light_pin;
     pinMode(this->light_pin, OUTPUT);

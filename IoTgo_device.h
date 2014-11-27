@@ -24,5 +24,7 @@
 #include "Dev_THSensor.h"
 #include "HW_SHT1x.h"
 
+#include "Eth_ESP8266.h"
+
 #endif /* #ifndef __IOTGO_DEVICE_H__ */
 

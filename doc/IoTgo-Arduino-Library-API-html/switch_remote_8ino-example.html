@@ -102,23 +102,28 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> * Maybe you need to change it.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;172.16.7.6&quot;</span></div>
+<div class="line"><span class="preprocessor">#define IOT_DOMAIN_NAME     &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#define SWITCH_PIN           (13)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_switch.html">Switch</a> sw(SWITCH_PIN);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> esp8266;</div>
+<div class="line"><a name="_a1"></a><a class="code" href="class_switch.html">Switch</a> sw(&amp;esp8266, SWITCH_PIN);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
-<div class="line">    sw.<a name="a1"></a><a class="code" href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">setServer</a>(IOT_SERVER);</div>
-<div class="line">    <span class="keywordflow">if</span> (!sw.<a name="a2"></a><a class="code" href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
+<div class="line">    </div>
+<div class="line">    Serial.begin(9600);</div>
+<div class="line">    <span class="keywordflow">if</span> (!esp8266.<a name="a2"></a><a class="code" href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">while</span>(1);</div>
 <div class="line">    }</div>
 <div class="line"></div>
+<div class="line">    sw.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
+<div class="line"></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
-<div class="line">    apikey = sw.<a name="a3"></a><a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">init</a>(SWITCH_ID, SWITCH_APIKEY);</div>
+<div class="line">    apikey = sw.init(SWITCH_ID, SWITCH_APIKEY);</div>
 <div class="line">    <span class="comment">//apikey = sw.init(SWITCH_ID, SWITCH_CHECK_CODE, DEVICE_PRODUCT);</span></div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;apikey = &quot;</span>);</div>
 <div class="line">    Serial.println(apikey);    </div>
@@ -133,7 +138,7 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line">    Serial.println(++counter);</div>
 <div class="line">    int32_t ret;</div>
 <div class="line"></div>
-<div class="line">    ret = sw.<a name="a4"></a><a class="code" href="class_switch.html#afc6efb8c9168d7365066db947c038938">sync</a>();</div>
+<div class="line">    ret = sw.sync();</div>
 <div class="line">    <span class="keywordflow">if</span>(!ret)</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;sync okay&quot;</span>);</div>
@@ -148,7 +153,7 @@ This program is free software; you can redistribute it and/or modify it under th
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 26 2014 17:40:43 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 27 2014 20:53:49 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

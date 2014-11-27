@@ -11,11 +11,10 @@
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html#a7a8ca35adad19a7c5306bb3fabc0333f"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="connectWiFi"><param name="Local" value="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html#a7ed2d956004654e5ba57e790e167e93c"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="init"><param name="Local" value="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="query"><param name="Local" value="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="setServer"><param name="Local" value="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="setHost"><param name="Local" value="class_io_tgo.html#a06856d9706fcb4ce9e750f223038e1d5"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="update"><param name="Local" value="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgoConstant"><param name="Local" value="group___io_tgo.html#gaa43214a424c4162f1cb27681446d0814"><param name="ImageNumber" value="1"></OBJECT>
@@ -34,7 +33,7 @@
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html#af09a0c9ae1a9afc4fff314aa98342878"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html#a9c7218f5b8d80efdd91306cf3e2f75ce"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="ImageNumber" value="11"></OBJECT>
@@ -50,7 +49,7 @@
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html#a8f5d9bdc07a50cbc4db6744577019b9e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html#a7c1f4dbdda48410a908146be56d828bf"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="ImageNumber" value="11"></OBJECT>
@@ -66,7 +65,7 @@
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html#a86fb05473c84992f731c2aceb78f1208"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html#a839af2bed492344ac9d15f0754a4f0ca"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="begin"><param name="Local" value="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="end"><param name="Local" value="class_t_h_sensor.html#a54bf42139b7ef208d5196ef36b5232c4"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getAll"><param name="Local" value="class_t_h_sensor.html#afd0167fe2d60ee38d87cb6e1e60c2244"><param name="ImageNumber" value="11"></OBJECT>
@@ -75,11 +74,21 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getTemperatureF"><param name="Local" value="class_t_h_sensor.html#aee896262d49015dd25b3ecaf9e6d88f6"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_t_h_sensor.html#a6fee399ac20996db7ef9603767e9d638"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensorInterface"><param name="Local" value="group___t_h_sensor_interface.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensorInterface"><param name="Local" value="class_t_h_sensor_interface.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="begin"><param name="Local" value="class_t_h_sensor_interface.html#a48086acfce814b6a07d39c998420fd1f"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="end"><param name="Local" value="class_t_h_sensor_interface.html#ad58c7d857cfc2f4277f48c93b4f5ff1e"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getData"><param name="Local" value="class_t_h_sensor_interface.html#a9da0465219c100efaa3c404227b02db9"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html#a0516a14177fa26c448e5eb81d9fbac43"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="begin"><param name="Local" value="class_s_h_t1x.html#a4473947be903948bc570751433ac222e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="end"><param name="Local" value="class_s_h_t1x.html#a3feca6c07f41a12d0d815b5e96b1137c"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getData"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     </UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Error"><param name="Local" value="group___error.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -94,6 +103,31 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_READ_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a3ca7fe2e8a3ad73220f48717ca3bf1e1"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_WRITE_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ae4eec3cb348693875c6ed3ec784b6697"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_CLOSE_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8aea4da10c5b47d502afb0715804bdd896"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_INIT_NET_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a6de0e975df9b10023394efb9b9efe69a"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_CLOSE_NET_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a255076cb9d6a32a8ad12b5fcc21cc4b5"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_CONN_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ac16eb154a9d07271a763f90bffa97562"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_DISCONN_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a6e90930c04211ff0982daa9a6f0f4063"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_SEND_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ab2642697c59818b7105ccf712da3b1c3"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_RECV_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ae453f745d5482352b921ef552f0e2a54"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="NetInterface"><param name="Local" value="group___net_interface.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="ESP8266"><param name="Local" value="class_e_s_p8266.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="connectWiFi"><param name="Local" value="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="createTCPConnection"><param name="Local" value="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="disconnectWiFi"><param name="Local" value="class_e_s_p8266.html#a5c60a019656f46b50144b0ef59299db0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="recv"><param name="Local" value="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="releaseTCPConnection"><param name="Local" value="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="send"><param name="Local" value="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="NetInterface"><param name="Local" value="class_net_interface.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="createTCPConnection"><param name="Local" value="class_net_interface.html#a7aa39a34dd9b6052b22a23449a4a1dc9"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="recv"><param name="Local" value="class_net_interface.html#ad4db69b0583da9230b3e3fdd1d477617"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="releaseTCPConnection"><param name="Local" value="class_net_interface.html#af677a295e9f139c4e9d29b514ca911ba"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="send"><param name="Local" value="class_net_interface.html#ab78cc060b55523dc874eac300d609b28"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     </UL>
   </UL>
@@ -101,22 +135,37 @@
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Class List"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="ESP8266"><param name="Local" value="class_e_s_p8266.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="connectWiFi"><param name="Local" value="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="createTCPConnection"><param name="Local" value="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="disconnectWiFi"><param name="Local" value="class_e_s_p8266.html#a5c60a019656f46b50144b0ef59299db0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="recv"><param name="Local" value="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="releaseTCPConnection"><param name="Local" value="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="send"><param name="Local" value="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html#a7a8ca35adad19a7c5306bb3fabc0333f"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="connectWiFi"><param name="Local" value="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo"><param name="Local" value="class_io_tgo.html#a7ed2d956004654e5ba57e790e167e93c"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="init"><param name="Local" value="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="query"><param name="Local" value="class_io_tgo.html#af9928a6b4ccf3b42555d24cc8291d8db"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="setServer"><param name="Local" value="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="setHost"><param name="Local" value="class_io_tgo.html#a06856d9706fcb4ce9e750f223038e1d5"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="update"><param name="Local" value="class_io_tgo.html#a5faf8b98059dc875b3e0631f21100c95"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html#a8f5d9bdc07a50cbc4db6744577019b9e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html#a7c1f4dbdda48410a908146be56d828bf"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_light.html#a899d5047d17f1b787d0a1aca0e240b64"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_light.html#a5e73ee80686f3de647fddcddfe7450f7"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_light.html#aeeebb19fe450d3e465a1e195100024e8"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="sync"><param name="Local" value="class_light.html#aca5f915f230f9fbbb32e03400e4fb87c"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="NetInterface"><param name="Local" value="class_net_interface.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="createTCPConnection"><param name="Local" value="class_net_interface.html#a7aa39a34dd9b6052b22a23449a4a1dc9"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="recv"><param name="Local" value="class_net_interface.html#ad4db69b0583da9230b3e3fdd1d477617"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="releaseTCPConnection"><param name="Local" value="class_net_interface.html#af677a295e9f139c4e9d29b514ca911ba"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="send"><param name="Local" value="class_net_interface.html#ab78cc060b55523dc874eac300d609b28"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
@@ -127,7 +176,7 @@
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html#af09a0c9ae1a9afc4fff314aa98342878"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html#a9c7218f5b8d80efdd91306cf3e2f75ce"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getState"><param name="Local" value="class_switch.html#a5d00efbb03586ccb138dde2b85db9e9a"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="off"><param name="Local" value="class_switch.html#a409f5fcc62226cbd4e16d669438e5fa9"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="on"><param name="Local" value="class_switch.html#a7d9c021eec1e619c87648bce25532bbc"><param name="ImageNumber" value="11"></OBJECT>
@@ -135,7 +184,7 @@
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html#a86fb05473c84992f731c2aceb78f1208"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html#a839af2bed492344ac9d15f0754a4f0ca"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="begin"><param name="Local" value="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="end"><param name="Local" value="class_t_h_sensor.html#a54bf42139b7ef208d5196ef36b5232c4"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getAll"><param name="Local" value="class_t_h_sensor.html#afd0167fe2d60ee38d87cb6e1e60c2244"><param name="ImageNumber" value="11"></OBJECT>
@@ -159,6 +208,10 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="Light"><param name="Local" value="class_light.html"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="Switch"><param name="Local" value="class_switch.html"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensor"><param name="Local" value="class_t_h_sensor.html"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="NetInterface"><param name="Local" value="class_net_interface.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ESP8266"><param name="Local" value="class_e_s_p8266.html"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="THSensorInterface"><param name="Local" value="class_t_h_sensor_interface.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
@@ -227,22 +280,13 @@
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Dev_THSensorInterface.h"><param name="Local" value="_dev___t_h_sensor_interface_8h.html"><param name="ImageNumber" value="11"></OBJECT>
       <UL>
       </UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Eth_ESP8266.cpp"><param name="Local" value="_eth___e_s_p8266_8cpp.html"><param name="ImageNumber" value="1"></OBJECT>
-      <UL>
-      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Eth_ESP8266.cpp"><param name="Local" value="_eth___e_s_p8266_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Eth_ESP8266.h"><param name="Local" value="_eth___e_s_p8266_8h.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_SHT1x.cpp"><param name="Local" value="_h_w___s_h_t1x_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_SHT1x.h"><param name="Local" value="_h_w___s_h_t1x_8h.html"><param name="ImageNumber" value="11"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html"><param name="ImageNumber" value="1"></OBJECT>
-        <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="SHT1x"><param name="Local" value="class_s_h_t1x.html#a0516a14177fa26c448e5eb81d9fbac43"><param name="ImageNumber" value="11"></OBJECT>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="begin"><param name="Local" value="class_s_h_t1x.html#a4473947be903948bc570751433ac222e"><param name="ImageNumber" value="11"></OBJECT>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="end"><param name="Local" value="class_s_h_t1x.html#a3feca6c07f41a12d0d815b5e96b1137c"><param name="ImageNumber" value="11"></OBJECT>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="getData"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="ImageNumber" value="11"></OBJECT>
-        </UL>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo.cpp"><param name="Local" value="_io_tgo_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo.h"><param name="Local" value="_io_tgo_8h.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -259,7 +303,9 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="DEVICE_PRODUCT"><param name="Local" value="group___io_tgo.html#gga8b972ec4bc329df3b5f827ba44fc08a3a2830eeabed0bf6bdd21aa66a593b5b11"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
       </UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_debug.h"><param name="Local" value="_io_tgo__debug_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_config.h"><param name="Local" value="_io_tgo__config_8h.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_device.h"><param name="Local" value="_io_tgo__device_8h.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_doxygen.h"><param name="Local" value="_io_tgo__doxygen_8h.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="IoTgo_error.h"><param name="Local" value="_io_tgo__error_8h.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -274,7 +320,16 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_READ_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a3ca7fe2e8a3ad73220f48717ca3bf1e1"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_WRITE_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ae4eec3cb348693875c6ed3ec784b6697"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_CLOSE_DEVICE_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8aea4da10c5b47d502afb0715804bdd896"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_INIT_NET_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a6de0e975df9b10023394efb9b9efe69a"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_CLOSE_NET_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a255076cb9d6a32a8ad12b5fcc21cc4b5"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_CONN_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ac16eb154a9d07271a763f90bffa97562"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_DISCONN_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8a6e90930c04211ff0982daa9a6f0f4063"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_SEND_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ab2642697c59818b7105ccf712da3b1c3"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="ERR_TCP_RECV_FAILED"><param name="Local" value="group___error.html#ggac67bb7c07e0b17ac4cbefaf51925e8f8ae453f745d5482352b921ef552f0e2a54"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Net_NetInterface.h"><param name="Local" value="_net___net_interface_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+      <UL>
       </UL>
     </UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="File Members"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>

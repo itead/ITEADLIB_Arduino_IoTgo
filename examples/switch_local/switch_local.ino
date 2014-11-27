@@ -65,20 +65,25 @@
  * Maybe you need to change it.
  */
 #define IOT_SERVER          "172.16.7.6"
+#define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
 #define SWITCH_PIN           (13)
 
-Switch sw(SWITCH_PIN);
+ESP8266 esp8266;
+Switch sw(&esp8266, SWITCH_PIN);
 
 void setup()
 {
     const char *apikey;
-    sw.setServer(IOT_SERVER);
-    if (!sw.connectWiFi(WIFI_SSID, WIFI_PASS))
+    
+    Serial.begin(9600);
+    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+
+    sw.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 
     Serial.println("Connecting device to server...");
     apikey = sw.init(SWITCH_ID, SWITCH_APIKEY);

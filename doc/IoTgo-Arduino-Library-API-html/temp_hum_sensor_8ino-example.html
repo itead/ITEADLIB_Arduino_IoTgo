@@ -102,24 +102,28 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> * Maybe you need to change it.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;172.16.7.6&quot;</span></div>
+<div class="line"><span class="preprocessor">#define IOT_DOMAIN_NAME     &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_DATA_PIN    (6)</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_CLOCK_PIN   (7)</span></div>
+<div class="line"><span class="preprocessor">#define THSENSOR_DATA_PIN    (20)</span></div>
+<div class="line"><span class="preprocessor">#define THSENSOR_CLOCK_PIN   (21)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_s_h_t1x.html">SHT1x</a> sht1x(THSENSOR_DATA_PIN, THSENSOR_CLOCK_PIN);</div>
-<div class="line"><a name="_a1"></a><a class="code" href="class_t_h_sensor.html">THSensor</a> th(&amp;sht1x);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> esp8266;</div>
+<div class="line"><a name="_a1"></a><a class="code" href="class_s_h_t1x.html">SHT1x</a> sht1x(THSENSOR_DATA_PIN, THSENSOR_CLOCK_PIN);</div>
+<div class="line"><a name="_a2"></a><a class="code" href="class_t_h_sensor.html">THSensor</a> th(&amp;esp8266, &amp;sht1x);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
-<div class="line">    Serial.begin(DEBUG_BAUD_RATE);</div>
-<div class="line">    th.begin();</div>
-<div class="line">    th.setServer(IOT_SERVER);</div>
-<div class="line">    <span class="keywordflow">if</span> (!th.connectWiFi(WIFI_SSID, WIFI_PASS))</div>
+<div class="line">    </div>
+<div class="line">    Serial.begin(9600);</div>
+<div class="line">    <span class="keywordflow">if</span> (!esp8266.<a name="a3"></a><a class="code" href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">while</span>(1);</div>
 <div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    th.begin();</div>
+<div class="line">    th.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
 <div class="line"></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
 <div class="line">    apikey = th.init(THSENSOR_ID, THSENSOR_APIKEY);</div>
@@ -208,7 +212,7 @@ This program is free software; you can redistribute it and/or modify it under th
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 26 2014 17:40:43 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 27 2014 20:53:49 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

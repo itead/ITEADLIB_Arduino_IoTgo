@@ -40,7 +40,7 @@ enum SwitchState
 class Switch: public IoTgo
 {
 public: /* public methods */  
-    Switch(uint16_t sw_pin);
+    Switch(NetInterface *net, uint16_t sw_pin);
     
     int32_t sync(void);
     int32_t getState(int32_t *state);

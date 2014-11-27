@@ -31,7 +31,7 @@
 class THSensor: public IoTgo
 {
 public: /* public methods */
-    THSensor(THSensorInterface *sensor);
+    THSensor(NetInterface *net, THSensorInterface *sensor);
     int32_t begin(void);
     int32_t end(void);
     int32_t sync(void);

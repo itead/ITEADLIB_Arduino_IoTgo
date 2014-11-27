@@ -58,26 +58,24 @@ enum IoTgoDeviceType
 class IoTgo
 {
 public: /* public methods */
-    IoTgo(void);
-    void setServer(const char *server);
-    bool connectWiFi(const char *ssid, const char *password);
-    
+    IoTgo(NetInterface *net);
+    void setHost(const char *ip, const char *domain_name);
     const char *init(const char *device_id, const char *apikey, 
         IoTgoDeviceType device_type = DEVICE_DIY);
     const char *query(const char *params[]);
     const char *update(const char *params[], const char *values[]);
-
   
 private: /* private methods */  
     const char * request(const char *http_body, char *const buffer, int32_t len);
     
 
 private: /* private datas */
-    WIFI wifi;
+    NetInterface *net;
     char buffer[IOT_BUFFER_SIZE];
     char apikey[APIKEY_LEN + 1];
     char device_id[DEVICE_ID_LEN + 1];
-    char server[20];
+    char ip[16];
+    char domain_name[30];
 };
 
 /** @} */

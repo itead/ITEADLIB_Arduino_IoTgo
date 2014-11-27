@@ -21,11 +21,13 @@ const char *Switch::VALUE_OFF[]    = {"off",   NULL};
 
 /**
  * Constructor. 
- * 
+ *
+ * @param net - the pointer to object of subclass of NetInterface. 
  * @param sw_pin - the gpio pin to control the Switch device, HIGH for
  *  on and LOW for off. 
  */
-Switch::Switch(uint16_t sw_pin)
+Switch::Switch(NetInterface *net, uint16_t sw_pin)
+    :IoTgo(net)
 {
     this->sw_pin = sw_pin;
     pinMode(this->sw_pin, OUTPUT);

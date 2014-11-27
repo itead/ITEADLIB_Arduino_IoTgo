@@ -101,74 +101,77 @@
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> * Maybe you need to change it.</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#define IOT_SERVER          &quot;172.16.7.6&quot;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#define LIGHT_PIN           (13)</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<a class="code" href="class_light.html">Light</a> light(LIGHT_PIN);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> setup()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    light.<a class="code" href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">setServer</a>(IOT_SERVER);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (!light.<a class="code" href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">while</span>(1);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    apikey = light.<a class="code" href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">init</a>(LIGHT_ID, LIGHT_APIKEY);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">//apikey = light.init(LIGHT_ID, LIGHT_CHECK_CODE, DEVICE_PRODUCT);</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Serial.print(<span class="stringliteral">&quot;apikey = &quot;</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Serial.println(apikey);    </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    Serial.println(<span class="stringliteral">&quot;setup done.&quot;</span>);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">void</span> loop()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> int32_t counter = 0;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    Serial.print(<span class="stringliteral">&quot;\ncounter = &quot;</span>);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    Serial.println(++counter);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    int32_t ret;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    ret = light.<a class="code" href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">on</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(ret == 0)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        Serial.println(<span class="stringliteral">&quot;on&quot;</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Serial.print(<span class="stringliteral">&quot;on() err! ret = &quot;</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Serial.println(ret);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    delay(1000);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    ret = light.<a class="code" href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">off</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span>(ret == 0)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        Serial.println(<span class="stringliteral">&quot;off&quot;</span>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        Serial.print(<span class="stringliteral">&quot;off() err! ret = &quot;</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        Serial.println(ret);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    delay(1000);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
-<div class="ttc" id="class_light_html_a5e73ee80686f3de647fddcddfe7450f7"><div class="ttname"><a href="class_light.html#a5e73ee80686f3de647fddcddfe7450f7">Light::off</a></div><div class="ttdeci">int32_t off(void)</div><div class="ttdoc">Turn off the light and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_dev___light_8cpp_source.html#l00218">Dev_Light.cpp:218</a></div></div>
-<div class="ttc" id="class_light_html_aeeebb19fe450d3e465a1e195100024e8"><div class="ttname"><a href="class_light.html#aeeebb19fe450d3e465a1e195100024e8">Light::on</a></div><div class="ttdeci">int32_t on(void)</div><div class="ttdoc">Turn on the light and update the state to server. </div><div class="ttdef"><b>Definition:</b> <a href="_dev___light_8cpp_source.html#l00200">Dev_Light.cpp:200</a></div></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#define IOT_DOMAIN_NAME     &quot;iotgo.iteadstudio.com&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#define LIGHT_PIN           (13)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<a class="code" href="class_e_s_p8266.html">ESP8266</a> esp8266;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<a class="code" href="class_light.html">Light</a> light(&amp;esp8266, LIGHT_PIN);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> setup()</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Serial.begin(9600);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (!esp8266.<a class="code" href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">while</span>(1);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    light.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    apikey = light.init(LIGHT_ID, LIGHT_APIKEY);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">//apikey = light.init(LIGHT_ID, LIGHT_CHECK_CODE, DEVICE_PRODUCT);</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    Serial.print(<span class="stringliteral">&quot;apikey = &quot;</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    Serial.println(apikey);    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    Serial.println(<span class="stringliteral">&quot;setup done.&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> loop()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> int32_t counter = 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Serial.print(<span class="stringliteral">&quot;\ncounter = &quot;</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    Serial.println(++counter);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    int32_t ret;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    ret = light.on();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(ret == 0)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        Serial.println(<span class="stringliteral">&quot;on&quot;</span>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        Serial.print(<span class="stringliteral">&quot;on() err! ret = &quot;</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        Serial.println(ret);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    delay(1000);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    ret = light.off();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>(ret == 0)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        Serial.println(<span class="stringliteral">&quot;off&quot;</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        Serial.print(<span class="stringliteral">&quot;off() err! ret = &quot;</span>);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        Serial.println(ret);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    delay(1000);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="ttc" id="class_e_s_p8266_html_aa6081367cda09dd1bb90921d44e32dbf"><div class="ttname"><a href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">ESP8266::connectWiFi</a></div><div class="ttdeci">bool connectWiFi(String ssid, String password)</div><div class="ttdoc">Connect to WiFi. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8cpp_source.html#l01048">Eth_ESP8266.cpp:1048</a></div></div>
 <div class="ttc" id="class_light_html"><div class="ttname"><a href="class_light.html">Light</a></div><div class="ttdoc">Light, subclass of IoTgo, provides simple methods to control light device. </div><div class="ttdef"><b>Definition:</b> <a href="_dev___light_8h_source.html#l00039">Dev_Light.h:39</a></div></div>
-<div class="ttc" id="class_io_tgo_html_a29a389df2fd1f6f8cffc6eeaba909936"><div class="ttname"><a href="class_io_tgo.html#a29a389df2fd1f6f8cffc6eeaba909936">IoTgo::setServer</a></div><div class="ttdeci">void setServer(const char *server)</div><div class="ttdoc">Set IoT Server. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00035">IoTgo.cpp:35</a></div></div>
-<div class="ttc" id="class_io_tgo_html_a31bccda21d02b5f09b12a063622528a1"><div class="ttname"><a href="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1">IoTgo::init</a></div><div class="ttdeci">const char * init(const char *device_id, const char *apikey, IoTgoDeviceType device_type=DEVICE_DIY)</div><div class="ttdoc">Get the apikey of user who own the device specified by device_id. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00197">IoTgo.cpp:197</a></div></div>
 <div class="ttc" id="_io_tgo__device_8h_html"><div class="ttname"><a href="_io_tgo__device_8h.html">IoTgo_device.h</a></div><div class="ttdoc">Include all classes of devices supported by IoTgo Library, such as Switch, Light and Temperature & Hu...</div></div>
-<div class="ttc" id="class_io_tgo_html_a0c196275a93e8bd9261337dbcc0b398f"><div class="ttname"><a href="class_io_tgo.html#a0c196275a93e8bd9261337dbcc0b398f">IoTgo::connectWiFi</a></div><div class="ttdeci">bool connectWiFi(const char *ssid, const char *password)</div><div class="ttdoc">Connect to WiFi. </div><div class="ttdef"><b>Definition:</b> <a href="_io_tgo_8cpp_source.html#l00048">IoTgo.cpp:48</a></div></div>
+<div class="ttc" id="class_e_s_p8266_html"><div class="ttname"><a href="class_e_s_p8266.html">ESP8266</a></div><div class="ttdoc">Provides TCP service for Application Layer of Network Protocol Stack. </div><div class="ttdef"><b>Definition:</b> <a href="_eth___e_s_p8266_8h_source.html#l00047">Eth_ESP8266.h:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 26 2014 17:40:44 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 27 2014 20:53:49 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

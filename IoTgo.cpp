@@ -17,73 +17,50 @@
 
 /**
  * Constructor. 
+ *
+ * @param net - the pointer to object of subclass of NetInterface. 
+ *
+ * @see NetInterface
  */
-IoTgo::IoTgo(void)
+IoTgo::IoTgo(NetInterface *net)
+    :net(net)
 {
     memset(buffer, '\0', sizeof(buffer));
     memset(apikey, '\0', sizeof(apikey));
     memset(device_id, '\0', sizeof(device_id));
-    strcpy(server, "172.16.7.6");
+    memset(ip, '\0', sizeof(ip));
+    memset(domain_name, '\0', sizeof(domain_name));
 }
 
 /**
  * Set IoT Server. 
  * 
- * @param server - IP address of server
+ * @param ip - IP address of server
+ * @param domain_name - Domain name of server
+ *
  * @return void
  */
-void IoTgo::setServer(const char *server)
+void IoTgo::setHost(const char *ip, const char *domain_name)
 {
-    strcpy(this->server, server);
+    strncpy(this->ip, ip, sizeof(this->ip) - 1);
+    strncpy(this->domain_name, domain_name, sizeof(this->domain_name) - 1);
 }
 
 /**
- * Connect to WiFi. 
- * 
- * @param ssid - WiFi's SSID (Name of WiFi access point)
- * @param password - Passward of SSID
- * @retval true - if connected
- * @retval false - if failed
- */
-bool IoTgo::connectWiFi(const char *ssid, const char *password)
-{
-    wifi.begin();
-    if(!wifi.Initialize(STA, String(ssid), String(password)))
-    {
-        DebugSerial.print("connect to ");
-        DebugSerial.print(ssid);
-        DebugSerial.println(" failed!");
-        return false;
-    }
-    DebugSerial.print("Getting IP from ");
-    DebugSerial.print(ssid);
-    DebugSerial.println(". Please wait ...");
-    delay(5000);
-    DebugSerial.println(wifi.showIP());
-
-    return true;
-}
-
-/**
- * Send http request to iotgo.iteadstudio.com and get the response. 
+ * Send http request to host and get the response. 
  * 
  * @param http_body - the body of http request
  * @param buffer - the buffer to store the response of this request
  * @param len - the length of buffer
  *
  * @return the pointer of response buffer terminated with '\0', if success. NULL, if falied!
- *
- * @warning 
- *  You must deal with the response in buffer BEFORE next calling of this function as
- *  the buffer is shared. 
  */
 const char * IoTgo::request(const char *http_body, char *const buffer, 
     int32_t len)
 {
     static int32_t counter = 0;
-    static bool connectTCP = false;
-    
-    int32_t time_delay = 0; 
+    static bool connect_TCP = false;
+    int32_t time_delay = 1000; 
     int32_t reconnectTCP = 0;
     
     if (buffer == NULL)
@@ -95,69 +72,72 @@ const char * IoTgo::request(const char *http_body, char *const buffer,
     buffer[0] = '\0';
     
 request_reconnect:    
-    if (connectTCP == false && wifi.ipConfig(TCP, server, 80))
+    if (connect_TCP == false && !net->createTCPConnection(ip, 80))
     {
-        connectTCP = true;
+        connect_TCP = true;
     } 
-    if (connectTCP == false)
+    if (connect_TCP == false)
     {
-        DebugSerial.println("Cannot connect to server");
+        DebugSerial.println("Cannot connect to host");
         return NULL;
     }
     
-    if (connectTCP == true) 
-    {
-        String http_req;
-        /* Request line */
-        http_req = "POST /api/http HTTP/1.1\r\n";
-        /* Http header */
-        http_req += "Host: iotgo.iteadstudio.com\r\n";
-        http_req += "Content-Type: application/json\r\n";
-        http_req += "Content-Length: " + String(strlen(http_body));
-        http_req += "\r\n\r\n";
-        /* Http body */
-        http_req += http_body;
+   
+    String http_req;
+    /* Request line */
+    http_req = "POST /api/http HTTP/1.1\r\n";
+    /* Http header */
+#if 0        
+    http_req += "Host: iotgo.iteadstudio.com\r\n";
+#else
+    http_req += "Host: ";
+    http_req += domain_name;
+    http_req += "\r\n";
+#endif
+    http_req += "Content-Type: application/json\r\n";
+    http_req += "Content-Length: " + String(strlen(http_body));
+    http_req += "\r\n\r\n";
+    /* Http body */
+    http_req += http_body;
 #ifdef DEBUG
-        DebugSerial.print("http_req=[");
-        DebugSerial.print(http_req);
-        DebugSerial.println("]");
+    DebugSerial.print("http_req=[");
+    DebugSerial.print(http_req);
+    DebugSerial.println("]");
 #endif        
-        bool sent = wifi.Send(http_req);
-        if (sent == true)
+    if (!net->send(http_req))
+    {
+        //DebugSerial.println("Request Sent Successfully!");
+    }
+    else
+    {
+        if ((reconnectTCP++) < 5)
         {
-            //DebugSerial.println("Request Sent Successfully!");
+            connect_TCP = false;
+            net->releaseTCPConnection();
+            goto request_reconnect;
         }
         else
         {
-            if ((reconnectTCP++) < 5)
-            {
-                connectTCP = false;
-                goto request_reconnect;
-            }
-            else
-            {
-                DebugSerial.println("Request Sending Failed!");
-                return NULL;
-            }
-        }
-        
-        /* Waiting for response for 10 seconds */ 
-        time_delay = 1000;
-        while (time_delay--)
-        {   
-            if (wifi.ReceiveMessage(buffer))
-            {
-                //DebugSerial.print("Received:\n");
-                //DebugSerial.print(buffer);
-                break;
-            }
-            delay(10);
-        }
-        if (time_delay <= 0)
-        {
-            DebugSerial.println("Request timeout!");
+            DebugSerial.println("Request Sending Failed!");
             return NULL;
         }
+    }
+    
+    /* Waiting for response for 10 seconds */ 
+    while (time_delay--)
+    {   
+        if (net->recv(buffer, len) > 0)
+        {
+            //DebugSerial.print("Received:\n");
+            //DebugSerial.print(buffer);
+            break;
+        }
+        delay(10);
+    }
+    if (time_delay <= 0)
+    {
+        DebugSerial.println("Request timeout!");
+        return NULL;
     }
     
     buffer[len - 1] = '\0';

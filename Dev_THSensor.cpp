@@ -18,10 +18,12 @@
 /**
  * Constructor. 
  * 
+ * @param net - the pointer to object of subclass of NetInterface. 
  * @param sensor - the pointer to an object of classes which implement
  *  THSensorInterface.  
  */
-THSensor::THSensor(THSensorInterface *sensor)
+THSensor::THSensor(NetInterface *net, THSensorInterface *sensor)
+    :IoTgo(net)
 {
     if (sensor)
     {

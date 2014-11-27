@@ -65,20 +65,26 @@
  * Maybe you need to change it.
  */
 #define IOT_SERVER          "172.16.7.6"
+#define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
 #define LIGHT_PIN           (13)
 
-Light light(LIGHT_PIN);
+ESP8266 esp8266;
+
+Light light(&esp8266, LIGHT_PIN);
 
 void setup()
 {
     const char *apikey;
-    light.setServer(IOT_SERVER);
-    if (!light.connectWiFi(WIFI_SSID, WIFI_PASS))
+    
+    Serial.begin(9600);
+    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+    
+    light.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 
     Serial.println("Connecting device to server...");
     apikey = light.init(LIGHT_ID, LIGHT_APIKEY);

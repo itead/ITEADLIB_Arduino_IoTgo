@@ -28,25 +28,30 @@ Online API documentation can be reached at <http://docs.iteadstudio.com/IoTgo-in
 Offline API documentation can be found under directory 
 [doc](https://github.com/itead/ITEADLIB_Arduino_IoTgo/tree/master/doc).
 
+For Raspberry Pi users, Segnix is recommended at <https://github.com/itead/Segnix/>.
+Segnix ships with an IoTgo library beased on Linux/Raspberry Pi. 
+
 ## How to get started
 
 On the home page of API documentation, the tabs of Modules, Classes and Examples 
 will be useful for Arduino developers. 
 
-## Levels
+## Project Layers
 
-IoTgo Arduino Library has levels following:
+IoTgo Arduino Library has layers following:
 
-  - IoTgo Device Level: Switch/Light/THSensor [source: Dev_*]
-  - Http Proxy Level: IoTgo [source: IoTgo*]
-  - Ethernet Level: ESP2560(WIFI) [source: Eth_*]
-  - Hardware Level: WBoard/MEGA
+  - IoTgo Device Layer: Switch/Light/THSensor [source: Dev_*]
+  - Http Proxy Layer: IoTgo [source: IoTgo*]
+  - Network Layer: NetInterface [source: Net_*]
+  - Ethernet Layer: ESP2560(WIFI) [source: Eth_*]
+  - Hardware Layer: MEGA/WBoard/WBoard Pro
 
 # Configuration and Connection
 
 ## Configure Your Board
 
-When you use with MEGA board or WBoard, uncomment the follow line in `Eth_ESP8266.h`.
+When you use with MEGA board or WBoard or WBoard Pro, uncomment the follow line 
+in `IoTgo_config.h`.
 
 	#define MEGA
 
@@ -70,9 +75,9 @@ When you want to output the debug information, please use DebugSerial. For examp
 
 	DebugSerial.println("hello");
 
-### WBoard
+### WBoard and WBoard Pro
 
-Need no connections.
+No more connections.
 
 # Attention
 

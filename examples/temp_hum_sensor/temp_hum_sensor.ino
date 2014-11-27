@@ -65,24 +65,28 @@
  * Maybe you need to change it.
  */
 #define IOT_SERVER          "172.16.7.6"
+#define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
-#define THSENSOR_DATA_PIN    (6)
-#define THSENSOR_CLOCK_PIN   (7)
+#define THSENSOR_DATA_PIN    (20)
+#define THSENSOR_CLOCK_PIN   (21)
 
+ESP8266 esp8266;
 SHT1x sht1x(THSENSOR_DATA_PIN, THSENSOR_CLOCK_PIN);
-THSensor th(&sht1x);
+THSensor th(&esp8266, &sht1x);
 
 void setup()
 {
     const char *apikey;
-    Serial.begin(DEBUG_BAUD_RATE);
-    th.begin();
-    th.setServer(IOT_SERVER);
-    if (!th.connectWiFi(WIFI_SSID, WIFI_PASS))
+    
+    Serial.begin(9600);
+    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+
+    th.begin();
+    th.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 
     Serial.println("Connecting device to server...");
     apikey = th.init(THSENSOR_ID, THSENSOR_APIKEY);

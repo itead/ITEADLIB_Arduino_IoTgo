@@ -38,9 +38,18 @@
  */
 
 /**
+ * @defgroup THSensorInterface THSensorInterface
+ * @brief Provides unified interface to read data from Temp & Humidity Sensors. 
+ */
+
+/**
  * @defgroup Error Error
  * @brief Constants of error types. 
  */
 
+/**
+ * @defgroup NetInterface NetInterface
+ * @brief Provides unified interface accessing internet. 
+ */
 
 #endif /* #ifndef __IOTGO_DOXYGEN_H__ */

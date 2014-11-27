@@ -14,26 +14,19 @@
  */
 #include "Eth_ESP8266.h"
 
-#ifdef DEBUG
-#define DBG(message)    DebugSerial.print(message)
-#define DBGW(message)    DebugSerial.write(message)
-#else
-#define DBG(message)
-#define DBGW(message)
-#endif // DEBUG
-
-int32_t chlID;		//client id(0-4)
-
-void WIFI::begin(void)
+void ESP8266::begin(void)
 {
 	boolean result = false;
-	DebugSerial.begin(DEBUG_BAUD_RATE);
-	_cell.begin(ESP8266_BAUD_RATE);
-	_cell.flush();
-	_cell.setTimeout(10000);
-	_cell.println("AT+RST");
+	 	
+	ESP8266Serial.begin(ESP8266_BAUD_RATE);
+	ESP8266Serial.flush();
+	ESP8266Serial.setTimeout(10000);
+	
+	ESP8266Serial.println("AT+RST");
+	
 	DebugSerial.println("Reset module...");
-	result = _cell.find("eady");
+
+	result = ESP8266Serial.find("eady");
 	if(result)
 		DebugSerial.println("Module is ready");
     else
@@ -55,18 +48,18 @@ void WIFI::begin(void)
 
 	chl:	channel number
 	ecn:	encryption
-		OPEN          0
-		WEP           1
-		WAP_PSK       2
-		WAP2_PSK      3
-		WAP_WAP2_PSK  4		
+		ESP8266_ENC_OPEN          0
+		ESP8266_ENC_WEP           1
+		ESP8266_ENC_WAP_PSK       2
+		ESP8266_ENC_WAP2_PSK      3
+		ESP8266_ENC_WAP_WAP2_PSK  4		
 
 	return:
 		true	-	successfully
 		false	-	unsuccessfully
 
 ***************************************************************************/
-bool WIFI::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
+bool ESP8266::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 {
     DebugSerial.println("Initializing...");
 	if (mode == STA)
@@ -124,7 +117,7 @@ bool WIFI::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::ipConfig(byte type, String addr, int32_t port, boolean a, byte id)
+boolean ESP8266::ipConfig(byte type, String addr, int32_t port, boolean a, byte id)
 {
 	boolean result = false;
 	if (a == 0 )
@@ -160,35 +153,33 @@ boolean WIFI::ipConfig(byte type, String addr, int32_t port, boolean a, byte id)
 }
 
 /*************************************************************************
-//receive message from wifi
+//receive message from ESP8266
 
 	buf:	buffer for receiving data
 	
-	chlID:	<id>(0-4)
-
 	return:	size of the buffer
 	
 
 ***************************************************************************/
-int32_t WIFI::ReceiveMessage(char *buf)
+int32_t ESP8266::ReceiveMessage(char *buf)
 {
 	//+IPD,<len>:<data>
 	//+IPD,<id>,<len>:<data>
 	String data = "";
-	if (_cell.available()>0)
+	if (ESP8266Serial.available()>0)
 	{
 		
 		unsigned long start;
 		start = millis();
-		char c0 = _cell.read();
+		char c0 = ESP8266Serial.read();
 		if (c0 == '+')
 		{
 			
 			while (millis()-start<5000) 
 			{
-				if (_cell.available()>0)
+				if (ESP8266Serial.available()>0)
 				{
-					char c = _cell.read();
+					char c = ESP8266Serial.read();
 					data += c;
 				}
 				if (data.indexOf("\nOK")!=-1)
@@ -222,25 +213,24 @@ int32_t WIFI::ReceiveMessage(char *buf)
 			//DBG("\r\n");
 			if(found ==true)
 			{
-			String _id = data.substring(4, j);
-			chlID = _id.toInt();
-			String _size = data.substring(j+1, i);
-			iSize = _size.toInt();
-			//DBG(_size);
-			String str = data.substring(i+1, i+1+iSize);
-			strcpy(buf, str.c_str());	
-			//DBG(str);
+    			String _id = data.substring(4, j);
+    			String _size = data.substring(j+1, i);
+    			iSize = _size.toInt();
+    			//DBG(_size);
+    			String str = data.substring(i+1, i+1+iSize);
+    			strcpy(buf, str.c_str());	
+    			//DBG(str);
 						
 			}
 			else
 			{			
-			String _size = data.substring(4, i);
-			iSize = _size.toInt();
-			//DBG(iSize);
-			//DBG("\r\n");
-			String str = data.substring(i+1, i+1+iSize);
-			strcpy(buf, str.c_str());
-			//DBG(str);
+    			String _size = data.substring(4, i);
+    			iSize = _size.toInt();
+    			//DBG(iSize);
+    			//DBG("\r\n");
+    			String str = data.substring(i+1, i+1+iSize);
+    			strcpy(buf, str.c_str());
+    			//DBG(str);
 			}
 			return iSize;
 		}
@@ -253,21 +243,20 @@ int32_t WIFI::ReceiveMessage(char *buf)
 
 
 /*************************************************************************
-//reboot the wifi module
+//reboot the ESP8266 module
 
 
 
 ***************************************************************************/
-void WIFI::Reset(void)
+void ESP8266::Reset(void)
 {
-    _cell.println("AT+RST");
+    ESP8266Serial.println("AT+RST");
 	unsigned long start;
 	start = millis();
     while (millis()-start<5000) {                            
-        if(_cell.find("ready")==true)
+        if(ESP8266Serial.find("eady")==true)
         {
-			DBG("reboot wifi is OK\r\n");
-           break;
+            break;
         }
     }
 }
@@ -275,14 +264,14 @@ void WIFI::Reset(void)
 /*********************************************
  *********************************************
  *********************************************
-             WIFI Function Commands
+             ESP8266 Function Commands
  *********************************************
  *********************************************
  *********************************************
  */
 
 /*************************************************************************
-//inquire the current mode of wifi module
+//inquire the current mode of ESP8266 module
 
 	return:	string of current mode
 		Station
@@ -290,16 +279,16 @@ void WIFI::Reset(void)
 		AP+Station
 
 ***************************************************************************/
-String WIFI::showMode()
+String ESP8266::showMode()
 {
     String data;
-    _cell.println("AT+CWMODE?");  
+    ESP8266Serial.println("AT+CWMODE?");  
 	unsigned long start;
 	start = millis();
     while (millis()-start<2000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("OK")!=-1)
@@ -335,17 +324,17 @@ String WIFI::showMode()
 
 ***************************************************************************/
 
-bool WIFI::confMode(byte a)
+bool ESP8266::confMode(byte a)
 {
     String data;
-     _cell.print("AT+CWMODE=");  
-     _cell.println(String(a));
+     ESP8266Serial.print("AT+CWMODE=");  
+     ESP8266Serial.println(String(a));
 	 unsigned long start;
 	start = millis();
     while (millis()-start<2000) {
-      if(_cell.available()>0)
+      if(ESP8266Serial.available()>0)
       {
-      char a =_cell.read();
+      char a =ESP8266Serial.read();
       data=data+a;
       }
       if (data.indexOf("OK")!=-1 || data.indexOf("no change")!=-1)
@@ -362,27 +351,27 @@ bool WIFI::confMode(byte a)
 
 
 /*************************************************************************
-//show the list of wifi hotspot
+//show the list of ESP8266 hotspot
 		
-	return:	string of wifi information
+	return:	string of ESP8266 information
 		encryption,SSID,RSSI
 		
 
 ***************************************************************************/
 
-String WIFI::showAP(void)
+String ESP8266::showAP(void)
 {
     String data;
-	_cell.flush();
-    _cell.print("AT+CWLAP\r\n");  
+	ESP8266Serial.flush();
+    ESP8266Serial.print("AT+CWLAP\r\n");  
 	delay(1000);
 	while(1);
     unsigned long start;
 	start = millis();
     while (millis()-start<8000) {
-   if(_cell.available()>0)
+   if(ESP8266Serial.available()>0)
    {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
    }
      if (data.indexOf("OK")!=-1 || data.indexOf("ERROR")!=-1 )
@@ -409,24 +398,24 @@ String WIFI::showAP(void)
 
 
 /*************************************************************************
-//show the name of current wifi access port
+//show the name of current ESP8266 access port
 		
 	return:	string of access port name
 		AP:<SSID>
 		
 
 ***************************************************************************/
-String WIFI::showJAP(void)
+String ESP8266::showJAP(void)
 {
-	_cell.flush();
-    _cell.println("AT+CWJAP?");  
+	ESP8266Serial.flush();
+    ESP8266Serial.println("AT+CWJAP?");  
       String data;
 	  unsigned long start;
 	start = millis();
     while (millis()-start<3000) {
-       if(_cell.available()>0)
+       if(ESP8266Serial.available()>0)
        {
-       char a =_cell.read();
+       char a =ESP8266Serial.read();
        data=data+a;
        }
        if (data.indexOf("OK")!=-1 || data.indexOf("ERROR")!=-1 )
@@ -455,25 +444,25 @@ String WIFI::showJAP(void)
 		
 
 ***************************************************************************/
-boolean WIFI::confJAP(String ssid , String pwd)
+boolean ESP8266::confJAP(String ssid , String pwd)
 {
 	
-    _cell.print("AT+CWJAP=");
-    _cell.print("\"");     //"ssid"
-    _cell.print(ssid);
-    _cell.print("\"");
+    ESP8266Serial.print("AT+CWJAP=");
+    ESP8266Serial.print("\"");     //"ssid"
+    ESP8266Serial.print(ssid);
+    ESP8266Serial.print("\"");
 
-    _cell.print(",");
+    ESP8266Serial.print(",");
 
-    _cell.print("\"");      //"pwd"
-    _cell.print(pwd);
-    _cell.println("\"");
+    ESP8266Serial.print("\"");      //"pwd"
+    ESP8266Serial.print(pwd);
+    ESP8266Serial.println("\"");
 
 
     unsigned long start;
 	start = millis();
     while (millis()-start<3000) {                            
-        if(_cell.find("OK")==true)
+        if(ESP8266Serial.find("OK")==true)
         {
 		   return true;
            
@@ -491,13 +480,13 @@ boolean WIFI::confJAP(String ssid , String pwd)
 
 ***************************************************************************/
 
-boolean WIFI::quitAP(void)
+boolean ESP8266::quitAP(void)
 {
-    _cell.println("AT+CWQAP");
+    ESP8266Serial.println("AT+CWQAP");
     unsigned long start;
 	start = millis();
     while (millis()-start<3000) {                            
-        if(_cell.find("OK")==true)
+        if(ESP8266Serial.find("OK")==true)
         {
 		   return true;
            
@@ -514,16 +503,16 @@ boolean WIFI::quitAP(void)
 			mySAP:<SSID>,<password>,<channel>,<encryption>
 
 ***************************************************************************/
-String WIFI::showSAP()
+String ESP8266::showSAP()
 {
-    _cell.println("AT+CWSAP?");  
+    ESP8266Serial.println("AT+CWSAP?");  
       String data;
       unsigned long start;
 	start = millis();
     while (millis()-start<3000) {
-       if(_cell.available()>0)
+       if(ESP8266Serial.available()>0)
        {
-       char a =_cell.read();
+       char a =ESP8266Serial.read();
        data=data+a;
        }
        if (data.indexOf("OK")!=-1 || data.indexOf("ERROR")!=-1 )
@@ -551,28 +540,28 @@ String WIFI::showSAP()
 
 ***************************************************************************/
 
-boolean WIFI::confSAP(String ssid , String pwd , byte chl , byte ecn)
+boolean ESP8266::confSAP(String ssid , String pwd , byte chl , byte ecn)
 {
-    _cell.print("AT+CWSAP=");  
-    _cell.print("\"");     //"ssid"
-    _cell.print(ssid);
-    _cell.print("\"");
+    ESP8266Serial.print("AT+CWSAP=");  
+    ESP8266Serial.print("\"");     //"ssid"
+    ESP8266Serial.print(ssid);
+    ESP8266Serial.print("\"");
 
-    _cell.print(",");
+    ESP8266Serial.print(",");
 
-    _cell.print("\"");      //"pwd"
-    _cell.print(pwd);
-    _cell.print("\"");
+    ESP8266Serial.print("\"");      //"pwd"
+    ESP8266Serial.print(pwd);
+    ESP8266Serial.print("\"");
 
-    _cell.print(",");
-    _cell.print(String(chl));
+    ESP8266Serial.print(",");
+    ESP8266Serial.print(String(chl));
 
-    _cell.print(",");
-    _cell.println(String(ecn));
+    ESP8266Serial.print(",");
+    ESP8266Serial.println(String(ecn));
 	unsigned long start;
 	start = millis();
     while (millis()-start<3000) {                            
-        if(_cell.find("OK")==true )
+        if(ESP8266Serial.find("OK")==true )
         {
            return true;
         }
@@ -603,16 +592,16 @@ boolean WIFI::confSAP(String ssid , String pwd , byte chl , byte ecn)
 
 ***************************************************************************/
 
-String WIFI::showStatus(void)
+String ESP8266::showStatus(void)
 {
-    _cell.println("AT+CIPSTATUS");  
+    ESP8266Serial.println("AT+CIPSTATUS");  
       String data;
     unsigned long start;
 	start = millis();
     while (millis()-start<3000) {
-       if(_cell.available()>0)
+       if(ESP8266Serial.available()>0)
        {
-       char a =_cell.read();
+       char a =ESP8266Serial.read();
        data=data+a;
        }
        if (data.indexOf("OK")!=-1)
@@ -639,17 +628,17 @@ String WIFI::showStatus(void)
 			1	-	multiple
 
 ***************************************************************************/
-String WIFI::showMux(void)
+String ESP8266::showMux(void)
 {
     String data;
-    _cell.println("AT+CIPMUX?");  
+    ESP8266Serial.println("AT+CIPMUX?");  
 
       unsigned long start;
 	start = millis();
     while (millis()-start<3000) {
-       if(_cell.available()>0)
+       if(ESP8266Serial.available()>0)
        {
-       char a =_cell.read();
+       char a =ESP8266Serial.read();
        data=data+a;
        }
        if (data.indexOf("OK")!=-1)
@@ -679,14 +668,14 @@ String WIFI::showMux(void)
 		true	-	successfully
 		false	-	unsuccessfully
 ***************************************************************************/
-boolean WIFI::confMux(boolean a)
+boolean ESP8266::confMux(boolean a)
 {
-	_cell.print("AT+CIPMUX=");
-	_cell.println(a);           
+	ESP8266Serial.print("AT+CIPMUX=");
+	ESP8266Serial.println(a);           
 	unsigned long start;
 	start = millis();
 	while (millis()-start<3000) {                            
-        if(_cell.find("OK")==true )
+        if(ESP8266Serial.find("OK")==true )
         {
            return true;
         }
@@ -711,35 +700,35 @@ boolean WIFI::confMux(boolean a)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::newMux(byte type, String addr, int32_t port)
+boolean ESP8266::newMux(byte type, String addr, int32_t port)
 
 {
     String data;
-    _cell.print("AT+CIPSTART=");
+    ESP8266Serial.print("AT+CIPSTART=");
     if(type>0)
     {
-        _cell.print("\"TCP\"");
+        ESP8266Serial.print("\"TCP\"");
     }else
     {
-        _cell.print("\"UDP\"");
+        ESP8266Serial.print("\"UDP\"");
     }
-    _cell.print(",");
-    _cell.print("\"");
-    _cell.print(addr);
-    _cell.print("\"");
-    _cell.print(",");
-//    _cell.print("\"");
-    _cell.println(String(port));
-//    _cell.println("\"");
+    ESP8266Serial.print(",");
+    ESP8266Serial.print("\"");
+    ESP8266Serial.print(addr);
+    ESP8266Serial.print("\"");
+    ESP8266Serial.print(",");
+//    ESP8266Serial.print("\"");
+    ESP8266Serial.println(String(port));
+//    ESP8266Serial.println("\"");
     unsigned long start;
 	start = millis();
 	while (millis()-start<3000) { 
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
-     if (data.indexOf("OK")!=-1 || data.indexOf("ALREAY CONNECT")!=-1 || data.indexOf("ERROR")!=-1)
+     if (data.indexOf("OK")!=-1 || data.indexOf("ALREADY CONNECT")!=-1 || data.indexOf("ERROR")!=-1)
      {
          return true;
      }
@@ -762,37 +751,37 @@ boolean WIFI::newMux(byte type, String addr, int32_t port)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::newMux( byte id, byte type, String addr, int32_t port)
+boolean ESP8266::newMux( byte id, byte type, String addr, int32_t port)
 
 {
 
-    _cell.print("AT+CIPSTART=");
-    _cell.print("\"");
-    _cell.print(String(id));
-    _cell.print("\"");
+    ESP8266Serial.print("AT+CIPSTART=");
+    ESP8266Serial.print("\"");
+    ESP8266Serial.print(String(id));
+    ESP8266Serial.print("\"");
     if(type>0)
     {
-        _cell.print("\"TCP\"");
+        ESP8266Serial.print("\"TCP\"");
     }
 	else
     {
-        _cell.print("\"UDP\"");
+        ESP8266Serial.print("\"UDP\"");
     }
-    _cell.print(",");
-    _cell.print("\"");
-    _cell.print(addr);
-    _cell.print("\"");
-    _cell.print(",");
-//    _cell.print("\"");
-    _cell.println(String(port));
-//    _cell.println("\"");
+    ESP8266Serial.print(",");
+    ESP8266Serial.print("\"");
+    ESP8266Serial.print(addr);
+    ESP8266Serial.print("\"");
+    ESP8266Serial.print(",");
+//    ESP8266Serial.print("\"");
+    ESP8266Serial.println(String(port));
+//    ESP8266Serial.println("\"");
     String data;
     unsigned long start;
 	start = millis();
 	while (millis()-start<3000) { 
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("OK")!=-1 || data.indexOf("ALREAY CONNECT")!=-1 )
@@ -814,24 +803,24 @@ boolean WIFI::newMux( byte id, byte type, String addr, int32_t port)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::Send(String str)
+boolean ESP8266::Send(String str)
 {
-    _cell.print("AT+CIPSEND=");
-//    _cell.print("\"");
-    _cell.println(str.length());
-//    _cell.println("\"");
+    ESP8266Serial.print("AT+CIPSEND=");
+//    ESP8266Serial.print("\"");
+    ESP8266Serial.println(str.length());
+//    ESP8266Serial.println("\"");
     unsigned long start;
 	start = millis();
 	bool found;
 	while (millis()-start<5000) {                            
-        if(_cell.find(">")==true )
+        if(ESP8266Serial.find(">")==true )
         {
 			found = true;
            break;
         }
      }
 	 if(found)
-		_cell.print(str);
+		ESP8266Serial.print(str);
 	else
 	{
 		closeMux();
@@ -842,9 +831,9 @@ boolean WIFI::Send(String str)
     String data;
     start = millis();
 	while (millis()-start<5000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("SEND OK")!=-1)
@@ -867,25 +856,25 @@ boolean WIFI::Send(String str)
 		false	-	unsuccessfully
 
 ***************************************************************************/
-boolean WIFI::Send(byte id, String str)
+boolean ESP8266::Send(byte id, String str)
 {
-    _cell.print("AT+CIPSEND=");
+    ESP8266Serial.print("AT+CIPSEND=");
 
-    _cell.print(String(id));
-    _cell.print(",");
-    _cell.println(str.length());
+    ESP8266Serial.print(String(id));
+    ESP8266Serial.print(",");
+    ESP8266Serial.println(str.length());
     unsigned long start;
 	start = millis();
 	bool found;
 	while (millis()-start<5000) {                          
-        if(_cell.find(">")==true )
+        if(ESP8266Serial.find(">")==true )
         {
 			found = true;
            break;
         }
      }
 	 if(found)
-		_cell.print(str);
+		ESP8266Serial.print(str);
 	else
 	{
 		closeMux(id);
@@ -896,9 +885,9 @@ boolean WIFI::Send(byte id, String str)
     String data;
     start = millis();
 	while (millis()-start<5000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("SEND OK")!=-1)
@@ -914,17 +903,17 @@ boolean WIFI::Send(byte id, String str)
 
 
 ***************************************************************************/
-void WIFI::closeMux(void)
+void ESP8266::closeMux(void)
 {
-    _cell.println("AT+CIPCLOSE");
+    ESP8266Serial.println("AT+CIPCLOSE");
 
     String data;
     unsigned long start;
 	start = millis();
 	while (millis()-start<3000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("Linked")!=-1 || data.indexOf("ERROR")!=-1 || data.indexOf("we must restart")!=-1)
@@ -941,17 +930,17 @@ void WIFI::closeMux(void)
 	id:	id number(0-4)
 
 ***************************************************************************/
-void WIFI::closeMux(byte id)
+void ESP8266::closeMux(byte id)
 {
-    _cell.print("AT+CIPCLOSE=");
-    _cell.println(String(id));
+    ESP8266Serial.print("AT+CIPCLOSE=");
+    ESP8266Serial.println(String(id));
     String data;
     unsigned long start;
 	start = millis();
 	while (millis()-start<3000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("OK")!=-1 || data.indexOf("Link is not")!=-1 || data.indexOf("Cant close")!=-1)
@@ -968,19 +957,19 @@ void WIFI::closeMux(byte id)
 	return:	string of ip address
 
 ***************************************************************************/
-String WIFI::showIP(void)
+String ESP8266::showIP(void)
 {
     String data;
     unsigned long start;
     //DBG("AT+CIFSR\r\n");
     for(int32_t a=0; a<3;a++)
     {
-        _cell.println("AT+CIFSR");  
+        ESP8266Serial.println("AT+CIFSR");  
         start = millis();
         while (millis()-start<3000) {
-             while(_cell.available()>0)
+             while(ESP8266Serial.available()>0)
              {
-                 char a =_cell.read();
+                 char a =ESP8266Serial.read();
                  data=data+a;
              }
              if (data.indexOf("AT+CIFSR")!=-1)
@@ -1021,21 +1010,21 @@ String WIFI::showIP(void)
 
 ***************************************************************************/
 
-boolean WIFI::confServer(byte mode, int32_t port)
+boolean ESP8266::confServer(byte mode, int32_t port)
 {
-    _cell.print("AT+CIPSERVER=");  
-    _cell.print(String(mode));
-    _cell.print(",");
-    _cell.println(String(port));
+    ESP8266Serial.print("AT+CIPSERVER=");  
+    ESP8266Serial.print(String(mode));
+    ESP8266Serial.print(",");
+    ESP8266Serial.println(String(port));
 
     String data;
     unsigned long start;
 	start = millis();
 	boolean found = false;
 	while (millis()-start<3000) {
-     if(_cell.available()>0)
+     if(ESP8266Serial.available()>0)
      {
-     char a =_cell.read();
+     char a =ESP8266Serial.read();
      data=data+a;
      }
      if (data.indexOf("OK")!=-1 || data.indexOf("no char_tge")!=-1)
@@ -1046,3 +1035,64 @@ boolean WIFI::confServer(byte mode, int32_t port)
   }
   return found;
 }
+
+/**
+ * Connect to WiFi. 
+ * 
+ * @param ssid - SSID of WiFi Network. 
+ * @param password - guess what!
+ * 
+ * @retval true - success. 
+ * @retval false - failed. 
+ */
+bool ESP8266::connectWiFi(String ssid, String password)
+{
+    begin();
+    if(!Initialize(STA, ssid, password))
+    {
+        DebugSerial.print("connect to ");
+        DebugSerial.print(ssid);
+        DebugSerial.println(" failed!");
+        return false;
+    }
+    DebugSerial.print("Getting IP from ");
+    DebugSerial.print(ssid);
+    DebugSerial.println(". Please wait ...");
+    delay(5000);
+    DebugSerial.println(showIP());
+}
+
+/**
+ * Disconnect from WiFi connection before. 
+ * 
+ * @retval true - success. 
+ * @retval false - failed. 
+ */
+bool ESP8266::disconnectWiFi(void)
+{
+    return quitAP();
+}
+
+int32_t ESP8266::createTCPConnection(String host, uint32_t port)
+{
+    return ipConfig(TCP, host, port) ? 0 : ERR_TCP_CONN_FAILED;
+}
+
+int32_t ESP8266::send(String data)
+{
+    return Send(data) ? 0 : ERR_TCP_SEND_FAILED;
+}
+
+int32_t ESP8266::recv(char *buffer, uint32_t length)
+{
+    int32_t len = ReceiveMessage(buffer);
+    buffer[length-1] = '\0';
+    return (len >= length) ? length-1 : len;
+}
+
+int32_t ESP8266::releaseTCPConnection(void)
+{
+    closeMux();
+    return 0;
+}
+

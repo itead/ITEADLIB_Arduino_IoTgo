@@ -55,19 +55,21 @@
 </pre><h2>Documentation</h2>
 <p>Online API documentation can be reached at <a href="http://docs.iteadstudio.com/IoTgo-ino/">http://docs.iteadstudio.com/IoTgo-ino/</a>.</p>
 <p>Offline API documentation can be found under directory <a href="https://github.com/itead/ITEADLIB_Arduino_IoTgo/tree/master/doc">doc</a>.</p>
+<p>For Raspberry Pi users, Segnix is recommended at <a href="https://github.com/itead/Segnix/">https://github.com/itead/Segnix/</a>. Segnix ships with an <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> library beased on Linux/Raspberry Pi.</p>
 <h2>How to get started</h2>
 <p>On the home page of API documentation, the tabs of Modules, Classes and Examples will be useful for Arduino developers.</p>
-<h2>Levels</h2>
-<p><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Arduino Library has levels following:</p>
+<h2>Project Layers</h2>
+<p><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Arduino Library has layers following:</p>
 <ul>
-<li><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Device Level: Switch/Light/THSensor [source: Dev_*]</li>
-<li>Http Proxy Level: <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> [source: IoTgo*]</li>
-<li>Ethernet Level: ESP2560(WIFI) [source: Eth_*]</li>
-<li>Hardware Level: WBoard/MEGA</li>
+<li><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Device Layer: Switch/Light/THSensor [source: Dev_*]</li>
+<li>Http Proxy Layer: <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> [source: IoTgo*]</li>
+<li>Network Layer: <a class="el" href="class_net_interface.html" title="Abstract class, declares the unified interface to access the internet. ">NetInterface</a> [source: Net_*]</li>
+<li>Ethernet Layer: ESP2560(WIFI) [source: Eth_*]</li>
+<li>Hardware Layer: MEGA/WBoard/WBoard Pro</li>
 </ul>
 <h1>Configuration and Connection</h1>
 <h2>Configure Your Board</h2>
-<p>When you use with MEGA board or WBoard, uncomment the follow line in <code><a class="el" href="_eth___e_s_p8266_8h.html" title="ESP8266 library. ">Eth_ESP8266.h</a></code>. </p><pre class="fragment">#define MEGA
+<p>When you use with MEGA board or WBoard or WBoard Pro, uncomment the follow line in <code><a class="el" href="_io_tgo__config_8h.html" title="Configure some options for your board. ">IoTgo_config.h</a></code>. </p><pre class="fragment">#define MEGA
 </pre><h2>Connection</h2>
 <h3>MEGA</h3>
 <p>When you use it with MEGA board, the connection should be like these: </p><pre class="fragment">ESP8266_TX-&gt;RX1(D19)
@@ -80,10 +82,10 @@ ESP8266_VCC-&gt;3.3V
 
 ESP8266_GND-&gt;GND
 </pre><p>When you want to output the debug information, please use DebugSerial. For example, </p><pre class="fragment">DebugSerial.println("hello");
-</pre><h3>WBoard</h3>
-<p>Need no connections.</p>
+</pre><h3>WBoard and WBoard Pro</h3>
+<p>No more connections.</p>
 <h1>Attention</h1>
-<p><b>Note1</b>: The size of message from ESP8266 is too big for arduino sometimes, so the library can't receive the whole buffer because the size of the hardware serial buffer which is defined in HardwareSerial.h is too small.</p>
+<p><b>Note1</b>: The size of message from <a class="el" href="class_e_s_p8266.html" title="Provides TCP service for Application Layer of Network Protocol Stack. ">ESP8266</a> is too big for arduino sometimes, so the library can't receive the whole buffer because the size of the hardware serial buffer which is defined in HardwareSerial.h is too small.</p>
 <p>Open the file from <code>\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h</code>. See the follow line in the HardwareSerial.h file. </p><pre class="fragment">#define SERIAL_BUFFER_SIZE 64
 </pre><p>The default size of the buffer is 64. Change it into a bigger number, like 256 or more.</p>
 <h1>Author</h1>
@@ -97,7 +99,7 @@ ESP8266_GND-&gt;GND
  </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 26 2014 17:40:44 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 27 2014 20:53:50 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -25,7 +25,8 @@
 
 /**
  * SHT1x implements THSensorInterface. 
- *
+ * 
+ * @ingroup THSensorInterface
  */
 class SHT1x : public THSensorInterface
 {
