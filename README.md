@@ -43,7 +43,7 @@ IoTgo Arduino Library has layers following:
   - IoTgo Device Layer: Switch/Light/THSensor [source: Dev_*]
   - Http Proxy Layer: IoTgo [source: IoTgo*]
   - Network Layer: NetInterface [source: Net_*]
-  - Ethernet Layer: ESP2560(WIFI) [source: Eth_*]
+  - Ethernet Layer: ESP8266(WIFI) [source: Eth_*]
   - Hardware Layer: MEGA/WBoard/WBoard Pro
 
 # Configuration and Connection
