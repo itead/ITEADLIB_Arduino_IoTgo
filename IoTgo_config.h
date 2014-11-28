@@ -24,6 +24,7 @@
 #define MEGA    
 
 #ifdef MEGA
+#define ESP8266SERIAL_TIMEOUT_DEFAULT   (3000)
 #define ESP8266Serial	Serial1
 #define DebugSerial	    Serial
 #endif  

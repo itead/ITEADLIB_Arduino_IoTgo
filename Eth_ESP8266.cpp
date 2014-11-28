@@ -14,27 +14,17 @@
  */
 #include "Eth_ESP8266.h"
 
+/*
+ * Start communication and reset ESP8266. 
+ */
 void ESP8266::begin(void)
 {
 	boolean result = false;
-	 	
+	uint32_t delay_cnt = 0;
+	
 	ESP8266Serial.begin(ESP8266_BAUD_RATE);
-	ESP8266Serial.flush();
-	ESP8266Serial.setTimeout(10000);
-	
-	ESP8266Serial.println("AT+RST");
-	
-	DebugSerial.println("Reset module...");
-
-	result = ESP8266Serial.find("eady");
-	if(result)
-		DebugSerial.println("Module is ready");
-    else
-	{
-		DebugSerial.println("Module have no response. Halt now...");
-		while(1);
-	}
-
+	ESP8266Serial.setTimeout(ESP8266SERIAL_TIMEOUT_DEFAULT);
+    Reset();
 }
 
 
@@ -61,16 +51,19 @@ void ESP8266::begin(void)
 ***************************************************************************/
 bool ESP8266::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 {
-    DebugSerial.println("Initializing...");
 	if (mode == STA)
 	{	
+        DebugSerial.println("Set to station mode and reset... ");
 		bool b = confMode(mode);
 		if (!b)
 		{
 			return false;
 		}
 		Reset();
-		confJAP(ssid, pwd);
+		
+        DebugSerial.print("Connecting to ");
+        DebugSerial.println(ssid);
+		return confJAP(ssid, pwd);
 	}
 	else if (mode == AP)
 	{
@@ -250,15 +243,45 @@ int32_t ESP8266::ReceiveMessage(char *buf)
 ***************************************************************************/
 void ESP8266::Reset(void)
 {
-    ESP8266Serial.println("AT+RST");
-	unsigned long start;
-	start = millis();
-    while (millis()-start<5000) {                            
-        if(ESP8266Serial.find("eady")==true)
+	uint32_t delay_cnt = 0;
+	
+	ESP8266Serial.setTimeout(10);
+	ESP8266Serial.flush();
+	ESP8266Serial.println("AT+RST");
+	if (ESP8266Serial.find("OK"))
+	{
+	    DebugSerial.println("Reset module...");
+	}
+	else
+	{
+	    DebugSerial.println("Reset module failed and halt now...");
+	    while(1);
+	}
+	
+	delay(3000); /* Waiting for boot */
+
+    while(delay_cnt < 500)
+    {
+        ESP8266Serial.flush();
+        ESP8266Serial.println("AT");
+        if (ESP8266Serial.find("OK"))
         {
             break;
         }
+        delay_cnt ++;
     }
+    ESP8266Serial.setTimeout(ESP8266SERIAL_TIMEOUT_DEFAULT);
+    
+    if (delay_cnt < 500)
+    {
+        DebugSerial.println("Module is ready");
+    }
+    else
+	{
+		DebugSerial.println("Module have no response. Halt now...");
+		while(1);
+	}
+	
 }
 
 /*********************************************
@@ -327,26 +350,27 @@ String ESP8266::showMode()
 bool ESP8266::confMode(byte a)
 {
     String data;
-     ESP8266Serial.print("AT+CWMODE=");  
-     ESP8266Serial.println(String(a));
-	 unsigned long start;
-	start = millis();
-    while (millis()-start<2000) {
-      if(ESP8266Serial.available()>0)
-      {
-      char a =ESP8266Serial.read();
-      data=data+a;
-      }
-      if (data.indexOf("OK")!=-1 || data.indexOf("no change")!=-1)
-      {
-          return true;
-      }
-	  if (data.indexOf("ERROR")!=-1 || data.indexOf("busy")!=-1)
-	  {
-		  return false;
-	  }
-	  
-   }
+    ESP8266Serial.print("AT+CWMODE=");  
+    ESP8266Serial.println(String(a));
+    unsigned long start;
+    start = millis();
+    while (millis()-start<2000) 
+    {
+        if(ESP8266Serial.available()>0)
+        {
+            char a =ESP8266Serial.read();
+            data=data+a;
+        }
+        if (data.indexOf("OK")!=-1 || data.indexOf("no change")!=-1)
+        {
+            return true;
+        }
+        if (data.indexOf("ERROR")!=-1 || data.indexOf("busy")!=-1)
+        {
+            return false;
+        }
+
+    }
 }
 
 
@@ -446,7 +470,9 @@ String ESP8266::showJAP(void)
 ***************************************************************************/
 boolean ESP8266::confJAP(String ssid , String pwd)
 {
-	
+    boolean join = false;
+
+    ESP8266Serial.flush();
     ESP8266Serial.print("AT+CWJAP=");
     ESP8266Serial.print("\"");     //"ssid"
     ESP8266Serial.print(ssid);
@@ -461,14 +487,43 @@ boolean ESP8266::confJAP(String ssid , String pwd)
 
     unsigned long start;
 	start = millis();
-    while (millis()-start<3000) {                            
+    while (millis()-start<10000) 
+    {                            
         if(ESP8266Serial.find("OK")==true)
-        {
-		   return true;
-           
+        { 
+            join = true;
+            break;
         }
     }
-	return false;
+
+    if (join)
+    {
+        uint32_t n = 0;
+        while(n++ < 100)
+        {
+            ESP8266Serial.flush();
+            ESP8266Serial.println("AT+CIFSR");
+            String data = "";
+            char c;
+            start = millis();
+            while (millis()-start<3000) 
+            {
+                while(ESP8266Serial.available()>0)
+                {
+                    c = ESP8266Serial.read(); 
+                    //DebugSerial.print(c);
+                    data += c;
+                }
+                if (data.indexOf("0.0.0.0") == -1 &&
+                    data.indexOf("OK") !=-1 )
+                {
+                    return true;
+                }
+            }
+            delay(100);
+        }
+    }
+    return false;    
 }
 /*************************************************************************
 //quite the access port
@@ -701,14 +756,14 @@ boolean ESP8266::confMux(boolean a)
 
 ***************************************************************************/
 boolean ESP8266::newMux(byte type, String addr, int32_t port)
-
 {
     String data;
     ESP8266Serial.print("AT+CIPSTART=");
     if(type>0)
     {
         ESP8266Serial.print("\"TCP\"");
-    }else
+    }
+    else
     {
         ESP8266Serial.print("\"UDP\"");
     }
@@ -717,24 +772,26 @@ boolean ESP8266::newMux(byte type, String addr, int32_t port)
     ESP8266Serial.print(addr);
     ESP8266Serial.print("\"");
     ESP8266Serial.print(",");
-//    ESP8266Serial.print("\"");
     ESP8266Serial.println(String(port));
-//    ESP8266Serial.println("\"");
     unsigned long start;
 	start = millis();
-	while (millis()-start<3000) { 
-     if(ESP8266Serial.available()>0)
-     {
-     char a =ESP8266Serial.read();
-     data=data+a;
-     }
-     if (data.indexOf("OK")!=-1 || data.indexOf("ALREADY CONNECT")!=-1 || data.indexOf("ERROR")!=-1)
-     {
-         return true;
-     }
+	char c;
+	while (millis()-start<3000) 
+	{ 
+        while(ESP8266Serial.available()>0)
+        {
+            c = ESP8266Serial.read();
+            data = data + c;
+        }
+        if (data.indexOf("OK") != -1 || 
+            data.indexOf("ALREADY CONNECT") != -1)
+        {
+            return true;
+        }
   }
   return false;
 }
+
 /*************************************************************************
 //Set up tcp or udp connection	(multiple connection mode)
 
@@ -961,7 +1018,6 @@ String ESP8266::showIP(void)
 {
     String data;
     unsigned long start;
-    //DBG("AT+CIFSR\r\n");
     for(int32_t a=0; a<3;a++)
     {
         ESP8266Serial.println("AT+CIFSR");  
@@ -984,8 +1040,6 @@ String ESP8266::showIP(void)
     	data = "";
     }
     
-	//DBG(data);
-	//DBG("\r\n");
     char head[4] = {0x0D,0x0A};   
     char tail[7] = {0x0D,0x0D,0x0A};        
     data.replace("AT+CIFSR","");
@@ -1050,16 +1104,17 @@ bool ESP8266::connectWiFi(String ssid, String password)
     begin();
     if(!Initialize(STA, ssid, password))
     {
-        DebugSerial.print("connect to ");
+        DebugSerial.print("Connect to ");
         DebugSerial.print(ssid);
-        DebugSerial.println(" failed!");
-        return false;
+        DebugSerial.println(" failed and halt now...");
+        while(1);
     }
     DebugSerial.print("Getting IP from ");
     DebugSerial.print(ssid);
     DebugSerial.println(". Please wait ...");
-    delay(5000);
     DebugSerial.println(showIP());
+    
+    return true;
 }
 
 /**
