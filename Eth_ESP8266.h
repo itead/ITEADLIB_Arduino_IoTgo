@@ -66,7 +66,6 @@ private:
 	boolean Send(byte id, String str);
 	int32_t ReceiveMessage(char *buf);
 	
-    void Reset(void);
 	bool confMode(byte a);
 	boolean confJAP(String ssid , String pwd);
 	boolean confSAP(String ssid , String pwd , byte chl , byte ecn);

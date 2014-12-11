@@ -22,11 +22,36 @@
 void ESP8266::begin(void)
 {
 	boolean result = false;
-	uint32_t delay_cnt = 0;
+
+	DebugSerial.println("Init ESP8266...");
 	
 	ESP8266Serial.begin(ESP8266_BAUD_RATE);
+	
+	ESP8266Serial.setTimeout(100);
+	ESP8266Serial.flush();
+	ESP8266Serial.println("AT");
+	if (ESP8266Serial.find("OK"))
+	{
+	    DebugSerial.println("ESP8266 is ready");
+	}
+	else
+	{
+        delay(5000);
+        ESP8266Serial.flush();
+    	ESP8266Serial.println("AT");
+    	if (ESP8266Serial.find("OK"))
+    	{
+    	    DebugSerial.println("ESP8266 is ready");
+    	}
+    	else
+    	{
+    	    DebugSerial.println("No response from ESP8266");
+    	    DebugSerial.println("You need to reset your mainboard and ESP8266");
+    	    DebugSerial.println("Halt now ...");
+    	    while(1);
+	    }
+	}
 	ESP8266Serial.setTimeout(ESP8266SERIAL_TIMEOUT_DEFAULT);
-    Reset();
 }
 
 
@@ -61,8 +86,7 @@ bool ESP8266::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 		{
 			return false;
 		}
-		Reset();
-		
+		delay(2000);
         DebugSerial.print("Connecting to ");
         DebugSerial.println(ssid);
 		return confJAP(ssid, pwd);
@@ -74,7 +98,7 @@ bool ESP8266::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 		{
 			return false;
 		}
-		Reset();
+		delay(2000);
 		confSAP(ssid, pwd, chl, ecn);
 	}
 	else if (mode == AP_STA)
@@ -84,7 +108,7 @@ bool ESP8266::Initialize(byte mode, String ssid, String pwd, byte chl, byte ecn)
 		{
 			return false;
 		}
-		Reset();
+		delay(2000);
 		confJAP(ssid, pwd);
 		confSAP(ssid, pwd, chl, ecn);
 	}
@@ -235,56 +259,6 @@ int32_t ESP8266::ReceiveMessage(char *buf)
 }
 
 //////////////////////////////////////////////////////////////////////////
-
-
-/*************************************************************************
-//reboot the ESP8266 module
-
-
-
-***************************************************************************/
-void ESP8266::Reset(void)
-{
-	uint32_t delay_cnt = 0;
-	
-	ESP8266Serial.setTimeout(10);
-	ESP8266Serial.flush();
-	ESP8266Serial.println("AT+RST");
-	if (ESP8266Serial.find("OK"))
-	{
-	    DebugSerial.println("Reset module...");
-	}
-	else
-	{
-	    DebugSerial.println("Reset module failed and halt now...");
-	    while(1);
-	}
-	
-	delay(3000); /* Waiting for boot */
-
-    while(delay_cnt < 500)
-    {
-        ESP8266Serial.flush();
-        ESP8266Serial.println("AT");
-        if (ESP8266Serial.find("OK"))
-        {
-            break;
-        }
-        delay_cnt ++;
-    }
-    ESP8266Serial.setTimeout(ESP8266SERIAL_TIMEOUT_DEFAULT);
-    
-    if (delay_cnt < 500)
-    {
-        DebugSerial.println("Module is ready");
-    }
-    else
-	{
-		DebugSerial.println("Module have no response. Halt now...");
-		while(1);
-	}
-	
-}
 
 /*********************************************
  *********************************************
