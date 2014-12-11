@@ -88,7 +88,7 @@ int32_t Gsm::send(String data)
 	gsm.SimpleWrite(data.c_str());
 	gsm.SimpleWrite(end_c);
 
-	switch(gsm.WaitResp(10000, 200, "SEND OK")) 
+	switch(gsm.WaitResp(10000, 10, "SEND OK")) 
 	{
 		case RX_TMOUT_ERR:
 			ret = ERR_TCP_SEND_FAILED;
