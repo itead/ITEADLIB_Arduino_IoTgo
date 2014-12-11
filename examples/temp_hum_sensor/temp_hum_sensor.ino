@@ -36,7 +36,7 @@
  *       "temperature" with value "xx.xx" in Celsius, 
  *       "humidity" with value "xx.xx" in persentage. 
  */
-#define THSENSOR_ID            "0300000001"
+#define THSENSOR_ID            "030000000a"
 
 /*
  * If you have a finished product, a check code or apikey-like code or 
@@ -46,7 +46,7 @@
 #define THSENSOR_CHECK_CODE    ""
 
 /* An unique identifier of user registed on IoTgo platform */
-#define THSENSOR_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
+#define THSENSOR_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
 
 /* 
  * The SSID (more generally, WiFi's name) for accessing to internet.
@@ -64,7 +64,7 @@
  * IP address or domain name of IoTgo platform servers. 
  * Maybe you need to change it.
  */
-#define IOT_SERVER          "172.16.7.6"
+#define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
 #define THSENSOR_DATA_PIN    (20)
@@ -117,58 +117,5 @@ void loop()
     {
         Serial.println("sync successfully!");
     }
-
-    ret = th.getAll(&temp_c, &temp_f, &hum);
-    if (ret)
-    {
-        Serial.print("ERROR: getAll() = ");
-        Serial.println(ret);
-    }
-    else
-    {
-        Serial.print("TempC = ");
-        Serial.print(temp_c, 2);
-        Serial.print(", TempF = ");
-        Serial.print(temp_f, 2);
-        Serial.print(", Hum = ");
-        Serial.println(hum, 2);
-    }
-    
-    ret = th.getTemperatureC(&temp_c);
-    if (ret)
-    {
-        Serial.print("ERROR: getTemperatureC() = ");
-        Serial.println(ret);
-    }
-    else
-    {
-        Serial.print("TempC = ");
-        Serial.println(temp_c, 2);
-    }
-    
-    ret = th.getTemperatureF(&temp_f);
-    if (ret)
-    {
-        Serial.print("ERROR: getTemperatureF() = ");
-        Serial.println(ret);
-    }
-    else
-    {
-        Serial.print("TempF = ");
-        Serial.println(temp_f, 2);
-    }
-
-    ret = th.getHumidity(&hum);
-    if (ret)
-    {
-        Serial.print("ERROR: getHumidity() = ");
-        Serial.println(ret);
-    }
-    else
-    {
-        Serial.print("Hum = ");
-        Serial.println(hum, 2);
-    }
-
     delay(1000);
 }

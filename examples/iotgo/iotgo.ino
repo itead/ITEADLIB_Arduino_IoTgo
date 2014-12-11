@@ -23,7 +23,7 @@
 #include <IoTgo_device.h>
 
 /* An unique identifier of user registed on IoTgo platform */
-#define IOTGO_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
+#define IOTGO_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
 
 /* 
  * An identifier of device which has been created and belongs to
@@ -39,7 +39,7 @@
  *       "temperature" with value "xx.xx" in Celsius, 
  *       "humidity" with value "xx.xx" in persentage. 
  */
-#define IOTGO_DEVICEID      "0000000001" /* Customized device category*/
+#define IOTGO_DEVICEID      "0000000002" /* Customized device category*/
 
 /*
  * If you have a finished product, a check code or apikey-like code or 
@@ -64,7 +64,7 @@
  * IP address or domain name of IoTgo platform servers. 
  * Maybe you need to change it.
  */
-#define IOT_SERVER          "172.16.7.6"
+#define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
 ESP8266 esp8266;

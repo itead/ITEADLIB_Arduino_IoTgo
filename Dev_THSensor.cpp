@@ -90,12 +90,10 @@ int32_t THSensor::sync(void)
         return ERR_NO_DEVICES_AVAILABLE;
     }
     
-#ifdef DEBUG    
     DebugSerial.print("temp_c=");
-    DebugSerial.println(temp_c, 2);
-    DebugSerial.print("hum=");
+    DebugSerial.print(temp_c, 2);
+    DebugSerial.print(", hum=");
     DebugSerial.println(hum, 2);
-#endif
 
     temp_c += 0.005;
     hum += 0.005;

@@ -36,7 +36,7 @@
  *       "temperature" with value "xx.xx" in Celsius, 
  *       "humidity" with value "xx.xx" in persentage. 
  */
-#define LIGHT_ID            "0200000001"
+#define LIGHT_ID            "0200000002"
 
 /*
  * If you have a finished product, a check code or apikey-like code or 
@@ -46,7 +46,7 @@
 #define LIGHT_CHECK_CODE    ""
 
 /* An unique identifier of user registed on IoTgo platform */
-#define LIGHT_APIKEY        "9bed6c2c-fbc6-4400-9ef8-087f9f0d996e"
+#define LIGHT_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
 
 /* 
  * The SSID (more generally, WiFi's name) for accessing to internet.
@@ -64,7 +64,7 @@
  * IP address or domain name of IoTgo platform servers. 
  * Maybe you need to change it.
  */
-#define IOT_SERVER          "172.16.7.6"
+#define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
 #define LIGHT_PIN           (13)
