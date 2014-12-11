@@ -14,6 +14,8 @@
  */
 #include "Eth_ESP8266.h"
 
+#ifdef NET_USE_ESP8266
+
 /*
  * Start communication and reset ESP8266. 
  */
@@ -1130,7 +1132,7 @@ bool ESP8266::disconnectWiFi(void)
 
 int32_t ESP8266::createTCPConnection(String host, uint32_t port)
 {
-    return ipConfig(TCP, host, port) ? 0 : ERR_TCP_CONN_FAILED;
+    return ipConfig(TCP_MODE, host, port) ? 0 : ERR_TCP_CONN_FAILED;
 }
 
 int32_t ESP8266::send(String data)
@@ -1151,3 +1153,4 @@ int32_t ESP8266::releaseTCPConnection(void)
     return 0;
 }
 
+#endif

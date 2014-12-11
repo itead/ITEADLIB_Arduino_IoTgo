@@ -21,6 +21,8 @@
 #include "IoTgo_config.h"
 #include "Net_NetInterface.h"
 
+#ifdef NET_USE_ESP8266
+
 /* The way of encrypstion */
 #define    ESP8266_ENC_OPEN          0
 #define    ESP8266_ENC_WEP           1
@@ -29,8 +31,8 @@
 #define    ESP8266_ENC_WAP_WAP2_PSK  4
 
 /* Communication mode */
-#define    TCP     1
-#define    UDP     0
+#define    TCP_MODE     1
+#define    UDP_MODE     0
 
 /* The type of initialized ESP8266 */
 #define    STA     1
@@ -84,5 +86,6 @@ private:
     String showIP(void);
     boolean confServer(byte mode, int32_t port);
 };
+#endif
 
 #endif /* #ifndef __ETH_ESP8266_H__ */

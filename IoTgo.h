@@ -19,8 +19,8 @@
 #include <string.h>
 #include <SoftwareSerial.h>
 
-#include "Eth_ESP8266.h"
 #include "IoTgo_error.h"
+#include "Net_NetInterface.h"
 
 /**
  * @addtogroup IoTgo
@@ -34,7 +34,7 @@
  */
 enum IoTgoConstant
 {
-    IOT_BUFFER_SIZE     = 1024, /**< the length of http request */
+    IOT_BUFFER_SIZE     = 512, /**< the length of http request */
     APIKEY_LEN          = 36,   /**< the length of apikey */
     DEVICE_ID_LEN       = 10,   /**< the length of device id */
 };
@@ -74,7 +74,7 @@ private: /* private datas */
     char buffer[IOT_BUFFER_SIZE];
     char apikey[APIKEY_LEN + 1];
     char device_id[DEVICE_ID_LEN + 1];
-    char ip[16];
+    char ip[30];
     char domain_name[30];
 };
 

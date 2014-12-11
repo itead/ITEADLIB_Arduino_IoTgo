@@ -42,7 +42,7 @@ IoTgo::IoTgo(NetInterface *net)
  */
 void IoTgo::setHost(const char *ip, const char *domain_name)
 {
-    strncpy(this->ip, ip, sizeof(this->ip) - 1);
+	strncpy(this->ip, ip, sizeof(this->ip) - 1);
     strncpy(this->domain_name, domain_name, sizeof(this->domain_name) - 1);
 }
 
@@ -103,7 +103,7 @@ request_reconnect:
     DebugSerial.print("http_req=[");
     DebugSerial.print(http_req);
     DebugSerial.println("]");
-#endif        
+#endif 
     if (!net->send(http_req))
     {
         //DebugSerial.println("Request Sent Successfully!");
@@ -122,7 +122,7 @@ request_reconnect:
             return NULL;
         }
     }
-    
+
     /* Waiting for response for 10 seconds */ 
     while (time_delay--)
     {   
@@ -139,7 +139,7 @@ request_reconnect:
         DebugSerial.println("Request timeout!");
         return NULL;
     }
-    
+
     buffer[len - 1] = '\0';
     
     //DebugSerial.print("request counter=");

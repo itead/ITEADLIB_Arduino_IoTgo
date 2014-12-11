@@ -19,16 +19,25 @@
 /* comment or uncomment the line below to toggle debug message output */ 
 //#define DEBUG 
 
+/* Select your way to access internet */
+#define NET_USE_ESP8266
+//#define NET_USE_W5X00
+//#define NET_USE_GSM
 
-/* uncomment the line below when you use it with MEGA board */
-#define MEGA    
-
-#ifdef MEGA
+#ifdef NET_USE_ESP8266
+#define ESP8266_BAUD_RATE   (9600)
 #define ESP8266SERIAL_TIMEOUT_DEFAULT   (3000)
 #define ESP8266Serial	Serial1
 #define DebugSerial	    Serial
 #endif  
 
-#define ESP8266_BAUD_RATE   (9600)
+#ifdef NET_USE_W5X00
+#define DebugSerial Serial
+#endif
+
+#ifdef NET_USE_GSM
+#define DebugSerial Serial
+#endif
+
 
 #endif /* #ifndef __IOTGO_CONFIG_H__ */

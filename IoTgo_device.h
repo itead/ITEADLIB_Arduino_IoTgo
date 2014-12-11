@@ -25,6 +25,8 @@
 #include "HW_SHT1x.h"
 
 #include "Eth_ESP8266.h"
+#include "Eth_W5X00.h"
+#include "Eth_GSM.h"
 
 #endif /* #ifndef __IOTGO_DEVICE_H__ */
 
