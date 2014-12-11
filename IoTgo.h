@@ -19,6 +19,7 @@
 #include <string.h>
 #include <SoftwareSerial.h>
 
+#include "IoTgo_config.h"
 #include "IoTgo_error.h"
 #include "Net_NetInterface.h"
 
