@@ -25,7 +25,7 @@ public:		/* Initial the EthW5X00 class*/
 
 private:	/* The private funtion of EthW5X00 class*/
 	//void reset();
-	IPAddress StringToIp(String str_ip);
+	//IPAddress StringToIp(String str_ip);
 	bool Initial(uint8_t *mac);
 };
 

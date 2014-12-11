@@ -75,7 +75,7 @@ bool EthW5X00::configW5X00(uint8_t *mac)
 /*Convert String to IPAddress
   Return value is the type of IPAddress 
 */
-#if 1
+#if 0
 IPAddress EthW5X00::StringToIp(String str_ip)
 {	
 	size_t len = 0;
@@ -134,24 +134,44 @@ int32_t EthW5X00::createTCPConnection(String host, uint32_t port)
 	int ret = 0;
 	int i = 0;
 
-	IPAddress ip_addr = StringToIp(host);
-	DebugSerial.print("The Server IP_address is: ");
-	DebugSerial.print(ip_addr);
-	DebugSerial.println();
-	
-	//IPAddress ipad(172, 16, 7, 6);
-	//ret = c->connect(ipad, 80);
-	
-	while(1 != ret)
+    const char *domain_name = host.c_str();
+    
+    
+    while(1 != ret)
 	{
 		i++;
-		ret = c->connect(ip_addr, (uint16_t)port);
+		ret = c->connect(domain_name, (uint16_t)port);
 		delay(3000);
 		if(10 == i)
 		{
 			break;
 		}
 	}
+    
+ #if 0
+    else    //Connect by the IP address
+    {
+    	IPAddress ip_addr = StringToIp(host);
+    	DebugSerial.print("The Server IP_address is: ");
+    	DebugSerial.print(ip_addr);
+    	DebugSerial.println();
+    	
+    	//IPAddress ipad(172, 16, 7, 6);
+    	//ret = c->connect(ipad, 80);
+    	
+    	while(1 != ret)
+    	{
+    		i++;
+    		ret = c->connect(ip_addr, (uint16_t)port);
+    		delay(3000);
+    		if(10 == i)
+    		{
+    			break;
+    		}
+    	}
+    	
+	}
+#endif
 	
 	if(10 > i)
 	{
