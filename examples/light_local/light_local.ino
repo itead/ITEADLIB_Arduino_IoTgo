@@ -21,6 +21,23 @@
 
 /* Include all device classes supported by IoTgo Library */
 #include <IoTgo_device.h>
+#include <SoftwareSerial.h>
+#include <Arduino.h>
+
+#ifdef NET_USE_GSM
+#include <Eth_GSM.h>
+#include <inetGSM.h>
+#include <SIM900.h>
+#include <GSM.h>
+#endif
+
+#ifdef NET_USE_W5X00
+#include <EthernetClient.h>
+#include <Eth_W5X00.h>
+#include <Ethernet.h>
+#include <SPI.h>
+#endif
+
 
 /* 
  * An identifier of device which has been created and belongs to
@@ -48,6 +65,8 @@
 /* An unique identifier of user registed on IoTgo platform */
 #define LIGHT_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
 
+
+#ifdef NET_USE_ESP8266
 /* 
  * The SSID (more generally, WiFi's name) for accessing to internet.
  * Maybe you need to replace "ITEAD" with yours. 
@@ -60,6 +79,25 @@
  */
 #define WIFI_PASS           "12345678"
 
+ESP8266 eth;
+
+#endif
+
+#ifdef NET_USE_GSM
+Gsm eth;
+
+#endif
+
+#ifdef NET_USE_W5X00
+
+#define reset_pin           (47)
+
+EthW5X00 eth;
+uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+
+#endif
+
+
 /*
  * IP address or domain name of IoTgo platform servers. 
  * Maybe you need to change it.
@@ -69,20 +107,48 @@
 
 #define LIGHT_PIN           (13)
 
-ESP8266 esp8266;
 
-Light light(&esp8266, LIGHT_PIN);
+Light light(&eth, LIGHT_PIN);
 
 void setup()
 {
     const char *apikey;
     
     Serial.begin(9600);
-    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
+    Serial.println("Serial begin.....");
+    
+#ifdef NET_USE_ESP8266
+    if (!eth.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+        
+#endif
+    
+#ifdef NET_USE_GSM
+    if(!eth.intialGSM())
+    {
+        Serial.println(" Network error and halt....... ");
+        while(1);
+    }
+    
+#endif
+    
+#ifdef NET_USE_W5X00
+    pinMode(reset_pin, OUTPUT);
+    digitalWrite(reset_pin, LOW);
+    delay(1000);
+    digitalWrite(reset_pin, HIGH);
+    delay(1000);
+    
+    if(!eth.configW5X00(mac))
+    {
+        Serial.println(" Config W5X00 and initial, So halt......");
+        while(1);
+    }
+        
+#endif
     
     light.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 

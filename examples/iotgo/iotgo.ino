@@ -21,6 +21,23 @@
  
 /* Include all device classes supported by IoTgo Library */
 #include <IoTgo_device.h>
+#include <SoftwareSerial.h>
+#include <Arduino.h>
+
+#ifdef NET_USE_GSM
+#include <Eth_GSM.h>
+#include <inetGSM.h>
+#include <SIM900.h>
+#include <GSM.h>
+#endif
+
+#ifdef NET_USE_W5X00
+#include <EthernetClient.h>
+#include <Eth_W5X00.h>
+#include <Ethernet.h>
+#include <SPI.h>
+#endif
+
 
 /* An unique identifier of user registed on IoTgo platform */
 #define IOTGO_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
@@ -48,6 +65,8 @@
  */
 #define IOTGO_CHECK_CODE    ""
 
+
+#ifdef NET_USE_ESP8266
 /* 
  * The SSID (more generally, WiFi's name) for accessing to internet.
  * Maybe you need to replace "ITEAD" with yours. 
@@ -59,6 +78,24 @@
  * Is it the same to yours? if not, change it.
  */
 #define WIFI_PASS           "12345678"
+ESP8266 eth;
+
+#endif 
+
+
+#ifdef NET_USE_GSM
+Gsm eth;
+
+#endif
+
+
+#ifdef NET_USE_W5X00
+//#define IOT_SERVER          "172.16.7.6"     //Request by the IP address
+#define reset_pin           (47)
+
+EthW5X00 eth;
+uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+#endif
 
 /*
  * IP address or domain name of IoTgo platform servers. 
@@ -67,8 +104,9 @@
 #define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
-ESP8266 esp8266;
-IoTgo iotgo(&esp8266);
+IoTgo iotgo(&eth);
+
+
 
 void printBody(const char *buffer)
 {
@@ -91,11 +129,39 @@ void setup()
     const char *apikey;
 
     Serial.begin(9600);
-    if (!esp8266.connectWiFi(WIFI_SSID, WIFI_PASS))
+    Serial.println("setup begin");
+#ifdef NET_USE_ESP8266
+    if (!eth.connectWiFi(WIFI_SSID, WIFI_PASS))
     {
         Serial.println("connectWiFI error and halt...");
         while(1);
     }
+    
+#endif
+
+#ifdef NET_USE_GSM
+    if(!eth.intialGSM())
+    {
+        Serial.println("Network error and halt....... ");
+        while(1);
+    }
+
+#endif
+
+#ifdef NET_USE_W5X00
+    pinMode(reset_pin, OUTPUT);
+    digitalWrite(reset_pin, LOW);
+    delay(1000);
+    digitalWrite(reset_pin, HIGH);
+    delay(1000);
+    
+    if(!eth.configW5X00(mac))
+    {
+        Serial.println(" Config W5X00 and initial, So halt......");
+        while(1);
+    }
+    
+#endif
     
     iotgo.setHost(IOT_SERVER, IOT_DOMAIN_NAME);
 
@@ -153,3 +219,5 @@ void loop()
 
     delay(1000);
 }
+
+
