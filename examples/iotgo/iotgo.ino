@@ -21,10 +21,9 @@
  
 /* Include all device classes supported by IoTgo Library */
 #include <IoTgo_device.h>
-#include <SoftwareSerial.h>
-#include <Arduino.h>
 
 #ifdef NET_USE_GSM
+#include <SoftwareSerial.h>
 #endif
 
 #ifdef NET_USE_W5X00
@@ -72,20 +71,16 @@
  */
 #define WIFI_PASS           "12345678"
 ESP8266 eth;
-
 #endif 
 
 
 #ifdef NET_USE_GSM
 Gsm eth;
-
 #endif
 
 
 #ifdef NET_USE_W5X00
-//#define IOT_SERVER          "172.16.7.6"     //Request by the IP address
 #define reset_pin           (47)
-
 EthW5X00 eth;
 uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
 #endif

@@ -21,10 +21,9 @@
 
 /* Include all device classes supported by IoTgo Library */
 #include <IoTgo_device.h>
-#include <SoftwareSerial.h>
-#include <Arduino.h>
 
 #ifdef NET_USE_GSM
+#include <SoftwareSerial.h>
 #endif
 
 #ifdef NET_USE_W5X00
@@ -59,7 +58,6 @@
 #define THSENSOR_APIKEY        "d8742379-9aca-45d9-8ff4-f4caf68156fa"
 
 #ifdef NET_USE_ESP8266
-
 /* 
  * The SSID (more generally, WiFi's name) for accessing to internet.
  * Maybe you need to replace "ITEAD" with yours. 
@@ -76,21 +74,15 @@
 #define THSENSOR_CLOCK_PIN   (21)
 
 ESP8266 eth;
-
-
-
 #endif
 
 #ifdef NET_USE_W5X00
-//#define IOT_SERVER          "172.16.7.6"     //Request by the IP address
 #define reset_pin               (47)
 #define THSENSOR_DATA_PIN       (24)
 #define THSENSOR_CLOCK_PIN      (25)
 
-
 EthW5X00 eth;
 uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
-
 #endif
 
 #ifdef NET_USE_GSM
@@ -98,7 +90,6 @@ uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
 #define THSENSOR_CLOCK_PIN   (25)
 
 Gsm eth;
-
 #endif
 
 
