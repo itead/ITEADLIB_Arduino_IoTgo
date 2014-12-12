@@ -20,8 +20,8 @@
 //#define DEBUG 
 
 /* Select your way to access internet */
-#define NET_USE_ESP8266
-//#define NET_USE_W5X00
+//#define NET_USE_ESP8266
+#define NET_USE_W5X00
 //#define NET_USE_GSM
 
 #ifdef NET_USE_ESP8266
