@@ -25,10 +25,6 @@
 #include <Arduino.h>
 
 #ifdef NET_USE_GSM
-#include <Eth_GSM.h>
-#include <inetGSM.h>
-#include <SIM900.h>
-#include <GSM.h>
 #endif
 
 #ifdef NET_USE_W5X00

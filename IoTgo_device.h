@@ -18,15 +18,27 @@
 #ifndef __IOTGO_DEVICE_H__
 #define __IOTGO_DEVICE_H__
 
+#include "IoTgo_config.h"
+
 #include "Dev_Switch.h"
 #include "Dev_Light.h"
 
 #include "Dev_THSensor.h"
-#include "HW_SHT1x.h"
+#include "utility/HW_SHT1x.h"
+
+#if defined(NET_USE_ESP8266)
 
 #include "Eth_ESP8266.h"
+
+#elif defined(NET_USE_W5X00)
+
 #include "Eth_W5X00.h"
+
+#elif defined(NET_USE_GSM)
+
 #include "Eth_GSM.h"
+
+#endif /* #if defined(NET_USE_ESP8266) */
 
 #endif /* #ifndef __IOTGO_DEVICE_H__ */
 

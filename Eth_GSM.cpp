@@ -98,7 +98,7 @@ int32_t Gsm::send(String data)
 			ret = ERR_TCP_SEND_FAILED;
 			//DebugSerial.println("send no response!");
 			break;
-		default:
+		//default:
 			//DebugSerial.println("send ok!");
 	}
 	

@@ -3,9 +3,10 @@
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>
-#include <SIM900.h>
-#include <inetGSM.h>
-#include <GSM.h>
+
+#include "utility/HW_GSM_SIM900.h"
+#include "utility/HW_GSM_inetGSM.h"
+#include "utility/HW_GSM_GSM.h"
 
 #include "IoTgo_config.h"
 #include "Net_NetInterface.h"
