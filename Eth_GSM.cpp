@@ -59,11 +59,11 @@ int32_t Gsm::createTCPConnection(String host, uint32_t port)
 
 	for (i = 0; i < 10; i++)
 	{
-		DebugSerial.print("Try ");
-		DebugSerial.println(i);
+		//DebugSerial.print("Try ");
+		//DebugSerial.println(i);
 		if(gsm_inet->connectTCP(server_name, (int)port))
 		{
-			DebugSerial.println("TCP connect ok!");
+			//DebugSerial.println("TCP connect ok!");
 			return 0;
 		}
 		delay(1000);
@@ -96,10 +96,10 @@ int32_t Gsm::send(String data)
 			break;
 		case RX_FINISHED_STR_NOT_RECV:
 			ret = ERR_TCP_SEND_FAILED;
-			DebugSerial.println("send no response!");
+			//DebugSerial.println("send no response!");
 			break;
 		default:
-			DebugSerial.println("send ok!");
+			//DebugSerial.println("send ok!");
 	}
 	
 	return ret;
