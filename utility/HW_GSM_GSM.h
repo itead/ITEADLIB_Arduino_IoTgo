@@ -1,8 +1,8 @@
 #ifndef GSM_H
 #define GSM_H
 
-#define UNO
-//#define MEGA
+//#define UNO
+#define MEGA
 
 #include <SoftwareSerial.h>
 #include <inttypes.h>
@@ -17,7 +17,7 @@
 #define lf    10 //Ascii character for line feed.
 #define GSM_LIB_VERSION 308 // library version X.YY (e.g. 1.00)
 
-#define DEBUG_ON
+//#define DEBUG_ON
 
 
 #ifdef MEGA
