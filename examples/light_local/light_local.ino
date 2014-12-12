@@ -32,9 +32,6 @@
 #endif
 
 #ifdef NET_USE_W5X00
-#include <EthernetClient.h>
-#include <Eth_W5X00.h>
-#include <Ethernet.h>
 #include <SPI.h>
 #endif
 

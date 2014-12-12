@@ -4,8 +4,8 @@
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>
-#include <Ethernet.h>
-#include <EthernetClient.h>
+#include "utility/HW_Eth_Ethernet.h"
+#include "utility/HW_Eth_EthernetClient.h"
 
 #include "IoTgo_config.h"
 #include "Net_NetInterface.h"
