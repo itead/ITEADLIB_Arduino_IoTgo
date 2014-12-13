@@ -40,63 +40,23 @@ will be useful for Arduino developers.
 
 IoTgo Arduino Library has layers following:
 
-  - IoTgo Device Layer: Switch/Light/THSensor [source: Dev_*]
+  - IoTgo Device Layer: Switch, Light, THSensor [source: Dev_*]
   - Http Proxy Layer: IoTgo [source: IoTgo*]
   - Network Layer: NetInterface [source: Net_*]
-  - Ethernet Layer: ESP8266(WIFI) [source: Eth_*]
+  - Ethernet Layer: ESP8266(WIFI), W5100/W5200/W5500, GSM/GPRS(SIM908/900/808/800)[source: Eth_*]
   - Hardware Layer: MEGA/WBoard/WBoard Pro
 
 # Configuration and Connection
 
-## Configure Your Board
+## Configuration
 
-When you use with MEGA board or WBoard or WBoard Pro, uncomment the follow line 
-in `IoTgo_config.h`.
-
-	#define MEGA
+IoTgo_config.h
+HW_Eth_config.h
+HW_GSM_config.h
 
 ## Connection
 
-### MEGA
 
-When you use it with MEGA board, the connection should be like these:
-
-	ESP8266_TX->RX1(D19)
-
-	ESP8266_RX->TX1(D18)
-
-	ESP8266_CH_PD->3.3V
-
-	ESP8266_VCC->3.3V
-
-	ESP8266_GND->GND
-
-When you want to output the debug information, please use DebugSerial. For example,
-
-	DebugSerial.println("hello");
-
-### WBoard and WBoard Pro
-
-No more connections.
-
-# Attention
-
-**Note1**:	The size of message from ESP8266 is too big for arduino sometimes, 
-so the library can't receive the whole buffer because the size of the hardware 
-serial buffer which is defined in HardwareSerial.h is too small.
-
-Open the file from `\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h`.
-See the follow line in the HardwareSerial.h file.
-
-	#define SERIAL_BUFFER_SIZE 64
-
-The default size of the buffer is 64. Change it into a bigger number, like 256 
-or more.
-
-# Author
-
-- Author: Wu Pengfei(pengfei.wu@itead.cc)
-- Date: 11/20/2014 6:27:43 PM 
 
 -------------------------------------------------------------------------------
 
