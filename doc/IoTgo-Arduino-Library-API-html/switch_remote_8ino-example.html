@@ -58,6 +58,15 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="comment">/* Include all device classes supported by IoTgo Library */</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_io_tgo__device_8h.html">IoTgo_device.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_GSM</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* </span></div>
 <div class="line"><span class="comment"> * An identifier of device which has been created and belongs to</span></div>
@@ -73,7 +82,7 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> *       &quot;temperature&quot; with value &quot;xx.xx&quot; in Celsius, </span></div>
 <div class="line"><span class="comment"> *       &quot;humidity&quot; with value &quot;xx.xx&quot; in persentage. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#define SWITCH_ID            &quot;0100000003&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_ID            &quot;0100000006&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * If you have a finished product, a check code or apikey-like code or </span></div>
@@ -83,7 +92,10 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="preprocessor">#define SWITCH_CHECK_CODE    &quot;&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* An unique identifier of user registed on IoTgo platform */</span></div>
-<div class="line"><span class="preprocessor">#define SWITCH_APIKEY        &quot;9bed6c2c-fbc6-4400-9ef8-087f9f0d996e&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_APIKEY        &quot;d8742379-9aca-45d9-8ff4-f4caf68156fa&quot;</span></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_ESP8266</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* </span></div>
 <div class="line"><span class="comment"> * The SSID (more generally, WiFi&#39;s name) for accessing to internet.</span></div>
@@ -96,29 +108,74 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> * Is it the same to yours? if not, change it.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#define WIFI_PASS           &quot;12345678&quot;</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> eth;</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_GSM</span></div>
+<div class="line"><a name="_a1"></a><a class="code" href="class_gsm.html">Gsm</a> eth;</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
+<div class="line"><span class="comment">//#define IOT_SERVER          &quot;172.16.7.6&quot;     //Request by the IP address</span></div>
+<div class="line"><span class="preprocessor">#define reset_pin           (47)</span></div>
+<div class="line"></div>
+<div class="line"><a name="_a2"></a><a class="code" href="class_eth_w5_x00.html">EthW5X00</a> eth;</div>
+<div class="line">uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * IP address or domain name of IoTgo platform servers. </span></div>
 <div class="line"><span class="comment"> * Maybe you need to change it.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;172.16.7.6&quot;</span></div>
+<div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"><span class="preprocessor">#define IOT_DOMAIN_NAME     &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#define SWITCH_PIN           (13)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> esp8266;</div>
-<div class="line"><a name="_a1"></a><a class="code" href="class_switch.html">Switch</a> sw(&amp;esp8266, SWITCH_PIN);</div>
+<div class="line"><a name="_a3"></a><a class="code" href="class_switch.html">Switch</a> sw(&amp;eth, SWITCH_PIN);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
 <div class="line">    </div>
 <div class="line">    Serial.begin(9600);</div>
-<div class="line">    <span class="keywordflow">if</span> (!esp8266.<a name="a2"></a><a class="code" href="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf">connectWiFi</a>(WIFI_SSID, WIFI_PASS))</div>
+<div class="line">    </div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_ESP8266</span></div>
+<div class="line">    <span class="keywordflow">if</span> (!eth.connectWiFi(WIFI_SSID, WIFI_PASS))</div>
 <div class="line">    {</div>
 <div class="line">        Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">while</span>(1);</div>
 <div class="line">    }</div>
+<div class="line">    </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_GSM</span></div>
+<div class="line">    <span class="keywordflow">if</span>(!eth.intialGSM())</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot; Network error and halt....... &quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1);</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
+<div class="line">    pinMode(reset_pin, OUTPUT);</div>
+<div class="line">    digitalWrite(reset_pin, LOW);</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    digitalWrite(reset_pin, HIGH);</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span>(!eth.<a name="a4"></a><a class="code" href="class_eth_w5_x00.html#adaddfe51a05cb00bee14df991816174f">configW5X00</a>(mac))</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot; Config W5X00 and initial, So halt......&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line">    sw.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
 <div class="line"></div>
@@ -153,7 +210,7 @@ This program is free software; you can redistribute it and/or modify it under th
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 27 2014 21:00:54 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 13 2014 11:09:20 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

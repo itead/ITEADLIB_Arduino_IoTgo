@@ -11,10 +11,13 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#a33a8912b5013bd0aa407e93e0b64ad45"><param name="Name" value="THSensor"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor_interface.html#a48086acfce814b6a07d39c998420fd1f"><param name="Name" value="THSensorInterface"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#adaddfe51a05cb00bee14df991816174f"><param name="Name" value="configW5X00"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#aa6081367cda09dd1bb90921d44e32dbf"><param name="Name" value="connectWiFi"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1"><param name="Name" value="createTCPConnection"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#a45ba8f9dd22ecaefe73623f49f756de1"><param name="Name" value="ESP8266"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a123c9e86789a747788f99e5653111158"><param name="Name" value="EthW5X00"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a8cb7a90b8da5092e63f6ac5e06159907"><param name="Name" value="Gsm"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_net_interface.html#a7aa39a34dd9b6052b22a23449a4a1dc9"><param name="Name" value="NetInterface"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___io_tgo.html#gga8b972ec4bc329df3b5f827ba44fc08a3a80b9964e6002ee60c086228b2166dbd0"><param name="Name" value="DEVICE_DIY"></OBJECT>
@@ -67,6 +70,14 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d"><param name="Name" value="releaseTCPConnection"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893"><param name="Name" value="send"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html"><param name="Name" value="EthW5X00"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#adaddfe51a05cb00bee14df991816174f"><param name="Name" value="configW5X00"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a123c9e86789a747788f99e5653111158"><param name="Name" value="createTCPConnection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a8f1a1ef812a4ce1bd42ff9155e172a34"><param name="Name" value="recv"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a1a437dffd501905912c59aef61a723fd"><param name="Name" value="releaseTCPConnection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#adf50ed181333965a6f8b63856f0df187"><param name="Name" value="send"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#afd0167fe2d60ee38d87cb6e1e60c2244"><param name="Name" value="getAll"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_s_h_t1x.html#ab26e3f972383a819245fa37c4495928d"><param name="Name" value="getData"></OBJECT>
   <UL>
@@ -81,7 +92,16 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#ae484ef93096398d6747da00ebcb00a4a"><param name="Name" value="getTemperatureC"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_t_h_sensor.html#aee896262d49015dd25b3ecaf9e6d88f6"><param name="Name" value="getTemperatureF"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html"><param name="Name" value="Gsm"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a8cb7a90b8da5092e63f6ac5e06159907"><param name="Name" value="createTCPConnection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a2efe87b2dfe453f1944079a7b1789cee"><param name="Name" value="intialGSM"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a7cd32c2f0c20e1b3968beb066c13eb77"><param name="Name" value="recv"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a0924433d16754bc70599c202d7cbb39d"><param name="Name" value="releaseTCPConnection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a999f7fb9b951d2e0aa7c523e570323f5"><param name="Name" value="send"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a31bccda21d02b5f09b12a063622528a1"><param name="Name" value="init"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a2efe87b2dfe453f1944079a7b1789cee"><param name="Name" value="intialGSM"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___io_tgo.html#ggaa43214a424c4162f1cb27681446d0814a8edfe25b2eead2238068cb49ffc936c7"><param name="Name" value="IOT_BUFFER_SIZE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___io_tgo.html"><param name="Name" value="IoTgo"></OBJECT>
   <UL>
@@ -130,16 +150,22 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6"><param name="Name" value="recv"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#aec7ce0d635bd51fd793ad101db4295b6"><param name="Name" value="ESP8266"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a8f1a1ef812a4ce1bd42ff9155e172a34"><param name="Name" value="EthW5X00"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a7cd32c2f0c20e1b3968beb066c13eb77"><param name="Name" value="Gsm"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_net_interface.html#ad4db69b0583da9230b3e3fdd1d477617"><param name="Name" value="NetInterface"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d"><param name="Name" value="releaseTCPConnection"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#adeb7e2bdb7a6be4ea7aba1038ebfa86d"><param name="Name" value="ESP8266"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#a1a437dffd501905912c59aef61a723fd"><param name="Name" value="EthW5X00"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a0924433d16754bc70599c202d7cbb39d"><param name="Name" value="Gsm"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_net_interface.html#af677a295e9f139c4e9d29b514ca911ba"><param name="Name" value="NetInterface"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893"><param name="Name" value="send"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_e_s_p8266.html#a8739b7dc0e5b457fd0b92eea6877d893"><param name="Name" value="ESP8266"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_eth_w5_x00.html#adf50ed181333965a6f8b63856f0df187"><param name="Name" value="EthW5X00"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_gsm.html#a999f7fb9b951d2e0aa7c523e570323f5"><param name="Name" value="Gsm"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_net_interface.html#ab78cc060b55523dc874eac300d609b28"><param name="Name" value="NetInterface"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_io_tgo.html#a06856d9706fcb4ce9e750f223038e1d5"><param name="Name" value="setHost"></OBJECT>

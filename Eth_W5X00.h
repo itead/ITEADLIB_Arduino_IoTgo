@@ -12,6 +12,13 @@
 
 #ifdef NET_USE_W5X00
 
+/**
+ * Provides TCP service for Application Layer of Network Protocol Stack. 
+ * 
+ * The implemetation is based on W5100/W5200/W5500. 
+ *
+ * @ingroup NetInterface
+ */
 class EthW5X00:public NetInterface, public EthernetClient, public EthernetClass
 {
 public:		/* Implementation of NetInterface */

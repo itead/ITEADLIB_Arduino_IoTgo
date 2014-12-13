@@ -13,6 +13,13 @@
 
 #ifdef NET_USE_GSM
 
+/**
+ * Provides TCP service for Application Layer of Network Protocol Stack. 
+ * 
+ * The implemetation is based on GSM/GPRS (SIM900/908/800/808). 
+ *
+ * @ingroup NetInterface
+ */
 class Gsm: public NetInterface, public InetGSM, public SIMCOM900
 {
 public:		/* Implementation of NetInterface */

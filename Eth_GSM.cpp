@@ -12,8 +12,12 @@ static InetGSM inet;
 static InetGSM *gsm_inet = &inet;
 
 
-/*Initialize the GSM module
-*/
+/**
+ * Initialize the GSM module
+ *
+ * @retval true - success. 
+ * @retval false - failed. 
+ */
 bool Gsm::intialGSM()
 {
 	if(gsm.begin(9600))	
@@ -47,9 +51,6 @@ bool Gsm::intialGSM()
 }
 
 
-/* TCP connection, if return value equal 0,It was successed.
-   else failed.
-*/
 int32_t Gsm::createTCPConnection(String host, uint32_t port)
 {
 	char msg[64] = {0};
@@ -75,9 +76,6 @@ int32_t Gsm::createTCPConnection(String host, uint32_t port)
 }
 
 
-/*Send the AT command data
-  return value is 0.
-*/
 int32_t Gsm::send(String data)
 {
 	int32_t ret = 0;
@@ -106,20 +104,12 @@ int32_t Gsm::send(String data)
 }
 
 
-/*Recvive the resp
-  if successed, return 0
-  else return ERR_TCP_CONN_FAILED.
-*/
 int32_t Gsm::recv(char * buffer, uint32_t length)
 {
 	return gsm.read(buffer, length);
 }
 
 
-/*Break the TCP connection
-  if successed, return 0
-  else return ERR_TCP_CONN_FAILED.
-*/
 int32_t Gsm::releaseTCPConnection()
 {
 	return gsm_inet->disconnectTCP() == 1 ? 0 : ERR_TCP_DISCONN_FAILED;

@@ -39,6 +39,13 @@ bool EthW5X00::Initial(uint8_t *mac)
 	
 }
 
+
+/**
+ * Initialize the W5X00 module
+ *
+ * @retval true - success. 
+ * @retval false - failed. 
+ */
 bool EthW5X00::configW5X00(uint8_t *mac)
 {	
     return Initial(mac);
@@ -46,9 +53,6 @@ bool EthW5X00::configW5X00(uint8_t *mac)
 
 
 
-/* TCP connection, if return value equal 0,It was successed.
-   else failed.
-*/
 int32_t EthW5X00::createTCPConnection(String host, uint32_t port)
 {
     int cnt;
@@ -71,9 +75,6 @@ int32_t EthW5X00::createTCPConnection(String host, uint32_t port)
 }
 
 
-/* Send TCP data, if return value more than 0,It was successed.
-   else be failed.
-*/
 int32_t EthW5X00::send(String data)
 {
 	size_t ret = 0;
@@ -96,9 +97,6 @@ int32_t EthW5X00::send(String data)
 }
 
 
-/* Recv TCP data, if return value more than 0,It was successed.
-   else be failed.
-*/
 int32_t EthW5X00::recv(char * buffer, uint32_t length)
 {
 	int ret = 0;
