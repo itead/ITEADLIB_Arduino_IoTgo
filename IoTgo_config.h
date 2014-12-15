@@ -27,9 +27,9 @@
 /* 
  * Select your way to access internet according to your hardwares. 
  */
-//#define NET_USE_ESP8266
+#define NET_USE_ESP8266
 //#define NET_USE_W5X00
-#define NET_USE_GSM
+//#define NET_USE_GSM
 
 
 /*
