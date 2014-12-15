@@ -112,7 +112,7 @@ int32_t EthW5X00::recv(char * buffer, uint32_t length)
 	    delay(100);
 	}
 	
-	DebugSerial.println("Recv data failed!");
+	//DebugSerial.println("Recv data failed!");
 	return ERR_TCP_RECV_FAILED;
 }
 
