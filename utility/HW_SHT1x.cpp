@@ -175,12 +175,12 @@ void SHT1x::sendCommandSHT(int _command, int _dataPin, int _clockPin)
   pinMode(_dataPin, INPUT);
   ack = digitalRead(_dataPin);
   if (ack != LOW) {
-    //Serial.println("Ack Error 0");
+    //DebugSerial.println("Ack Error 0");
   }
   digitalWrite(_clockPin, LOW);
   ack = digitalRead(_dataPin);
   if (ack != HIGH) {
-    //Serial.println("Ack Error 1");
+    //DebugSerial.println("Ack Error 1");
   }
 }
 
@@ -204,7 +204,7 @@ void SHT1x::waitForResultSHT(int _dataPin)
   }
 
   if (ack == HIGH) {
-    //Serial.println("Ack Error 2"); // Can't do serial stuff here, need another way of reporting errors
+    //DebugSerial.println("Ack Error 2"); // Can't do DebugSerial stuff here, need another way of reporting errors
   }
 }
 

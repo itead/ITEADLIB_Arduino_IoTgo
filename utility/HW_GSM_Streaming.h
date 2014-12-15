@@ -50,7 +50,7 @@ struct _BASED {
 // Specialization for class _BASED
 // Thanks to Arduino forum user Ben Combee who suggested this
 // clever technique to allow for expressions like
-//   Serial << _HEX(a);
+//   DebugSerial << _HEX(a);
 
 inline Print &operator <<(Print &obj, const _BASED &arg)
 {
@@ -63,7 +63,7 @@ inline Print &operator <<(Print &obj, const _BASED &arg)
 // Thanks to Michael Margolis for suggesting a way
 // to accommodate Arduino 0018's floating point precision
 // feature like this:
-//   Serial << _FLOAT(gps_latitude, 6); // 6 digits of precision
+//   DebugSerial << _FLOAT(gps_latitude, 6); // 6 digits of precision
 
 struct _FLOAT {
      float val;
@@ -82,7 +82,7 @@ inline Print &operator <<(Print &obj, const _FLOAT &arg)
 // Specialization for enum _EndLineCode
 // Thanks to Arduino forum user Paul V. who suggested this
 // clever technique to allow for expressions like
-//   Serial << "Hello!" << endl;
+//   DebugSerial << "Hello!" << endl;
 
 enum _EndLineCode { endl };
 

@@ -206,7 +206,6 @@ int32_t ESP8266::ReceiveMessage(char *buf)
 					break;
 				}
 			}
-			//Serial.println(data);
 			int32_t sLen = strlen(data.c_str());
 			int32_t i,j;
 			for (i = 0; i <= sLen; i++)

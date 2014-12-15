@@ -28,7 +28,7 @@ void W5200Class::init(void)
 {
   delay(300);
 
-  SPI.begin();
+  W5X00SPI.begin();
   initSS();
   
   writeMR(1<<RST);
@@ -134,11 +134,11 @@ uint8_t W5200Class::write(uint16_t _addr, uint8_t _data)
 {
   setSS();  
   
-  SPI.transfer(_addr >> 8);
-  SPI.transfer(_addr & 0xFF);
-  SPI.transfer(0x80);
-  SPI.transfer(0x01); 
-  SPI.transfer(_data);
+  W5X00SPI.transfer(_addr >> 8);
+  W5X00SPI.transfer(_addr & 0xFF);
+  W5X00SPI.transfer(0x80);
+  W5X00SPI.transfer(0x01); 
+  W5X00SPI.transfer(_data);
   resetSS();
   return 1;
 }
@@ -149,14 +149,14 @@ uint16_t W5200Class::write(uint16_t _addr, const uint8_t *_buf, uint16_t _len)
         return 0;
         
     setSS();
-    SPI.transfer(_addr >> 8);
-    SPI.transfer(_addr & 0xFF);
-    SPI.transfer((0x80 | ((_len & 0x7F00) >> 8)));
-    SPI.transfer(_len & 0x00FF);
+    W5X00SPI.transfer(_addr >> 8);
+    W5X00SPI.transfer(_addr & 0xFF);
+    W5X00SPI.transfer((0x80 | ((_len & 0x7F00) >> 8)));
+    W5X00SPI.transfer(_len & 0x00FF);
 
   for (uint16_t i=0; i<_len; i++)
   {
-    SPI.transfer(_buf[i]);
+    W5X00SPI.transfer(_buf[i]);
 
   }
     resetSS();
@@ -166,11 +166,11 @@ uint16_t W5200Class::write(uint16_t _addr, const uint8_t *_buf, uint16_t _len)
 uint8_t W5200Class::read(uint16_t _addr)
 {
   setSS();  
-  SPI.transfer(_addr >> 8);
-  SPI.transfer(_addr & 0xFF);
-  SPI.transfer(0x00);
-  SPI.transfer(0x01); 
-  uint8_t _data = SPI.transfer(0);
+  W5X00SPI.transfer(_addr >> 8);
+  W5X00SPI.transfer(_addr & 0xFF);
+  W5X00SPI.transfer(0x00);
+  W5X00SPI.transfer(0x01); 
+  uint8_t _data = W5X00SPI.transfer(0);
   resetSS();
   return _data;
 }
@@ -178,14 +178,14 @@ uint8_t W5200Class::read(uint16_t _addr)
 uint16_t W5200Class::read(uint16_t _addr, uint8_t *_buf, uint16_t _len)
 {
     setSS();
-    SPI.transfer(_addr >> 8);
-    SPI.transfer(_addr & 0xFF);
-    SPI.transfer((0x00 | ((_len & 0x7F00) >> 8)));
-    SPI.transfer(_len & 0x00FF);
+    W5X00SPI.transfer(_addr >> 8);
+    W5X00SPI.transfer(_addr & 0xFF);
+    W5X00SPI.transfer((0x00 | ((_len & 0x7F00) >> 8)));
+    W5X00SPI.transfer(_len & 0x00FF);
 
   for (uint16_t i=0; i<_len; i++)
   {
-    _buf[i] = SPI.transfer(0);
+    _buf[i] = W5X00SPI.transfer(0);
 
   }
     resetSS();

@@ -20,7 +20,7 @@ int InetGSM::httpGET(const char* server, int port, const char* path, char* resul
      while(n_of_at<3) {
           if(!connectTCP(server, port)) {
 #ifdef DEBUG_ON
-               Serial.println("DB:NOT CONN");
+               DebugSerial.println("DB:NOT CONN");
 #endif
                n_of_at++;
           } else {
@@ -52,7 +52,7 @@ int InetGSM::httpGET(const char* server, int port, const char* path, char* resul
 
      delay(50);
 #ifdef DEBUG_ON
-     Serial.println("DB:SENT");
+     DebugSerial.println("DB:SENT");
 #endif
      int res = gsm.read(result, resultlength);
 
@@ -75,7 +75,7 @@ int InetGSM::httpPOST(const char* server, int port, const char* path, const char
      while(n_of_at<3) {
           if(!connectTCP(server, port)) {
 #ifdef DEBUG_ON
-               Serial.println("DB:NOT CONN");
+               DebugSerial.println("DB:NOT CONN");
 #endif
                n_of_at++;
           } else {
@@ -112,7 +112,7 @@ int InetGSM::httpPOST(const char* server, int port, const char* path, const char
 
      delay(50);
 #ifdef DEBUG_ON
-     Serial.println("DB:SENT");
+     DebugSerial.println("DB:SENT");
 #endif
 
      int res= gsm.read(result, resultlength);
@@ -131,7 +131,7 @@ int InetGSM::openmail(char* server, char* loginbase64, char* passbase64, char* f
      while(n_of_at<3) {
           if(!connectTCP(server, 25)) {
 #ifdef DEBUG_ON
-               Serial.println("DB:NOT CONN");
+               DebugSerial.println("DB:NOT CONN");
 #endif
                n_of_at++;
           } else {
@@ -307,7 +307,7 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
      gsm.SimpleWriteln("AT+CIFSR");
      if(gsm.WaitResp(5000, 50, "ERROR")!=RX_FINISHED_STR_RECV) {
 #ifdef DEBUG_ON
-          Serial.println("DB:ALREADY HAVE AN IP");
+          DebugSerial.println("DB:ALREADY HAVE AN IP");
 #endif
           gsm.SimpleWriteln("AT+CIPCLOSE");
           gsm.WaitResp(5000, 50, "ERROR");
@@ -318,7 +318,7 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
      } else {
 
 #ifdef DEBUG_ON
-          Serial.println("DB:STARTING NEW CONNECTION");
+          DebugSerial.println("DB:STARTING NEW CONNECTION");
 #endif
 
           gsm.SimpleWriteln("AT+CIPSHUT");
@@ -333,7 +333,7 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
                break;
           }
 #ifdef DEBUG_ON
-          Serial.println("DB:SHUTTED OK");
+          DebugSerial.println("DB:SHUTTED OK");
 #endif
           delay(1000);
 
@@ -356,7 +356,7 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
                break;
           }
 #ifdef DEBUG_ON
-          Serial.println("DB:APN OK");
+          DebugSerial.println("DB:APN OK");
 #endif
           delay(5000);
 
@@ -371,7 +371,7 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
                break;
           }
 #ifdef DEBUG_ON
-          Serial.println("DB:CONNECTION OK");
+          DebugSerial.println("DB:CONNECTION OK");
 #endif
 
           delay(1000);
@@ -380,13 +380,13 @@ int InetGSM::attachGPRS(char* domain, char* dom1, char* dom2)
           gsm.SimpleWriteln("AT+CIFSR");
           if(gsm.WaitResp(5000, 50, "ERROR")!=RX_FINISHED_STR_RECV) {
 #ifdef DEBUG_ON
-               Serial.println("DB:ASSIGNED AN IP");
+               DebugSerial.println("DB:ASSIGNED AN IP");
 #endif
                gsm.setStatus(gsm.ATTACHED);
                return 1;
           }
 #ifdef DEBUG_ON
-          Serial.println("DB:NO IP AFTER CONNECTION");
+          DebugSerial.println("DB:NO IP AFTER CONNECTION");
 #endif
           return 0;
      }
@@ -444,7 +444,7 @@ int InetGSM::connectTCP(const char* server, int port)
           break;
      }
 #ifdef DEBUG_ON
-     Serial.println("DB:RECVD CMD");
+     DebugSerial.println("DB:RECVD CMD");
 #endif
      if (!gsm.IsStringReceived("CONNECT OK")) {
           switch(gsm.WaitResp(15000, 200, "OK")) {
@@ -458,7 +458,7 @@ int InetGSM::connectTCP(const char* server, int port)
      }
 
 #ifdef DEBUG_ON
-     Serial.println("DB:OK TCP");
+     DebugSerial.println("DB:OK TCP");
 #endif
 
      delay(3000);
@@ -473,7 +473,7 @@ int InetGSM::connectTCP(const char* server, int port)
      }
 
 #ifdef DEBUG_ON
-     Serial.println("DB:>");
+     DebugSerial.println("DB:>");
 #endif
      delay(4000);
      return 1;

@@ -16,28 +16,44 @@
 #ifndef __IOTGO_CONFIG_H__
 #define __IOTGO_CONFIG_H__
 
-/* comment or uncomment the line below to toggle debug message output */ 
-//#define DEBUG 
 
-/* Select your way to access internet */
-#define NET_USE_ESP8266
+//#define DEBUG /* comment or uncomment this line to toggle debug message output */ 
+
+/* 
+ * Serial port for debug informations 
+ */
+#define DebugSerial	                    Serial
+
+/* 
+ * Select your way to access internet according to your hardwares. 
+ */
+//#define NET_USE_ESP8266
 //#define NET_USE_W5X00
-//#define NET_USE_GSM
+#define NET_USE_GSM
 
-#ifdef NET_USE_ESP8266
-#define ESP8266_BAUD_RATE   (9600)
+
+/*
+ * Configurations for NET_USE_ESP8266
+ */
+#define ESP8266_BAUD_RATE               (9600)
 #define ESP8266SERIAL_TIMEOUT_DEFAULT   (3000)
-#define ESP8266Serial	Serial1
-#define DebugSerial	    Serial
-#endif  
+#define ESP8266Serial	                Serial1
 
-#ifdef NET_USE_W5X00
-#define DebugSerial Serial
-#endif
 
-#ifdef NET_USE_GSM
-#define DebugSerial Serial
-#endif
+/*
+ * Configurations for NET_USE_W5X00
+ */
+/* Select your ethernet card if NET_USE_W5X00 defined */
+#define W5100_ETHERNET_SHIELD     // Arduino Ethenret Shield and Compatibles ...
+//#define W5200_ETHERNET_SHIELD     // WIZ820io, W5200 Ethernet Shield 
+//#define W5500_ETHERNET_SHIELD     // WIZ550io, ioShield series of WIZnet
+
+#define W5X00SPI                        SPI
+
+/*
+ * Configurations for NET_USE_GSM
+ */
+#define GSMSerial                       Serial1
 
 
 #endif /* #ifndef __IOTGO_CONFIG_H__ */

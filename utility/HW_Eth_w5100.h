@@ -20,7 +20,7 @@ typedef uint8_t SOCKET;
 //#define W5200_ETHERNET_SHIELD // WIZ820io, W5200 Ethernet Shield 
 //#define W5500_ETHERNET_SHIELD   // WIZ550io, ioShield series of WIZnet
 #else
-#include "HW_Eth_config.h"
+#include "../IoTgo_config.h"
 #endif
 
 #if defined(W5500_ETHERNET_SHIELD)

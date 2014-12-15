@@ -8,6 +8,7 @@
 #ifndef LOG_h
 #define LOG_h
 #include "Arduino.h"
+#include "../IoTgo_config.h"
 
 class LOG {
 public:

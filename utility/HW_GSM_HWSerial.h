@@ -6,7 +6,7 @@
 #include "Arduino.h"
 #include "HW_GSM_Streaming.h"
 #include <inttypes.h>
-
+#include "../IoTgo_config.h"
 
 class HWSerial {
 #ifdef MEGA

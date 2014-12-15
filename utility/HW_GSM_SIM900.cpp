@@ -109,13 +109,13 @@ int SIMCOM900::read(char* result, int resultlength)
      int i=0;
 
 #ifdef DEBUG_ON
-     Serial.print(F("Starting read..\nWaiting for Data.."));
+     DebugSerial.print(F("Starting read..\nWaiting for Data.."));
 #endif
      // Wait until we start receiving data
      while(gsm.available()<1) {
           delay(100);
 #ifdef DEBUG_ON
-          Serial.print(F("."));
+          DebugSerial.print(F("."));
 #endif
      }
 
@@ -123,7 +123,7 @@ int SIMCOM900::read(char* result, int resultlength)
           temp=_cell.read();
           if(temp>0) {
 #ifdef DEBUG_ON
-               Serial.print(temp);
+               DebugSerial.print(temp);
 #endif
                result[i]=temp;
                i++;
@@ -135,7 +135,7 @@ int SIMCOM900::read(char* result, int resultlength)
      result[resultlength-1]='\0';
 
 #ifdef DEBUG_ON
-     Serial.println(F("\nDone.."));
+     DebugSerial.println(F("\nDone.."));
 #endif
      return i;
 }
@@ -171,7 +171,7 @@ int SIMCOM900::readCellData(int &mcc, int &mnc, long &lac, long &cellid)
 
 boolean SIMCOM900::readSMS(char* msg, int msglength, char* number, int nlength)
 {
-     Serial.println(F("This method is deprecated! Please use GetSMS in the SMS class."));
+     DebugSerial.println(F("This method is deprecated! Please use GetSMS in the SMS class."));
      long index;
      char *p_char;
      char *p_char1;
@@ -225,15 +225,15 @@ boolean SIMCOM900::readSMS(char* msg, int msglength, char* number, int nlength)
           // #ifdef MEGA
           //index=_cell.read();
           // #endif
-          // Serial.println("DEBUG");
+          // DebugSerial.println("DEBUG");
           // #ifdef UNO
           // _tf.getString("\",\"", "\"", number, nlength);
           // #endif
-          // Serial.println("PRIMA");
+          // DebugSerial.println("PRIMA");
           // #ifdef MEGA
           // _cell.getString("\",\"", "\"", number, nlength);
           // #endif
-          // Serial.println("DEBUG");
+          // DebugSerial.println("DEBUG");
           // #ifdef UNO
           // _tf.getString("\n", "\nOK", msg, msglength);
           // #endif
@@ -243,8 +243,8 @@ boolean SIMCOM900::readSMS(char* msg, int msglength, char* number, int nlength)
 
           SimpleWrite(F("AT+CMGD="));
           SimpleWriteln(index);
-          // Serial.print("VAL= ");
-          // Serial.println(index);
+          // DebugSerial.print("VAL= ");
+          // DebugSerial.println(index);
           gsm.WaitResp(5000, 50, str_ok);
           return true;
      };
@@ -401,7 +401,7 @@ void SIMCOM900::SimpleRead()
      if(_cell.available()>0) {
           datain=_cell.read();
           if(datain>0) {
-               Serial.print(datain);
+               DebugSerial.print(datain);
           }
      }
 }
@@ -452,7 +452,7 @@ void SIMCOM900::WhileSimpleRead()
      while(_cell.available()>0) {
           datain=_cell.read();
           if(datain>0) {
-               Serial.print(datain);
+               DebugSerial.print(datain);
           }
      }
 }
@@ -990,10 +990,10 @@ char GSM::ComparePhoneNumber(byte position, char *phone_number)
      ret_val = 0; // numbers are not the same so far
      if (position == 0) return (-3);
      if (1 == GetPhoneNumber(position, sim_phone_number)) {
-          //Serial.print("CHIAMANTE ");
-          //Serial.println(phone_number);
-          //Serial.print("SALVATO ");
-          //Serial.println(sim_phone_number);
+          //DebugSerial.print("CHIAMANTE ");
+          //DebugSerial.println(phone_number);
+          //DebugSerial.print("SALVATO ");
+          //DebugSerial.println(sim_phone_number);
 
           // there is a valid number at the spec. SIM position
           // -------------------------------------------------

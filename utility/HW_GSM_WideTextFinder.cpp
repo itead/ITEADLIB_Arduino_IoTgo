@@ -13,7 +13,7 @@ char WideTextFinder::read()
                if (nSerialStream->available() > 0) {
                     r=nSerialStream->read();
                     //if(debug)
-                    //Serial.print(r);
+                    //DebugSerial.print(r);
                     return r;
                }
           }

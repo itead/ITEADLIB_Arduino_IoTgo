@@ -27,7 +27,7 @@ an example of usage:
 char SMSGSM::SendSMS(char *number_str, char *message_str)
 {
      if(strlen(message_str)>159)
-          Serial.println(F("Don't send message longer than 160 characters"));
+          DebugSerial.println(F("Don't send message longer than 160 characters"));
      char ret_val = -1;
      byte i;
      char end[2];
@@ -47,13 +47,13 @@ char SMSGSM::SendSMS(char *number_str, char *message_str)
           gsm.SimpleWriteln("\"");
 
 #ifdef DEBUG_ON
-          Serial.println("DEBUG:SMS TEST");
+          DebugSerial.println("DEBUG:SMS TEST");
 #endif
           // 1000 msec. for initial comm tmout
           // 50 msec. for inter character timeout
           if (RX_FINISHED_STR_RECV == gsm.WaitResp(1000, 500, ">")) {
 #ifdef DEBUG_ON
-               Serial.println("DEBUG:>");
+               DebugSerial.println("DEBUG:>");
 #endif
                // send SMS text
                gsm.SimpleWrite(message_str);

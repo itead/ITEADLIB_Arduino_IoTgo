@@ -2,55 +2,55 @@
 #ifdef MEGA
 HWSerial::HWSerial()
 {
-     Serial1.begin(9600);
+     GSMSerial.begin(9600);
 
 }
 /*
 bool HWSerial::listen(){
-	return Serial1.listen();
+	return GSMSerial.listen();
 }
 */
 void HWSerial::end()
 {
-     Serial1.end();
+     GSMSerial.end();
 }
 /*
 bool HWSerial::isListening(){
-	return Serial1.isListening();
+	return GSMSerial.isListening();
 }
 
 bool HWSerial::overflow(){
-	return Serial1.overflow();
+	return GSMSerial.overflow();
 }
 */
 void HWSerial::begin(long baud_rate)
 {
-     Serial1.begin(baud_rate);
+     GSMSerial.begin(baud_rate);
 }
 
 int HWSerial::peek()
 {
-     return Serial1.peek();
+     return GSMSerial.peek();
 }
 
 size_t HWSerial::write(uint8_t byte)
 {
-     return Serial1.write(byte);
+     return GSMSerial.write(byte);
 }
 
 int HWSerial::read()
 {
-     return Serial1.read();
+     return GSMSerial.read();
 }
 
 int HWSerial::available()
 {
-     return Serial1.available();
+     return GSMSerial.available();
 }
 
 void HWSerial::flush()
 {
-     Serial1.flush();
+     GSMSerial.flush();
 }
 
 
