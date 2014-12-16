@@ -53,8 +53,8 @@ IoTgo Arduino Library has layers following:
 
 # Suppported Mainboards
 
+  - WBoard Pro
   - MEGA and its derivatives
-
 
 # Configuration
 
