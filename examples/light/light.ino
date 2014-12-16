@@ -96,12 +96,12 @@ uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
 #define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
-#define LIGHT_PIN           (13)
+#define LIGHT_PIN           (20)
 
 /* 
- * Define a control keyswitch of light
+ * The control button of light
  */
-#define KEY_PIN       (2)
+#define BUTTON_PIN       (21)
 
 static Light light(&eth, LIGHT_PIN);
 static int interrupt_ret = 0;
@@ -112,7 +112,7 @@ void interrupt_Parse()
 {
     noInterrupts();
     delay(100);
-    if (digitalRead(KEY_PIN) == HIGH)
+    if (digitalRead(BUTTON_PIN) == HIGH)
         interrupt_ret = 1;
     else
         interrupt_ret = 0;
@@ -184,7 +184,7 @@ void setup()
         light.off();
     }
     
-    attachInterrupt(0, interrupt_Parse, RISING);
+    attachInterrupt(2, interrupt_Parse, RISING);
 
     Serial.println("setup done.");
  

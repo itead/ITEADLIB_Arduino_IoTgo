@@ -94,12 +94,12 @@ uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
 #define IOT_SERVER          "iotgo.iteadstudio.com"
 #define IOT_DOMAIN_NAME     "iotgo.iteadstudio.com"
 
-#define SWITCH_PIN           (13)
+#define SWITCH_PIN           (20)
 
 /* 
- * The control key of switch
+ * The control button of switch
  */
-#define KEY_PIN               (2)
+#define BUTTON_PIN               (21)
 
 static Switch sw(&eth, SWITCH_PIN);
 static int interrupt_ret = 0;
@@ -110,7 +110,7 @@ void interrupt_Parse()
 {
     noInterrupts();
     delay(100);
-    if (digitalRead(KEY_PIN) == HIGH)
+    if (digitalRead(BUTTON_PIN) == HIGH)
         interrupt_ret = 1;
     else
         interrupt_ret = 0;
@@ -183,7 +183,7 @@ void setup()
         sw.off();
     }
 
-    attachInterrupt(0, interrupt_Parse, RISING);
+    attachInterrupt(2, interrupt_Parse, RISING);
 
     Serial.println("Setup done.");
 
