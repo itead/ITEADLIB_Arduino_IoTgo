@@ -45,61 +45,47 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Arduino Library</h1>
-<h2>About <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a></h2>
+<h1>About <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a></h1>
 <p><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> is an open source IoT platform, like WordPress, ZenCart and all other open source software, you can deploy your own <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> cloud platform.</p>
 <p>We at ITEAD Studio are committed to provide a complete set of hardware for <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Platform with open source hardware designs and open source firmware.</p>
 <p>Learn more about <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> here <a href="https://github.com/itead/IoTgo">https://github.com/itead/IoTgo</a></p>
-<h2>Source</h2>
+<h1>Source</h1>
 <p>Source can be download at <a href="https://github.com/itead/ITEADLIB_Arduino_IoTgo">https://github.com/itead/ITEADLIB_Arduino_IoTgo</a>.</p>
 <p>You can clone it by: </p><pre class="fragment">git clone https://github.com/itead/ITEADLIB_Arduino_IoTgo.git
-</pre><h2>Documentation</h2>
+</pre><h1>Documentation</h1>
 <p>Online API documentation can be reached at <a href="http://docs.iteadstudio.com/IoTgo-ino/">http://docs.iteadstudio.com/IoTgo-ino/</a>.</p>
 <p>Offline API documentation can be found under directory <a href="https://github.com/itead/ITEADLIB_Arduino_IoTgo/tree/master/doc">doc</a>.</p>
 <p>For Raspberry Pi users, Segnix is recommended at <a href="https://github.com/itead/Segnix/">https://github.com/itead/Segnix/</a>. Segnix ships with an <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> library beased on Linux/Raspberry Pi.</p>
-<h2>How to get started</h2>
+<h1>How to get started</h1>
 <p>On the home page of API documentation, the tabs of Modules, Classes and Examples will be useful for Arduino developers.</p>
-<h2>Project Layers</h2>
+<h1>Project Layers</h1>
 <p><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Arduino Library has layers following:</p>
 <ul>
-<li><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Device Layer: Switch/Light/THSensor [source: Dev_*]</li>
+<li><a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> Device Layer: <a class="el" href="class_switch.html" title="Switch, subclass of IoTgo, provides simple methods to control switch device. ">Switch</a>, <a class="el" href="class_light.html" title="Light, subclass of IoTgo, provides simple methods to control light device. ">Light</a>, <a class="el" href="class_t_h_sensor.html" title="THSensor, subclass of IoTgo, provides simple methods to read temperature and humidity from devices...">THSensor</a> [source: Dev_*]</li>
 <li>Http Proxy Layer: <a class="el" href="class_io_tgo.html" title="IoTgo provides some simple API for device of IoT. ">IoTgo</a> [source: IoTgo*]</li>
 <li>Network Layer: <a class="el" href="class_net_interface.html" title="Abstract class, declares the unified interface to access the internet. ">NetInterface</a> [source: Net_*]</li>
-<li>Ethernet Layer: <a class="el" href="class_e_s_p8266.html" title="Provides TCP service for Application Layer of Network Protocol Stack. ">ESP8266(WIFI)</a> [source: Eth_*]</li>
+<li>Ethernet Layer: <a class="el" href="class_e_s_p8266.html" title="Provides TCP service for Application Layer of Network Protocol Stack. ">ESP8266(WIFI)</a>, W5100/W5200/W5500, GSM/GPRS(SIM908/900/808/800)[source: Eth_*]</li>
 <li>Hardware Layer: MEGA/WBoard/WBoard Pro</li>
 </ul>
-<h1>Configuration and Connection</h1>
-<h2>Configure Your Board</h2>
-<p>When you use with MEGA board or WBoard or WBoard Pro, uncomment the follow line in <code><a class="el" href="_io_tgo__config_8h.html" title="Configure some options for your board. ">IoTgo_config.h</a></code>. </p><pre class="fragment">#define MEGA
-</pre><h2>Connection</h2>
-<h3>MEGA</h3>
-<p>When you use it with MEGA board, the connection should be like these: </p><pre class="fragment">ESP8266_TX-&gt;RX1(D19)
-
-ESP8266_RX-&gt;TX1(D18)
-
-ESP8266_CH_PD-&gt;3.3V
-
-ESP8266_VCC-&gt;3.3V
-
-ESP8266_GND-&gt;GND
-</pre><p>When you want to output the debug information, please use DebugSerial. For example, </p><pre class="fragment">DebugSerial.println("hello");
-</pre><h3>WBoard and WBoard Pro</h3>
-<p>No more connections.</p>
-<h1>Attention</h1>
-<p><b>Note1</b>: The size of message from <a class="el" href="class_e_s_p8266.html" title="Provides TCP service for Application Layer of Network Protocol Stack. ">ESP8266</a> is too big for arduino sometimes, so the library can't receive the whole buffer because the size of the hardware serial buffer which is defined in HardwareSerial.h is too small.</p>
-<p>Open the file from <code>\arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h</code>. See the follow line in the HardwareSerial.h file. </p><pre class="fragment">#define SERIAL_BUFFER_SIZE 64
-</pre><p>The default size of the buffer is 64. Change it into a bigger number, like 256 or more.</p>
-<h1>Author</h1>
+<h1>Mainboard Requires</h1>
 <ul>
-<li>Author: Wu Pengfei(<a href="#" onclick="location.href='mai'+'lto:'+'pen'+'gf'+'ei.'+'wu'+'@it'+'ea'+'d.c'+'c'; return false;">pengf<span style="display: none;">.nosp@m.</span>ei.w<span style="display: none;">.nosp@m.</span>u@ite<span style="display: none;">.nosp@m.</span>ad.c<span style="display: none;">.nosp@m.</span>c</a>)</li>
-<li>Date: 11/20/2014 6:27:43 PM <hr/>
-</li>
+<li>RAM: not less than 8KBytes</li>
+<li>UART: one hardware serial at least</li>
 </ul>
+<h1>Suppported Mainboards</h1>
+<ul>
+<li>MEGA and its derivatives</li>
+</ul>
+<h1>Configuration</h1>
+<p>All work of configuration is to comment or uncomment macros related. File: <code><a class="el" href="_io_tgo__config_8h.html" title="Configure some options for your board. ">IoTgo_config.h</a></code> lists all macros which users can modify. Comments around macros will be helpful to users.</p>
+<h1>Connection</h1>
+<p>Depending on your way to access to internet, your hardware connection may be different. Besides, another connection will be needed if you use examples shipped with this library. Just be careful and patient when connecting all hardwares together. </p><hr/>
 <h1>The End!</h1>
 <hr/>
  </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 13 2014 11:09:21 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 16 2014 10:03:45 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

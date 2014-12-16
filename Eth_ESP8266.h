@@ -39,6 +39,9 @@
 #define    AP      2
 #define    AP_STA  3
 
+#define ESP8266SERIAL_TIMEOUT_DEFAULT   (3000)
+
+
 /**
  * Provides TCP service for Application Layer of Network Protocol Stack. 
  * 

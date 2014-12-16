@@ -156,13 +156,13 @@
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;     <span class="keywordtype">int</span> i=0;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;     Serial.print(F(<span class="stringliteral">&quot;Starting read..\nWaiting for Data..&quot;</span>));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;     DebugSerial.print(F(<span class="stringliteral">&quot;Starting read..\nWaiting for Data..&quot;</span>));</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;     <span class="comment">// Wait until we start receiving data</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;     <span class="keywordflow">while</span>(gsm.available()&lt;1) {</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;          delay(100);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;          Serial.print(F(<span class="stringliteral">&quot;.&quot;</span>));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;          DebugSerial.print(F(<span class="stringliteral">&quot;.&quot;</span>));</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;     }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
@@ -170,7 +170,7 @@
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          temp=_cell.read();</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;          <span class="keywordflow">if</span>(temp&gt;0) {</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;               Serial.print(temp);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;               DebugSerial.print(temp);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;               result[i]=temp;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;               i++;</div>
@@ -182,7 +182,7 @@
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;     result[resultlength-1]=<span class="charliteral">&#39;\0&#39;</span>;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;     Serial.println(F(<span class="stringliteral">&quot;\nDone..&quot;</span>));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;     DebugSerial.println(F(<span class="stringliteral">&quot;\nDone..&quot;</span>));</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;     <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
@@ -218,7 +218,7 @@
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">boolean</span> SIMCOM900::readSMS(<span class="keywordtype">char</span>* msg, <span class="keywordtype">int</span> msglength, <span class="keywordtype">char</span>* number, <span class="keywordtype">int</span> nlength)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;     Serial.println(F(<span class="stringliteral">&quot;This method is deprecated! Please use GetSMS in the SMS class.&quot;</span>));</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;     DebugSerial.println(F(<span class="stringliteral">&quot;This method is deprecated! Please use GetSMS in the SMS class.&quot;</span>));</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;     <span class="keywordtype">long</span> index;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;     <span class="keywordtype">char</span> *p_char;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;     <span class="keywordtype">char</span> *p_char1;</div>
@@ -271,15 +271,15 @@
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;          <span class="comment">// #ifdef MEGA</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;          <span class="comment">//index=_cell.read();</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          <span class="comment">// #endif</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;          <span class="comment">// Serial.println(&quot;DEBUG&quot;);</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;          <span class="comment">// DebugSerial.println(&quot;DEBUG&quot;);</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          <span class="comment">// #ifdef UNO</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          <span class="comment">// _tf.getString(&quot;\&quot;,\&quot;&quot;, &quot;\&quot;&quot;, number, nlength);</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="comment">// #endif</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          <span class="comment">// Serial.println(&quot;PRIMA&quot;);</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          <span class="comment">// DebugSerial.println(&quot;PRIMA&quot;);</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          <span class="comment">// #ifdef MEGA</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          <span class="comment">// _cell.getString(&quot;\&quot;,\&quot;&quot;, &quot;\&quot;&quot;, number, nlength);</span></div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          <span class="comment">// #endif</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          <span class="comment">// Serial.println(&quot;DEBUG&quot;);</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          <span class="comment">// DebugSerial.println(&quot;DEBUG&quot;);</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;          <span class="comment">// #ifdef UNO</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          <span class="comment">// _tf.getString(&quot;\n&quot;, &quot;\nOK&quot;, msg, msglength);</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;          <span class="comment">// #endif</span></div>
@@ -289,8 +289,8 @@
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          SimpleWrite(F(<span class="stringliteral">&quot;AT+CMGD=&quot;</span>));</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          SimpleWriteln(index);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;          <span class="comment">// Serial.print(&quot;VAL= &quot;);</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          <span class="comment">// Serial.println(index);</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;          <span class="comment">// DebugSerial.print(&quot;VAL= &quot;);</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          <span class="comment">// DebugSerial.println(index);</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          gsm.WaitResp(5000, 50, str_ok);</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;     };</div>
@@ -447,7 +447,7 @@
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;     <span class="keywordflow">if</span>(_cell.available()&gt;0) {</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          datain=_cell.read();</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;          <span class="keywordflow">if</span>(datain&gt;0) {</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;               Serial.print(datain);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;               DebugSerial.print(datain);</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;          }</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;     }</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;}</div>
@@ -498,7 +498,7 @@
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;     <span class="keywordflow">while</span>(_cell.available()&gt;0) {</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;          datain=_cell.read();</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;          <span class="keywordflow">if</span>(datain&gt;0) {</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;               Serial.print(datain);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;               DebugSerial.print(datain);</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;          }</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;     }</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;}</div>
@@ -1036,10 +1036,10 @@
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;     ret_val = 0; <span class="comment">// numbers are not the same so far</span></div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;     <span class="keywordflow">if</span> (position == 0) <span class="keywordflow">return</span> (-3);</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;     <span class="keywordflow">if</span> (1 == GetPhoneNumber(position, sim_phone_number)) {</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;          <span class="comment">//Serial.print(&quot;CHIAMANTE &quot;);</span></div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;          <span class="comment">//Serial.println(phone_number);</span></div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;          <span class="comment">//Serial.print(&quot;SALVATO &quot;);</span></div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;          <span class="comment">//Serial.println(sim_phone_number);</span></div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;          <span class="comment">//DebugSerial.print(&quot;CHIAMANTE &quot;);</span></div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;          <span class="comment">//DebugSerial.println(phone_number);</span></div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;          <span class="comment">//DebugSerial.print(&quot;SALVATO &quot;);</span></div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;          <span class="comment">//DebugSerial.println(sim_phone_number);</span></div>
 <div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;</div>
 <div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;          <span class="comment">// there is a valid number at the spec. SIM position</span></div>
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;          <span class="comment">// -------------------------------------------------</span></div>
@@ -1056,7 +1056,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 13 2014 11:09:21 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 16 2014 10:03:45 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

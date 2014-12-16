@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>IoTgo Arduino Library API: temp_hum_sensor.ino</title>
+<title>IoTgo Arduino Library API: switch.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,10 +41,10 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">temp_hum_sensor.ino</div>  </div>
+<div class="title">switch.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<dl class="section user"><dt>Show how to use API of class THSensor</dt><dd></dd></dl>
+<dl class="section user"><dt>Show how to use API of class IoTgo</dt><dd></dd></dl>
 <p>The sequence:</p><ol type="1">
 <li>create an object.</li>
 <li>connect to internet for later communication.</li>
@@ -67,6 +67,8 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
+<div class="line"><span class="comment">/* An unique identifier of user registed on IoTgo platform */</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_APIKEY        &quot;d8742379-9aca-45d9-8ff4-f4caf68156fa&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* </span></div>
 <div class="line"><span class="comment"> * An identifier of device which has been created and belongs to</span></div>
@@ -82,17 +84,15 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> *       &quot;temperature&quot; with value &quot;xx.xx&quot; in Celsius, </span></div>
 <div class="line"><span class="comment"> *       &quot;humidity&quot; with value &quot;xx.xx&quot; in persentage. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_ID            &quot;030000000a&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_ID            &quot;0100000006&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * If you have a finished product, a check code or apikey-like code or </span></div>
 <div class="line"><span class="comment"> * factory apikey will be found around it. We are naming the code </span></div>
-<div class="line"><span class="comment"> * &quot;THSENSOR_CHECK_CODE&quot;. Here is empty. </span></div>
+<div class="line"><span class="comment"> * &quot;IOTGO_CHECK_CODE&quot;. Here is empty. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_CHECK_CODE    &quot;&quot;</span></div>
+<div class="line"><span class="preprocessor">#define SWITCH_CHECK_CODE    &quot;&quot;</span></div>
 <div class="line"></div>
-<div class="line"><span class="comment">/* An unique identifier of user registed on IoTgo platform */</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_APIKEY        &quot;d8742379-9aca-45d9-8ff4-f4caf68156fa&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#ifdef NET_USE_ESP8266</span></div>
 <div class="line"><span class="comment">/* </span></div>
@@ -106,29 +106,22 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="comment"> * Is it the same to yours? if not, change it.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#define WIFI_PASS           &quot;12345678&quot;</span></div>
+<div class="line"><span class="keyword">static</span> <a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> eth;</div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_DATA_PIN    (20)</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_CLOCK_PIN   (21)</span></div>
-<div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_e_s_p8266.html">ESP8266</a> eth;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
-<div class="line"><span class="preprocessor">#define reset_pin               (47)</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_DATA_PIN       (24)</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_CLOCK_PIN      (25)</span></div>
-<div class="line"></div>
-<div class="line"><a name="_a1"></a><a class="code" href="class_eth_w5_x00.html">EthW5X00</a> eth;</div>
-<div class="line">uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#ifdef NET_USE_GSM</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_DATA_PIN    (24)</span></div>
-<div class="line"><span class="preprocessor">#define THSENSOR_CLOCK_PIN   (25)</span></div>
+<div class="line"><span class="keyword">static</span> <a name="_a1"></a><a class="code" href="class_gsm.html">Gsm</a> eth;</div>
 <div class="line"></div>
-<div class="line"><a name="_a2"></a><a class="code" href="class_gsm.html">Gsm</a> eth;</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
+<div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#define reset_pin           (47)</span></div>
+<div class="line"><span class="keyword">static</span> <a name="_a2"></a><a class="code" href="class_eth_w5_x00.html">EthW5X00</a> eth;</div>
+<div class="line">uint8_t mac[] = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * IP address or domain name of IoTgo platform servers. </span></div>
@@ -137,82 +130,139 @@ This program is free software; you can redistribute it and/or modify it under th
 <div class="line"><span class="preprocessor">#define IOT_SERVER          &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"><span class="preprocessor">#define IOT_DOMAIN_NAME     &quot;iotgo.iteadstudio.com&quot;</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a3"></a><a class="code" href="class_s_h_t1x.html">SHT1x</a> sht1x(THSENSOR_DATA_PIN, THSENSOR_CLOCK_PIN);</div>
-<div class="line"><a name="_a4"></a><a class="code" href="class_t_h_sensor.html">THSensor</a> th(&amp;eth, &amp;sht1x);</div>
+<div class="line"><span class="preprocessor">#define SWITCH_PIN           (13)</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* </span></div>
+<div class="line"><span class="comment"> * The control key of switch</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#define KEY_PIN               (2)</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">static</span> <a name="_a3"></a><a class="code" href="class_switch.html">Switch</a> sw(&amp;eth, SWITCH_PIN);</div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> interrupt_ret = 0;</div>
+<div class="line"><span class="keyword">static</span> int32_t state;</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> interrupt_Parse()</div>
+<div class="line">{</div>
+<div class="line">    noInterrupts();</div>
+<div class="line">    delay(100);</div>
+<div class="line">    <span class="keywordflow">if</span> (digitalRead(KEY_PIN) == HIGH)</div>
+<div class="line">        interrupt_ret = 1;</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        interrupt_ret = 0;</div>
+<div class="line">    interrupts();</div>
+<div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
 <div class="line">{</div>
+<div class="line">    </div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *apikey;</div>
-<div class="line">    </div>
+<div class="line">        </div>
 <div class="line">    Serial.begin(9600);</div>
+<div class="line">    Serial.println(<span class="stringliteral">&quot;Serial begin&quot;</span>);</div>
+<div class="line"></div>
 <div class="line">    </div>
+<div class="line">    <span class="comment">/* Config the Net */</span></div>
 <div class="line"><span class="preprocessor">#ifdef NET_USE_ESP8266</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!eth.connectWiFi(WIFI_SSID, WIFI_PASS))</div>
-<div class="line">        {</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot;connectWiFI error and halt...&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">while</span>(1);</div>
-<div class="line">        }</div>
-<div class="line">        </div>
+<div class="line">    <span class="keywordflow">if</span> (!eth.connectWiFi(WIFI_SSID, WIFI_PASS))</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;Connect WiFI error and halt...&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1);</div>
+<div class="line">    }</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line">    </div>
+<div class="line">            </div>
 <div class="line"><span class="preprocessor">#ifdef NET_USE_GSM</span></div>
-<div class="line">        <span class="keywordflow">if</span>(!eth.<a name="a5"></a><a class="code" href="class_gsm.html#a2efe87b2dfe453f1944079a7b1789cee">intialGSM</a>())</div>
-<div class="line">        {</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot; Network error and halt....... &quot;</span>);</div>
-<div class="line">            <span class="keywordflow">while</span>(1);</div>
-<div class="line">        }</div>
-<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span>(!eth.intialGSM())</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;Network error and halt....... &quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1);</div>
+<div class="line">    }</div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line">    </div>
+<div class="line">            </div>
 <div class="line"><span class="preprocessor">#ifdef NET_USE_W5X00</span></div>
-<div class="line">        pinMode(reset_pin, OUTPUT);</div>
-<div class="line">        digitalWrite(reset_pin, LOW);</div>
-<div class="line">        delay(1000);</div>
-<div class="line">        digitalWrite(reset_pin, HIGH);</div>
-<div class="line">        delay(1000);</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span>(!eth.configW5X00(mac))</div>
-<div class="line">        {</div>
-<div class="line">            Serial.println(<span class="stringliteral">&quot; Config W5X00 and initial, So halt......&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">while</span>(1);</div>
-<div class="line">        }</div>
-<div class="line">        </div>
+<div class="line">    pinMode(reset_pin, OUTPUT);</div>
+<div class="line">    digitalWrite(reset_pin, LOW);</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    digitalWrite(reset_pin, HIGH);</div>
+<div class="line">    delay(1000);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span>(!eth.<a name="a4"></a><a class="code" href="class_eth_w5_x00.html#adaddfe51a05cb00bee14df991816174f">configW5X00</a>(mac))</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;Config W5X00 and initial, So halt......&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1);</div>
+<div class="line">    }</div>
+<div class="line">            </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
-<div class="line"></div>
-<div class="line">    th.begin();</div>
-<div class="line">    th.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
+<div class="line">    sw.setHost(IOT_SERVER, IOT_DOMAIN_NAME);</div>
 <div class="line"></div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;Connecting device to server...&quot;</span>);</div>
-<div class="line">    apikey = th.init(THSENSOR_ID, THSENSOR_APIKEY);</div>
-<div class="line">    <span class="comment">//apikey = th.init(THSENSOR_ID, THSENSOR_CHECK_CODE, DEVICE_PRODUCT);</span></div>
+<div class="line">    apikey = sw.init(SWITCH_ID, SWITCH_APIKEY);</div>
+<div class="line">    <span class="comment">//apikey = sw.init(SWITCH_ID, SWITCH_CHECK_CODE, DEVICE_PRODUCT);</span></div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;apikey = &quot;</span>);</div>
-<div class="line">    Serial.println(apikey);    </div>
-<div class="line">    </div>
-<div class="line">    Serial.println(<span class="stringliteral">&quot;setup done.&quot;</span>);</div>
-<div class="line">}</div>
+<div class="line">    Serial.println(apikey);</div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> loop()</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">static</span> int32_t counter = 0;</div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;\ncounter = &quot;</span>);</div>
-<div class="line">    Serial.println(++counter);</div>
-<div class="line">    int32_t ret;</div>
-<div class="line">    <span class="keywordtype">float</span> temp_c;</div>
-<div class="line">    <span class="keywordtype">float</span> temp_f;</div>
-<div class="line">    <span class="keywordtype">float</span> hum;</div>
-<div class="line">    </div>
-<div class="line">    ret = th.sync();</div>
-<div class="line">    <span class="keywordflow">if</span> (ret)</div>
+<div class="line">    <span class="comment">/* Get the state of switch */</span></div>
+<div class="line">    <span class="keywordflow">if</span>(sw.getState(&amp;state))</div>
 <div class="line">    {</div>
-<div class="line">        Serial.print(<span class="stringliteral">&quot;ERROR: sync() = &quot;</span>);</div>
-<div class="line">        Serial.println(ret);</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;GetState err! halt now...&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(1); </div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">/* Synchronize the state of light */</span></div>
+<div class="line">    <span class="keywordflow">if</span>(<a name="a5"></a><a class="code" href="group___switch.html#gga8fe26342018333e4ef7220e3ab6726ffacc534dd8571fc137f8ad84ae3b61dbb6">SWITCH_STATE_ON</a> == state)</div>
+<div class="line">    {</div>
+<div class="line">        sw.on();</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
-<div class="line">        Serial.println(<span class="stringliteral">&quot;sync successfully!&quot;</span>);</div>
+<div class="line">        sw.off();</div>
 <div class="line">    }</div>
-<div class="line">    delay(1000);</div>
+<div class="line"></div>
+<div class="line">    attachInterrupt(0, interrupt_Parse, RISING);</div>
+<div class="line"></div>
+<div class="line">    Serial.println(<span class="stringliteral">&quot;Setup done.&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> loop()</div>
+<div class="line">{</div>
+<div class="line">    int32_t ret;</div>
+<div class="line"></div>
+<div class="line">    noInterrupts();</div>
+<div class="line">    <span class="keywordflow">if</span>(interrupt_ret == 1)</div>
+<div class="line">    {</div>
+<div class="line">        interrupt_ret = 0;</div>
+<div class="line">        interrupts();</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">if</span>(state == <a class="code" href="group___switch.html#gga8fe26342018333e4ef7220e3ab6726ffacc534dd8571fc137f8ad84ae3b61dbb6">SWITCH_STATE_ON</a>)</div>
+<div class="line">        {</div>
+<div class="line">            sw.off();</div>
+<div class="line">            state = <a name="a6"></a><a class="code" href="group___switch.html#gga8fe26342018333e4ef7220e3ab6726ffa092af797be7974bbe2193b7a6f55a402">SWITCH_STATE_OFF</a>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(state == <a class="code" href="group___switch.html#gga8fe26342018333e4ef7220e3ab6726ffa092af797be7974bbe2193b7a6f55a402">SWITCH_STATE_OFF</a>)</div>
+<div class="line">        {</div>
+<div class="line">            sw.on();</div>
+<div class="line">            state = <a class="code" href="group___switch.html#gga8fe26342018333e4ef7220e3ab6726ffacc534dd8571fc137f8ad84ae3b61dbb6">SWITCH_STATE_ON</a>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        interrupts();</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">/* Synchronize the state of light */</span></div>
+<div class="line">    ret = sw.sync();</div>
+<div class="line">    <span class="keywordflow">if</span>(!ret)</div>
+<div class="line">    {</div>
+<div class="line">        Serial.println(<span class="stringliteral">&quot;Sync okay&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        Serial.print(<span class="stringliteral">&quot;sync() err! ret = &quot;</span>);</div>
+<div class="line">        Serial.println(ret);</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

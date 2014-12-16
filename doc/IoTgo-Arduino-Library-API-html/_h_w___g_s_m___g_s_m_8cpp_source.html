@@ -104,7 +104,7 @@
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef UNO</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;     <span class="keywordflow">if</span> (baud_rate==115200) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          Serial.println(F(<span class="stringliteral">&quot;Don&#39;t use baudrate 115200 with Software Serial.\nAutomatically changed at 9600.&quot;</span>));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          DebugSerial.println(F(<span class="stringliteral">&quot;Don&#39;t use baudrate 115200 with Software DebugSerial.\nAutomatically changed at 9600.&quot;</span>));</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          baud_rate=9600;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -122,7 +122,7 @@
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          <span class="keywordflow">if</span> (AT_RESP_ERR_NO_RESP == SendATCmdWaitResp(str_at, 500, 100, str_ok, 5)&amp;&amp;!turnedON) {       <span class="comment">//check power</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;               <span class="comment">// there is no response =&gt; turn on the module</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;               Serial.println(F(<span class="stringliteral">&quot;DB:NO RESP&quot;</span>));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;               DebugSerial.println(F(<span class="stringliteral">&quot;DB:NO RESP&quot;</span>));</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;               <span class="comment">// generate turn on pulse</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;               digitalWrite(GSM_ON, HIGH);</div>
@@ -132,7 +132,7 @@
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;               WaitResp(1000, 1000);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;               Serial.println(F(<span class="stringliteral">&quot;DB:ELSE&quot;</span>));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;               DebugSerial.println(F(<span class="stringliteral">&quot;DB:ELSE&quot;</span>));</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;               WaitResp(1000, 1000);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          }</div>
@@ -141,7 +141,7 @@
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;     <span class="keywordflow">if</span> (AT_RESP_OK == SendATCmdWaitResp(str_at, 500, 100, str_ok, 5)) {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          Serial.println(F(<span class="stringliteral">&quot;DB:CORRECT BR&quot;</span>));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          DebugSerial.println(F(<span class="stringliteral">&quot;DB:CORRECT BR&quot;</span>));</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          turnedON=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          norep=<span class="keyword">false</span>;</div>
@@ -150,7 +150,7 @@
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;     <span class="keywordflow">if</span> (AT_RESP_ERR_DIF_RESP == SendATCmdWaitResp(str_at, 500, 100, str_ok, 5)&amp;&amp;!turnedON) {       <span class="comment">//check OK</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          Serial.println(F(<span class="stringliteral">&quot;DB:AUTO BAUD RATE&quot;</span>));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          DebugSerial.println(F(<span class="stringliteral">&quot;DB:AUTO BAUD RATE&quot;</span>));</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;8; i++) {</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;               <span class="keywordflow">switch</span> (i) {</div>
@@ -202,7 +202,7 @@
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;               <span class="keywordflow">if</span> (AT_RESP_OK == SendATCmdWaitResp(str_at, 500, 100, str_ok, 5)) {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;DB:FOUND PREV BR&quot;</span>));</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;DB:FOUND PREV BR&quot;</span>));</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                    _cell.print(<span class="stringliteral">&quot;AT+IPR=&quot;</span>);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                    _cell.print(baud_rate);</div>
@@ -212,14 +212,14 @@
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    delay(100);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    <span class="keywordflow">if</span> (AT_RESP_OK == SendATCmdWaitResp(str_at, 500, 100, str_ok, 5)) {</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                         Serial.println(F(<span class="stringliteral">&quot;DB:OK BR&quot;</span>));</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                         DebugSerial.println(F(<span class="stringliteral">&quot;DB:OK BR&quot;</span>));</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    }</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    turnedON=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;               }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;               Serial.println(F(<span class="stringliteral">&quot;DB:NO BR&quot;</span>));</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;               DebugSerial.println(F(<span class="stringliteral">&quot;DB:NO BR&quot;</span>));</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;          <span class="comment">// communication line is not used yet = free</span></div>
@@ -229,13 +229,13 @@
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;     }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;     <span class="keywordflow">if</span>(norep==<span class="keyword">true</span>&amp;&amp;!turnedON) {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          Serial.println(F(<span class="stringliteral">&quot;Trying to force the baud-rate to 9600\n&quot;</span>));</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          DebugSerial.println(F(<span class="stringliteral">&quot;Trying to force the baud-rate to 9600\n&quot;</span>));</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;8; i++) {</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;               <span class="keywordflow">switch</span> (i) {</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;               <span class="keywordflow">case</span> 0:</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    _cell.begin(1200);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;1200&quot;</span>));</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;1200&quot;</span>));</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    _cell.begin(9600);</div>
@@ -248,7 +248,7 @@
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;               <span class="keywordflow">case</span> 1:</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    _cell.begin(2400);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;2400&quot;</span>));</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;2400&quot;</span>));</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                    _cell.begin(9600);</div>
@@ -261,7 +261,7 @@
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;               <span class="keywordflow">case</span> 2:</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                    _cell.begin(4800);</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;4800&quot;</span>));</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;4800&quot;</span>));</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    _cell.begin(9600);</div>
@@ -274,7 +274,7 @@
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;               <span class="keywordflow">case</span> 3:</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    _cell.begin(9600);</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;9600&quot;</span>));</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;9600&quot;</span>));</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    _cell.begin(9600);</div>
@@ -287,7 +287,7 @@
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;               <span class="keywordflow">case</span> 4:</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    _cell.begin(19200);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;19200&quot;</span>));</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;19200&quot;</span>));</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    _cell.begin(9600);</div>
@@ -300,7 +300,7 @@
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;               <span class="keywordflow">case</span> 5:</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                    _cell.begin(38400);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;38400&quot;</span>));</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;38400&quot;</span>));</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    _cell.begin(9600);</div>
@@ -313,7 +313,7 @@
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;               <span class="keywordflow">case</span> 6:</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                    _cell.begin(57600);</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;57600&quot;</span>));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;57600&quot;</span>));</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                    _cell.begin(9600);</div>
@@ -326,7 +326,7 @@
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;               <span class="keywordflow">case</span> 7:</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                    _cell.begin(115200);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                    delay(1000);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    Serial.println(F(<span class="stringliteral">&quot;115200&quot;</span>));</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    DebugSerial.println(F(<span class="stringliteral">&quot;115200&quot;</span>));</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    _cell.print(F(<span class="stringliteral">&quot;AT+IPR=9600\r&quot;</span>));</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                    delay(1000);</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                    _cell.begin(9600);</div>
@@ -338,7 +338,7 @@
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;               }</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;          }</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          Serial.println(F(<span class="stringliteral">&quot;ERROR: SIM900 doesn&#39;t answer. Check power and serial pins in GSM.cpp&quot;</span>));</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          DebugSerial.println(F(<span class="stringliteral">&quot;ERROR: SIM900 doesn&#39;t answer. Check power and DebugSerial pins in GSM.cpp&quot;</span>));</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;          digitalWrite(GSM_ON, HIGH);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;          delay(1200);</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;          digitalWrite(GSM_ON, LOW);</div>
@@ -579,9 +579,9 @@
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">               #ifdef DEBUG_GSMRX</span></div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">                    DebugPrint(&quot;\r\nDEBUG: reception timeout&quot;, 0);</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">                    Serial.print((unsigned long)(millis() - prev_time));</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">                    DebugSerial.print((unsigned long)(millis() - prev_time));</span></div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">                    DebugPrint(&quot;\r\nDEBUG: start_reception_tmout\r\n&quot;, 0);</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">                    Serial.print(start_reception_tmout);</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">                    DebugSerial.print(start_reception_tmout);</span></div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">               #endif</span></div>
@@ -646,9 +646,9 @@
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">          #ifdef DEBUG_GSMRX</span></div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment">                DebugPrint(&quot;\r\nDEBUG: intercharacter&quot;, 0);</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="comment">          &lt;         Serial.print((unsigned long)(millis() - prev_time));</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="comment">          &lt;         DebugSerial.print((unsigned long)(millis() - prev_time));</span></div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="comment">                DebugPrint(&quot;\r\nDEBUG: interchar_tmout\r\n&quot;, 0);</span></div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="comment">                Serial.print(interchar_tmout);</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="comment">                DebugSerial.print(interchar_tmout);</span></div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="comment">          #endif</span></div>
@@ -692,19 +692,19 @@
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">            #ifdef DEBUG_GSMRX</span></div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">                DebugPrint(&quot;DEBUG: Compare the string: \r\n&quot;, 0);</span></div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">                for (int i=0; i&lt;comm_buf_len; i++){</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">                    Serial.print(byte(comm_buf[i]));</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">                    DebugSerial.print(byte(comm_buf[i]));</span></div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">                }</span></div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">                DebugPrint(&quot;\r\nDEBUG: with the string: \r\n&quot;, 0);</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">                Serial.print(compare_string);</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">                DebugSerial.print(compare_string);</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">                DebugPrint(&quot;\r\n&quot;, 0);</span></div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">            #endif</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">          */</span></div>
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;          Serial.print(<span class="stringliteral">&quot;ATT: &quot;</span>);</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;          Serial.println(compare_string);</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;          Serial.print(<span class="stringliteral">&quot;RIC: &quot;</span>);</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;          Serial.println((<span class="keywordtype">char</span> *)comm_buf);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;          DebugSerial.print(<span class="stringliteral">&quot;ATT: &quot;</span>);</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;          DebugSerial.println(compare_string);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;          DebugSerial.print(<span class="stringliteral">&quot;RIC: &quot;</span>);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;          DebugSerial.println((<span class="keywordtype">char</span> *)comm_buf);</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;          ch = strstr((<span class="keywordtype">char</span> *)comm_buf, compare_string);</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;          <span class="keywordflow">if</span> (ch != NULL) {</div>
@@ -722,9 +722,9 @@
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;          }</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;     } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="preprocessor">#ifdef DEBUG_ON</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;          Serial.print(F(<span class="stringliteral">&quot;ATT: &quot;</span>));</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;          Serial.println(compare_string);</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;          Serial.print(F(<span class="stringliteral">&quot;RIC: NO STRING RCVD&quot;</span>));</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;          DebugSerial.print(F(<span class="stringliteral">&quot;ATT: &quot;</span>));</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;          DebugSerial.println(compare_string);</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;          DebugSerial.print(F(<span class="stringliteral">&quot;RIC: NO STRING RCVD&quot;</span>));</div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;     }</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
@@ -796,7 +796,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 13 2014 11:09:21 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 16 2014 10:03:45 for IoTgo Arduino Library API by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

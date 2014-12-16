@@ -268,21 +268,13 @@
         <UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="iotgo.ino"><param name="Local" value="iotgo_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="light_local"><param name="Local" value="dir_b996b1e613343db23061b3d6c613cdf8.html"><param name="ImageNumber" value="1"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="light"><param name="Local" value="dir_9024a3bf10609f0ef45c6e129877cf3d.html"><param name="ImageNumber" value="1"></OBJECT>
         <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="light_local.ino"><param name="Local" value="light__local_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="light.ino"><param name="Local" value="light_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="light_remote"><param name="Local" value="dir_1ee8911f57154bf799046cca56f1470e.html"><param name="ImageNumber" value="1"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="switch"><param name="Local" value="dir_1f9af4683cc546486fb539acf110e0c0.html"><param name="ImageNumber" value="1"></OBJECT>
         <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="light_remote.ino"><param name="Local" value="light__remote_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
-        </UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_local"><param name="Local" value="dir_0c19209abb061b77327d2bacba6c2f9e.html"><param name="ImageNumber" value="1"></OBJECT>
-        <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_local.ino"><param name="Local" value="switch__local_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
-        </UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_remote"><param name="Local" value="dir_b90a8a55cbbfb9aef848d22d503b6350.html"><param name="ImageNumber" value="1"></OBJECT>
-        <UL>
-        <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_remote.ino"><param name="Local" value="switch__remote_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="switch.ino"><param name="Local" value="switch_8ino_source.html"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="temp_hum_sensor"><param name="Local" value="dir_2450f83f0383aec37b6e796592d7a290.html"><param name="ImageNumber" value="1"></OBJECT>
         <UL>
@@ -291,7 +283,6 @@
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="utility"><param name="Local" value="dir_64e73385a8b7738563c26ce10415b58d.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_Eth_config.h"><param name="Local" value="_h_w___eth__config_8h_source.html"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_Eth_Dhcp.cpp"><param name="Local" value="_h_w___eth___dhcp_8cpp_source.html"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_Eth_Dhcp.h"><param name="Local" value="_h_w___eth___dhcp_8h_source.html"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="HW_Eth_Dns.cpp"><param name="Local" value="_h_w___eth___dns_8cpp_source.html"><param name="ImageNumber" value="11"></OBJECT>
@@ -426,10 +417,8 @@
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Examples"><param name="Local" value="examples.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="iotgo.ino"><param name="Local" value="iotgo_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="light_local.ino"><param name="Local" value="light_local_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="light_remote.ino"><param name="Local" value="light_remote_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_local.ino"><param name="Local" value="switch_local_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="switch_remote.ino"><param name="Local" value="switch_remote_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="light.ino"><param name="Local" value="light_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="switch.ino"><param name="Local" value="switch_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="temp_hum_sensor.ino"><param name="Local" value="temp_hum_sensor_8ino-example.html"><param name="ImageNumber" value="11"></OBJECT>
   </UL>
 </UL>

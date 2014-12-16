@@ -14,10 +14,8 @@ main="IoTgo Arduino Library API","index.hhc","index.hhk","index.html","index.htm
 
 [FILES]
 iotgo_8ino-example.html
-light_local_8ino-example.html
-light_remote_8ino-example.html
-switch_local_8ino-example.html
-switch_remote_8ino-example.html
+light_8ino-example.html
+switch_8ino-example.html
 temp_hum_sensor_8ino-example.html
 _dev___light_8cpp_source.html
 _dev___light_8h_source.html
@@ -33,10 +31,8 @@ _eth___g_s_m_8h_source.html
 _eth___w5_x00_8cpp_source.html
 _eth___w5_x00_8h_source.html
 iotgo_8ino_source.html
-light__local_8ino_source.html
-light__remote_8ino_source.html
-switch__local_8ino_source.html
-switch__remote_8ino_source.html
+light_8ino_source.html
+switch_8ino_source.html
 temp__hum__sensor_8ino_source.html
 _io_tgo_8cpp_source.html
 _io_tgo_8h_source.html
@@ -46,7 +42,6 @@ _io_tgo__doxygen_8h_source.html
 _io_tgo__error_8h_source.html
 _net___net_interface_8h_source.html
 _r_e_a_d_m_e_8md_source.html
-_h_w___eth__config_8h_source.html
 _h_w___eth___dhcp_8cpp_source.html
 _h_w___eth___dhcp_8h_source.html
 _h_w___eth___dns_8cpp_source.html
@@ -139,10 +134,8 @@ class_t_h_sensor_interface.html
 class_t_h_sensor_interface-members.html
 dir_d28a4824dc47e487b107a5db32ef43c4.html
 dir_46743b0942d3df0e21257feeaeec7797.html
-dir_b996b1e613343db23061b3d6c613cdf8.html
-dir_1ee8911f57154bf799046cca56f1470e.html
-dir_0c19209abb061b77327d2bacba6c2f9e.html
-dir_b90a8a55cbbfb9aef848d22d503b6350.html
+dir_9024a3bf10609f0ef45c6e129877cf3d.html
+dir_1f9af4683cc546486fb539acf110e0c0.html
 dir_2450f83f0383aec37b6e796592d7a290.html
 dir_64e73385a8b7738563c26ce10415b58d.html
 index.html
