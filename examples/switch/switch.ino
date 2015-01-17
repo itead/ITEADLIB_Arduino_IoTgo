@@ -166,23 +166,6 @@ void setup()
     Serial.print("apikey = ");
     Serial.println(apikey);
 
-    /* Get the state of switch */
-    if(sw.getState(&state))
-    {
-        Serial.println("GetState err! halt now...");
-        while(1); 
-    }
-
-    /* Synchronize the state of light */
-    if(SWITCH_STATE_ON == state)
-    {
-        sw.on();
-    }
-    else
-    {
-        sw.off();
-    }
-
     attachInterrupt(2, interrupt_Parse, RISING);
 
     Serial.println("Setup done.");
@@ -227,4 +210,5 @@ void loop()
         Serial.print("sync() err! ret = ");
         Serial.println(ret);
     }
+    
 }

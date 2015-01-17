@@ -166,23 +166,6 @@ void setup()
     //apikey = light.init(LIGHT_ID, LIGHT_CHECK_CODE, DEVICE_PRODUCT);
     Serial.print("apikey = ");
     Serial.println(apikey);
-
-    /* Get the state of light */
-    if (light.getState(&state))
-    {
-        Serial.println("getState err! halt now...");
-        while(1); 
-    }
-
-    /* Synchronize the state of light */
-    if (LIGHT_STATE_ON == state)
-    {
-        light.on();
-    }
-    else
-    {
-        light.off();
-    }
     
     attachInterrupt(2, interrupt_Parse, RISING);
 
